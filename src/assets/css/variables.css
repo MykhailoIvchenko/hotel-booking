@@ -21,6 +21,6 @@
   --default-border-color: #eaebeb;
 
   /*Geometry */
-  --default-border-radius: 360px;
-  --secondary-border-radius: 8px;
+  --default-border-radius: 10px;
+  --secondary-border-radius: 26px;
 }
