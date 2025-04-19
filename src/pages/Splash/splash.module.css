@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('src/assets/img/splash.webp') no-repeat center center fixed;
+  background-size: cover;
+}
