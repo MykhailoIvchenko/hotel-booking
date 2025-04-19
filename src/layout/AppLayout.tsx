@@ -7,7 +7,7 @@ import FallBackRender from '@/layout/ErrorBoundary/FallBackRender';
 
 const AppLayout = () => {
   return (
-    <ErrorBoundary fallbackRender={FallBackRender}>
+    <ErrorBoundary fallbackRender={(props) => <FallBackRender {...props} />}>
       <Outlet />
       <ScrollToTop />
       <ToastProvider />
