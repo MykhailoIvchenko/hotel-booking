@@ -26,7 +26,8 @@ const AppLayout = () => {
 
   return (
     <ErrorBoundary fallbackRender={(props) => <FallBackRender {...props} />}>
-      {isLoading ? <Splash /> : <Outlet />}
+      {/* {isLoading ? <Splash /> : <Outlet />} */}
+      <Splash />
       <ScrollToTop />
       <ToastProvider />
     </ErrorBoundary>

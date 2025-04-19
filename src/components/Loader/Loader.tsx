@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import styles from './loader.module.css';
-import loaderGif from '@/assets/loader.gif';
+import loaderGif from '@/assets/img/loader.gif';
 
 type LoaderVariant = 'default' | 'small' | 'large';
 
@@ -14,10 +14,11 @@ const Loader: React.FC<ILoaderProps> = ({ variant = 'default' }) => {
       <img
         src={loaderGif}
         alt='Loader'
-        className={clsx('loader', {
-          'loader--small': variant === 'small',
-          'loader--large': variant === 'large',
-        })}
+        className={clsx(
+          styles.loader,
+          variant === 'small' && styles['loader--small'],
+          variant === 'large' && styles['loader--large']
+        )}
       />
     </div>
   );
