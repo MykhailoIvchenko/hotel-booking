@@ -1,2 +1,26 @@
 :root {
+  /* Typography */
+  --default-font-family: 'Poppins, Arial, sans-serif';
+  --default-font-size: 14px;
+  --small-font-size: 12px;
+  --medium-font-size: 18px;
+  --large-font-size: 20px;
+  --extra-large-font-size: 32px;
+
+  --default-font-weight: 400;
+
+  --primary-font-color: #0c0d0d;
+  --secondary-font-color: #6e7477;
+  --pale-font-color: #888e91;
+  --contrast-font-color: #ffffff;
+
+  /*Layout colors*/
+  --danger-color: #ef4444;
+  --primary-control-bg-color: #0d7bff;
+  --secondary-control-bg-color: #eaebeb;
+  --default-border-color: #eaebeb;
+
+  /*Geometry */
+  --default-border-radius: 360px;
+  --secondary-border-radius: 8px;
 }
