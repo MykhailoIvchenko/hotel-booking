@@ -1,1 +1,7 @@
 @import './assets/css/reset.css';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--default-font-size, 14px);
+  color: var(--primary-font-color, #0c0d0d);
+}

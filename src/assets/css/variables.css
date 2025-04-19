@@ -6,8 +6,10 @@
   --medium-font-size: 18px;
   --large-font-size: 20px;
   --extra-large-font-size: 32px;
+  --huge-font-size: 54px;
 
   --default-font-weight: 400;
+  --bold-font-weight: 700;
 
   --primary-font-color: #0c0d0d;
   --secondary-font-color: #6e7477;

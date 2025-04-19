@@ -1,7 +1,9 @@
+@import '@/assets/css/variables.css';
+
 .logo {
   color: var(--contrast-font-color, #fff);
 }
 
-.logo .logo--dark {
+.logo--dark {
   color: var(--primary-font-color, #0c0d0d);
 }
