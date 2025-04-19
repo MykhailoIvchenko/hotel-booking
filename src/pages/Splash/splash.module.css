@@ -1,6 +1,9 @@
 .container {
+  padding-top: 92px;
+  padding-bottom: 92px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
   background: url('src/assets/img/splash.webp') no-repeat center center fixed;
