@@ -1,0 +1,46 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 38px;
+  color: var(--contrast-font-color);
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.name {
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--default-font-size);
+  font-weight: 500;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow--open {
+  transform: rotate(180deg);
+}
+
+.menuContainer {
+  border-radius: var(--default-border-radius);
+  background-color: var(--primary-bg-color);
+  min-width: 120px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: calc(var(--standard-gap) / 2);
+  cursor: pointer;
+}
