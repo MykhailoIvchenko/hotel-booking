@@ -18,6 +18,8 @@
 
   /*Layout colors*/
   --danger-color: #ef4444;
+  --success-color: #34d674;
+  --primary-bg-color: #ffffff;
   --primary-control-bg-color: #0d7bff;
   --secondary-control-bg-color: #eaebeb;
   --default-border-color: #eaebeb;
@@ -26,4 +28,8 @@
   --default-border-radius: 10px;
   --secondary-border-radius: 26px;
   --standard-gap: 20px;
+  --header-height: 60px;
+  --top-section-height: 333px;
+  --expanded-top-section-height: 556px;
+  --header-height: 180px;
 }

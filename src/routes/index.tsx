@@ -15,6 +15,9 @@ export const router = createBrowserRouter(
     <Route element={<AppLayout />}>
       <Route element={<DefaultLayout />}>
         <Route path={routerConfig.home.path} element={<Home />} />
+        <Route path={routerConfig.booking.path} element={<></>} />
+        <Route path={routerConfig.visaApplication.path} element={<></>} />
+        <Route path={routerConfig.whatsAppConcierge.path} element={<></>} />
       </Route>
       <Route path='*' element={<NotFound />} />
     </Route>

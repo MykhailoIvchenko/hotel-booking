@@ -17,3 +17,7 @@
 .rightText {
   text-align: right;
 }
+
+.whiteText {
+  color: var(--contrast-font-color, #fff);
+}

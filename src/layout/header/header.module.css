@@ -1,0 +1,14 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: 38px 130px;
+  height: var(--header-height);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  width: 100%;
+}

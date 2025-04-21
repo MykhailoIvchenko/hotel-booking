@@ -1,8 +1,8 @@
-import Loader from '@/components/Loader/Loader';
+import Loader from '@/components/loader/Loader';
 import styles from './splash.module.css';
-import Logo from '@/components/Logo/Logo';
-import PageTitle from '@/components/PageTitle/PageTitle';
-import Description from '@/components/Description/Description';
+import Logo from '@/components/logo/Logo';
+import PageTitle from '@/components/pageTitle/PageTitle';
+import Description from '@/components/description/Description';
 
 const Splash: React.FC = () => {
   return (

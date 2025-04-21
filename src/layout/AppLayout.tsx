@@ -3,7 +3,7 @@ import ToastProvider from '@/layout/components/ToastProvider';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router';
-import FallBackRender from '@/layout/ErrorBoundary/FallBackRender';
+import FallBackRender from '@/layout/errorBoundary/FallBackRender';
 import { useSelectIsLoading } from '@/redux/hooks/selectHooks/useSelectIsLoading';
 import useIsLoadingDispatch from '@/redux/hooks/dispatchHooks/useIsLoadingDispatch';
 import { useEffect } from 'react';
@@ -26,8 +26,7 @@ const AppLayout = () => {
 
   return (
     <ErrorBoundary fallbackRender={(props) => <FallBackRender {...props} />}>
-      {/* {isLoading ? <Splash /> : <Outlet />} */}
-      <Splash />
+      {isLoading ? <Splash /> : <Outlet />}
       <ScrollToTop />
       <ToastProvider />
     </ErrorBoundary>

@@ -7,3 +7,8 @@
 .logo--dark {
   color: var(--primary-font-color, #0c0d0d);
 }
+
+.logo--small {
+  width: 103px;
+  height: 65px;
+}

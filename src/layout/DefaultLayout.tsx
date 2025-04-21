@@ -1,5 +1,11 @@
+import Header from './header/Header';
+
 const DefaultLayout = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default DefaultLayout;

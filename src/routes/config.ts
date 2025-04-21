@@ -15,6 +15,18 @@ export const routerConfig = {
     path: '/referral-sign-up',
     name: 'Referral Sign Up',
   },
+  booking: {
+    path: '/booking',
+    name: 'Booking',
+  },
+  visaApplication: {
+    path: '/visa-application',
+    name: 'Visa Application',
+  },
+  whatsAppConcierge: {
+    path: '/whatsapp-concierge',
+    name: 'WhatsApp Concierge Services',
+  },
 };
 
 export type RouterConfig = typeof routerConfig;
