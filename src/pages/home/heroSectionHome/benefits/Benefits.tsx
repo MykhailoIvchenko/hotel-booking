@@ -1,11 +1,20 @@
-import React from 'react'
+import BenefitItem from './BenefitItem';
+import styles from './benefits.module.css';
 
-const Benefits = () => {
+const items = [
+  { id: 1, text: 'Intuitive User Interface' },
+  { id: 2, text: 'Transparent Booking Process' },
+  { id: 3, text: 'Exceptional Customer Support' },
+];
+
+const Benefits: React.FC = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <ul className={styles.container}>
+      {items.map((item) => (
+        <BenefitItem key={item.id} text={item.text} />
+      ))}
+    </ul>
+  );
+};
 
-export default Benefits
+export default Benefits;

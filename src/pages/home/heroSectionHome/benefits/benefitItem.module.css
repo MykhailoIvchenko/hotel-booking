@@ -5,12 +5,15 @@
   align-items: center;
   gap: calc(var(--standard-gap) * 0.5);
   font-weight: 500;
+  color: var(--contrast-font-color);
 }
 
 .iconContainer {
   width: 24px;
   height: 24px;
-  color: var(--contrast-font-color);
   background-color: var(--success-color);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

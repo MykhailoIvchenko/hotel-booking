@@ -29,8 +29,7 @@
   --default-border-radius: 10px;
   --secondary-border-radius: 26px;
   --standard-gap: 20px;
-  --header-height: 60px;
   --top-section-height: 333px;
   --expanded-top-section-height: 556px;
-  --header-height: 180px;
+  --header-height: 140px;
 }
