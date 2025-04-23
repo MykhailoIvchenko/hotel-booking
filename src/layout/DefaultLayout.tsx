@@ -1,12 +1,13 @@
-import HeroSection from '@/components/heroSection/HeroSection';
+import { Outlet } from 'react-router';
 import Header from './header/Header';
 
 const DefaultLayout = () => {
   return (
     <div>
-      <HeroSection size={'large'}>
-        <Header />
-      </HeroSection>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };

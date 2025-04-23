@@ -7,7 +7,7 @@ import FallBackRender from '@/layout/errorBoundary/FallBackRender';
 import { useSelectIsLoading } from '@/redux/hooks/selectHooks/useSelectIsLoading';
 import useIsLoadingDispatch from '@/redux/hooks/dispatchHooks/useIsLoadingDispatch';
 import { useEffect } from 'react';
-import Splash from '@/pages/Splash/Splash';
+import Splash from '@/pages/splash/Splash';
 
 const AppLayout = () => {
   const isLoading = useSelectIsLoading();

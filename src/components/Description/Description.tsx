@@ -10,6 +10,7 @@ interface IDescriptionProps {
   align?: TextAlign;
   textColor?: TextColor;
   children: ReactChildren;
+  addClasses?: string;
 }
 
 const Description: React.FC<IDescriptionProps> = ({
@@ -17,6 +18,7 @@ const Description: React.FC<IDescriptionProps> = ({
   align = 'left',
   textColor = 'grey',
   children,
+  addClasses,
 }) => {
   return (
     <p
@@ -25,7 +27,8 @@ const Description: React.FC<IDescriptionProps> = ({
         size === 'large' && styles.largeText,
         align === 'center' && styles.centerText,
         align === 'right' && styles.rightText,
-        textColor === 'white' && styles.whiteText
+        textColor === 'white' && styles.whiteText,
+        addClasses
       )}
     >
       {children}
