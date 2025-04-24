@@ -2,6 +2,7 @@
 
 .hero {
   --section-height: var(--top-section-height);
+  position: relative;
   width: 100%;
   height: var(--section-height);
   background-size: cover;

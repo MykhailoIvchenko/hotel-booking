@@ -5,3 +5,10 @@
   margin-bottom: calc(var(--standard-gap) * 0.5);
   font-weight: 500;
 }
+
+.searchBlock {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}

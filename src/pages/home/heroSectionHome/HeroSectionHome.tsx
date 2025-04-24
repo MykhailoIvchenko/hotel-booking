@@ -4,6 +4,7 @@ import PageTitle from '@/components/pageTitle/PageTitle';
 import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
 import Benefits from './benefits/Benefits';
 import styles from './heroSectionHome.module.css';
+import SearchBlock from '@/components/searchBlock/SearchBlock';
 
 const HeroSectionHome: React.FC = () => {
   const user = useSelectUser();
@@ -25,6 +26,8 @@ const HeroSectionHome: React.FC = () => {
       </PageTitle>
 
       <Benefits />
+
+      <SearchBlock addClasses={styles.searchBlock}/>
     </HeroSection>
   );
 };
