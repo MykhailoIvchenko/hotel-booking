@@ -14,3 +14,12 @@
 .searchInput {
   flex-grow: 1;
 }
+
+.button {
+  width: 145px;
+}
+
+.buttonIcon {
+  width: 24px;
+  height: 24px;
+}

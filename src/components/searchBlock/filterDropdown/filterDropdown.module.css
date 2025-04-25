@@ -10,6 +10,7 @@
   gap: 12px;
   font-weight: 500;
   border-radius: var(--secondary-border-radius);
+  width: 145px;
 }
 
 .icon {
@@ -23,7 +24,7 @@
 }
 
 .menuContainer {
-  width: 140px;
+  width: 145px;
   border: 1px solid var(--primary-control-bg-color);
   border-radius: var(--default-border-radius);
   padding: 10px;

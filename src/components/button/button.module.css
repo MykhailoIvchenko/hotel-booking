@@ -1,0 +1,92 @@
+@import '@/assets/css/variables.css';
+
+.btn {
+  position: relative;
+  gap: 6px;
+  border: 1px solid transparent;
+  font-size: var(--defaul-font-size);
+  border-radius: var(--secondary-border-radius);
+  background-color: transparent;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 32px;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn--default {
+  background-color: transparent;
+  color: var(--secondary-font-color);
+  border-color: var(--default-border-color);
+}
+
+.btn--default:hover {
+  background-color: transparent;
+  color: var(--primary-font-color);
+}
+
+.btn--primary {
+  background-color: var(--primary-control-bg-color);
+  color: var(--contrast-font-color);
+}
+
+.btn--shadow {
+  background-color: white;
+  box-shadow: 0px 1px 2px 0px #00000029;
+  border-color: var(--default-border-color);
+}
+
+.btn--secondary {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-control-bg-color);
+}
+
+.btn--success {
+  color: var(--contrast-font-color);
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn--danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: var(--contrast-font-color);
+}
+
+.btn.disabled {
+  pointer-events: none;
+  background-color: var(--secondary-control-bg-color);
+  border-color: var(--default-border-color);
+  color: var(--pale-font-color);
+}
+
+.btn--sm {
+  padding: 4px 12px;
+  font-size: var(--small-font-size);
+  min-height: 32px;
+}
+
+.btn--md {
+  padding: 4px 14px;
+  font-size: var(--default-font-size);
+  min-height: 46px;
+}
+
+.btn--lg {
+  padding: 4px 16px;
+  min-height: 58px;
+  font-size: var(--large-font-size);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
