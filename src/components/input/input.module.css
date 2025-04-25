@@ -10,8 +10,9 @@
 .inputWrapper {
   position: relative;
   display: flex;
+  align-items: center;
   gap: 8px;
-  padding: 12px;
+  padding: 10px 12px;
   border: 1px solid var(--default-border-color);
   border-radius: var(--default-border-radius);
   width: 100%;

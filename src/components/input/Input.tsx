@@ -27,7 +27,6 @@ const Input: React.FC<IInputProps> = ({
     <div
       className={clsx(
         styles.wrapper,
-        styles[`input--${caliber}`],
         wrapperClassName,
         error && styles.inputError
       )}
@@ -37,6 +36,7 @@ const Input: React.FC<IInputProps> = ({
       <div
         className={clsx(
           styles.inputWrapper,
+          styles[`input--${caliber}`],
           iconPosition &&
             iconPosition === 'right' &&
             styles['inputWrapper--reversed']

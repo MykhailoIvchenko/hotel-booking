@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import styles from './searchBlock.module.css';
 import SearchIcon from '@/assets/icons/search.svg?react';
 import Input from '@/components/input/Input';
+import FilterDropdown from './filterDropdown/FilterDropdown';
 
 interface ISearchBlockProps {
   addClasses?: string;
@@ -16,6 +17,8 @@ const SearchBlock: React.FC<ISearchBlockProps> = ({ addClasses }) => {
         placeholder='Search by Hotel name'
         wrapperClassName={styles.searchInput}
       />
+
+      <FilterDropdown />
     </div>
   );
 };
