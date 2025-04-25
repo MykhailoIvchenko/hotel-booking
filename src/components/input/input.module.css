@@ -1,0 +1,45 @@
+@import '@/assets/css/variables.css';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 0.5);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--default-border-color);
+  border-radius: var(--default-border-radius);
+  width: 100%;
+}
+
+.inputWrapper--reversed {
+  flex-direction: row-reverse;
+}
+
+.icon {
+}
+
+.input {
+  color: var(--primary-font-color);
+}
+
+.input::placeholder {
+  color: var(--pale-font-color);
+}
+
+.input--xs {
+  height: 32px;
+}
+
+.input--md {
+  height: 46px;
+}
+
+.input--lg {
+  height: 58px;
+}
