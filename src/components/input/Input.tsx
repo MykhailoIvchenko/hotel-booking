@@ -5,7 +5,7 @@ import styles from './input.module.css';
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   inputIcon?: ReactNode;
-  iconPosition: 'left' | 'right';
+  iconPosition?: 'left' | 'right';
   error?: string;
   wrapperClassName?: string;
   caliber?: 'xs' | 'md' | 'lg';
@@ -27,6 +27,7 @@ const Input: React.FC<IInputProps> = ({
     <div
       className={clsx(
         styles.wrapper,
+        styles[`input--${caliber}`],
         wrapperClassName,
         error && styles.inputError
       )}
@@ -43,11 +44,7 @@ const Input: React.FC<IInputProps> = ({
       >
         {inputIcon}
 
-        <input
-          ref={ref}
-          className={clsx(styles.input, styles[`input--${caliber}`], className)}
-          {...props}
-        />
+        <input ref={ref} className={clsx(styles.input, className)} {...props} />
       </div>
 
       {error && <span className={styles.error}>{error}</span>}

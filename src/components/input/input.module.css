@@ -21,11 +21,16 @@
   flex-direction: row-reverse;
 }
 
+.inputWrapper.inputError {
+  border-color: var(--danger-color);
+}
+
 .icon {
 }
 
 .input {
   color: var(--primary-font-color);
+  font-size: var(--small-font-size);
 }
 
 .input::placeholder {
@@ -42,4 +47,11 @@
 
 .input--lg {
   height: 58px;
+}
+
+.error {
+  position: absolute;
+  bottom: -10px;
+  font-size: var(--small-font-size);
+  color: var(--danger-color);
 }
