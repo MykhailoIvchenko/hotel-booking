@@ -11,6 +11,10 @@
   box-shadow: 0px 0px 15px 0px #00000026;
 }
 
+.container.container--shrinked {
+  width: 734px;
+}
+
 .searchInput {
   flex-grow: 1;
 }

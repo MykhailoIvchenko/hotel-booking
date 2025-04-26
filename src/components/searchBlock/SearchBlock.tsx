@@ -7,11 +7,23 @@ import styles from './searchBlock.module.css';
 
 interface ISearchBlockProps {
   addClasses?: string;
+  isShrinked?: boolean;
+  showFiltersButton?: boolean;
 }
 
-const SearchBlock: React.FC<ISearchBlockProps> = ({ addClasses }) => {
+const SearchBlock: React.FC<ISearchBlockProps> = ({
+  isShrinked = false,
+  addClasses,
+  showFiltersButton = true,
+}) => {
   return (
-    <div className={clsx(styles.container, addClasses)}>
+    <div
+      className={clsx(
+        styles.container,
+        isShrinked && styles['container--shrinked'],
+        addClasses
+      )}
+    >
       <Input
         inputIcon={
           <SearchIcon style={{ color: '#888E91', width: 24, height: 24 }} />
@@ -21,7 +33,7 @@ const SearchBlock: React.FC<ISearchBlockProps> = ({ addClasses }) => {
         wrapperClassName={styles.searchInput}
       />
 
-      <FilterDropdown />
+      {showFiltersButton && <FilterDropdown />}
 
       <Button variant='primary' addClasses={styles.button}>
         Search
