@@ -8,6 +8,14 @@
   line-height: 1;
 }
 
-.titleDark {
+.title.dark {
   color: var(--primary-font-color);
+}
+
+.title.semiBold {
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.title.alignLeft {
+  text-align: left;
 }

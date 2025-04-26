@@ -9,6 +9,7 @@ import { routerConfig } from './config';
 import Home from '@/pages/home/Home';
 import AppLayout from '@/layout/AppLayout';
 import NotFound from '@/pages/NotFound';
+import AuthLayout from '@/layout/authLayout/AuthLayout';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,11 @@ export const router = createBrowserRouter(
         <Route path={routerConfig.visaApplication.path} element={<></>} />
         <Route path={routerConfig.whatsAppConcierge.path} element={<></>} />
       </Route>
+
+      <Route element={<AuthLayout />}>
+        <Route path={routerConfig.signIn.path} element={<></>} />
+      </Route>
+
       <Route path='*' element={<NotFound />} />
     </Route>
   ),

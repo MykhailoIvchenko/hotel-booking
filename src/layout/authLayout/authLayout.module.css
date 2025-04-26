@@ -1,0 +1,44 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+@supports (height: 100dvh) {
+  .container {
+    height: 100dvh;
+  }
+}
+
+.posterBlock {
+  width: 49%;
+  background-image: url('../../assets/img/auth.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--standard-gap) * 3) 0;
+}
+
+.posterBlockItem {
+  max-width: 420px;
+  width: 100%;
+}
+
+.formBlock {
+  flex-grow: 1;
+}
+
+.coloredText {
+  color: var(--primary-control-bg-color);
+}
+
+.description {
+  margin-top: calc(var(--standard-gap) * 1.5);
+  font-size: var(--medium-font-size);
+}
