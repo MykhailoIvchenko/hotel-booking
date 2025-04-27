@@ -18,6 +18,14 @@
   width: 100%;
 }
 
+.inputWrapper:has(input:focus) {
+  border-color: var(--primary-control-bg-color);
+}
+
+.inputWrapper.smallRadius {
+  border-radius: var(--small-border-radius);
+}
+
 .inputWrapper--reversed {
   flex-direction: row-reverse;
 }
@@ -38,7 +46,7 @@
   color: var(--pale-font-color);
 }
 
-.input--xs {
+.input--sm {
   height: 32px;
 }
 
@@ -47,7 +55,7 @@
 }
 
 .input--lg {
-  height: 58px;
+  height: 60px;
 }
 
 .error {

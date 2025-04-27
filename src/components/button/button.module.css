@@ -16,6 +16,7 @@
   transition: all 0.3s ease;
   text-align: center;
   min-height: 32px;
+  font-family: var(--default-font-family);
 }
 
 .btn:hover {
@@ -61,11 +62,11 @@
   color: var(--contrast-font-color);
 }
 
-.btn.disabled {
+.btn:disabled {
   pointer-events: none;
   background-color: var(--secondary-control-bg-color);
   border-color: var(--default-border-color);
-  color: var(--pale-font-color);
+  color: var(--secondary-font-color);
 }
 
 .btn--sm {

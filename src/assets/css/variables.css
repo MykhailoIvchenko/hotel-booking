@@ -28,6 +28,7 @@
   /*Geometry */
   --default-border-radius: 10px;
   --secondary-border-radius: 26px;
+  --small-border-radius: 6px;
   --standard-gap: 20px;
   --top-section-height: 333px;
   --expanded-top-section-height: 556px;
