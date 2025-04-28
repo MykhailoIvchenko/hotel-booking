@@ -15,6 +15,10 @@ export const routerConfig = {
     path: '/referral-sign-up',
     name: 'Referral Sign Up',
   },
+  forgotPassword: {
+    path: '/forgot-password',
+    name: 'Forgot Password',
+  },
   booking: {
     path: '/booking',
     name: 'Booking',

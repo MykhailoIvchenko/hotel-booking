@@ -60,7 +60,7 @@
 
 .error {
   position: absolute;
-  bottom: -10px;
+  bottom: -16px;
   font-size: var(--small-font-size);
   color: var(--danger-color);
 }

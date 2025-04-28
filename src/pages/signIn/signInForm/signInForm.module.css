@@ -1,0 +1,21 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--standard-gap);
+}
+
+.link {
+  font-weight: 500;
+  color: var(--primary-control-bg-color);
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.signUp {
+  display: flex;
+  justify-content: center;
+}
