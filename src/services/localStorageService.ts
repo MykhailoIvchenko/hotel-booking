@@ -1,7 +1,9 @@
 function get(key: string): string | null {
   const value = localStorage.getItem(key);
 
-  return value;
+  const parsedValue = value ? JSON.parse(value) : '';
+
+  return parsedValue;
 }
 
 function save(key: string, value: string | number | boolean | object): void {

@@ -1,0 +1,39 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  margin-left: 125px;
+  margin-top: 258px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+}
+
+.buttonWithTitle {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--standard-gap) * 0.5);
+  margin-bottom: 15px;
+}
+
+.backIcon {
+  color: var(--primary-font-color);
+  width: 24px;
+  height: 24px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 500;
+  font-size: var(--extra-large-font-size);
+}
+
+.description {
+  color: var(--secondary-font-color);
+}
+
+.phoneNumber {
+  font-weight: 500;
+  color: var(--primary-font-color);
+}

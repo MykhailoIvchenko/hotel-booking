@@ -1,9 +1,10 @@
-import { SignUpSteps } from '@/utils/enums';
+import { LocalStorageKeys, SignUpSteps } from '@/utils/enums';
 import { Controller, useForm } from 'react-hook-form';
 import styles from './signUpForm.module.css';
 import Input from '@/components/input/Input';
 import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
+import { localStorageService } from '@/services/localStorageService';
 
 interface ISignInFormProps {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
@@ -23,6 +24,8 @@ const SignUpForm: React.FC<ISignInFormProps> = ({ setStep }) => {
   const checkNumber = async (data: ISignUpForm) => {
     try {
       const { whatsAppNumber } = data;
+
+      localStorageService.save(LocalStorageKeys.SignUpNumber, whatsAppNumber);
 
       setStep(SignUpSteps.OtpVerification);
     } catch {
