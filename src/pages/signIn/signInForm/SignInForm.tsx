@@ -28,8 +28,8 @@ const SignInForm: React.FC = () => {
         rules={{
           required: 'WhatsApp number is required',
           pattern: {
-            value: /^\+\d{7,15}$/,
-            message: 'Only alphanumeric characters are allowed',
+            value: /^\d{7,15}$/,
+            message: 'Number should contain min 7 and max 15 digits',
           },
         }}
         render={({ field }) => (

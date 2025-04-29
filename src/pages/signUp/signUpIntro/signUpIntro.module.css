@@ -1,0 +1,28 @@
+@import '@/assets/css/variables.css';
+/*It's totally duplicates the signin styles, the common components should be created*/
+
+.container {
+  margin-left: 125px;
+  max-width: 376px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--standard-gap) * 1.5);
+}
+
+.title {
+  font-weight: 500;
+  font-size: var(--extra-large-font-size);
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: var(--large-font-size);
+  margin-bottom: calc(var(--standard-gap) * 0.5);
+}
+
+.description {
+  color: var(--secondary-font-color);
+}

@@ -12,6 +12,7 @@ import NotFound from '@/pages/NotFound';
 import AuthLayout from '@/layout/authLayout/AuthLayout';
 import Referral from '@/pages/referral/Referral';
 import SignIn from '@/pages/signIn/SignIn';
+import SignUp from '@/pages/signUp/SignUp';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +26,7 @@ export const router = createBrowserRouter(
 
       <Route element={<AuthLayout />}>
         <Route path={routerConfig.signIn.path} element={<SignIn />} />
-        <Route path={routerConfig.signUp.path} element={<></>} />
+        <Route path={routerConfig.signUp.path} element={<SignUp />} />
         <Route path={routerConfig.referralSignUp.path} element={<Referral />} />
       </Route>
 
