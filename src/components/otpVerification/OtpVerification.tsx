@@ -1,8 +1,8 @@
 import { LocalStorageKeys, SignUpSteps } from '@/utils/enums';
 import ArrowIcon from '@/assets/icons/arrow.svg?react';
-import styles from './otpVerification.module.css';
 import { localStorageService } from '@/services/localStorageService';
 import OtpVerificationForm from './otpVerificationForm/OtpVerificationForm';
+import styles from './otpVerification.module.css';
 
 interface IOtpVerificationProps {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;

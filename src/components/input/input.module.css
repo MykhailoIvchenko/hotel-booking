@@ -37,6 +37,19 @@
 .icon {
 }
 
+.label {
+  position: relative;
+  color: var(--primary-font-color);
+}
+
+.requiredIcon {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 7px;
+  height: 7px;
+}
+
 .input {
   color: var(--primary-font-color);
   font-size: var(--small-font-size);

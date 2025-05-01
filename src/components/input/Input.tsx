@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { ReactNode, InputHTMLAttributes } from 'react';
+import RequiredIcon from '@/assets/icons/star-required-icon.svg?react';
 import styles from './input.module.css';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -12,6 +13,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   caliber?: 'sm' | 'md' | 'lg';
   ref?: React.Ref<HTMLInputElement>;
   isSmallRadius?: boolean;
+  isRequiredIcon?: boolean;
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -25,11 +27,17 @@ const Input: React.FC<IInputProps> = ({
   caliber = 'md',
   ref,
   isSmallRadius = false,
+  isRequiredIcon = false,
   ...props
 }) => {
   return (
     <div className={clsx(styles.wrapper, wrapperClassName)}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <label className={styles.label}>
+          {label}
+          {isRequiredIcon && <RequiredIcon className={styles.requiredIcon} />}
+        </label>
+      )}
 
       <div
         className={clsx(

@@ -1,0 +1,21 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--standard-gap * 2));
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-weight: 500;
+  font-size: var(--extra-large-font-size);
+  margin-bottom: 15px;
+}
+
+.description {
+  color: var(--secondary-font-color);
+}
