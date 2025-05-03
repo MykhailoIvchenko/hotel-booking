@@ -1,0 +1,12 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #4e5356;
+  color: var(--contrast-font-color);
+  border-radius: 50%;
+}

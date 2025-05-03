@@ -31,6 +31,10 @@ export const routerConfig = {
     path: '/whatsapp-concierge',
     name: 'WhatsApp Concierge Services',
   },
+  subscription: {
+    path: '/subscription',
+    name: 'Subscription',
+  },
 };
 
 export type RouterConfig = typeof routerConfig;
