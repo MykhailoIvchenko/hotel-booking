@@ -8,12 +8,13 @@ import type {
 } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import clsx from 'clsx';
-import EditIcon from '@/assets/img/pen-icon.svg?react';
+import CameraIcon from '@/assets/icons/camera.svg?react';
 
 import styles from './UploadImage.module.css';
 import { toast } from 'react-toastify';
 
 interface UploadImageProps<T extends FieldValues> {
+  text?: string;
   inputName: Path<T>;
   control: Control<T>;
   imageClassName?: string;
@@ -24,6 +25,7 @@ interface UploadImageProps<T extends FieldValues> {
 }
 
 const UploadImage = <T extends FieldValues>({
+  text = 'Upload Photo',
   wrapperClassName,
   imageClassName,
   inputName,
@@ -55,46 +57,47 @@ const UploadImage = <T extends FieldValues>({
   );
 
   return (
-    <label className={clsx(styles.wrapper, wrapperClassName)}>
-      {typeof value === 'string' && value && (
-        <img
-          className={clsx(styles.image, imageClassName)}
-          src={value}
-          alt={value}
-        />
-      )}
-
-      {value && value[0] && value[0] instanceof File && (
-        <img
-          className={clsx(styles.image, imageClassName)}
-          src={URL.createObjectURL(value[0]) || ''}
-          alt={value[0]?.name || 'Image'}
-        />
-      )}
-
-      <Controller
-        name={inputName}
-        control={control}
-        render={({ field }) => (
-          <input
-            type='file'
-            className={styles.hiddenInput}
-            ref={(el) => {
-              field.ref(el);
-              hiddenInputRef.current = el;
-            }}
-            onChange={(event) => handleUpload(event, field)}
-            accept={acceptedValues}
+    <div className={styles.container}>
+      <label className={clsx(styles.wrapper, wrapperClassName)}>
+        {typeof value === 'string' && value && (
+          <img
+            className={clsx(styles.image, imageClassName)}
+            src={value}
+            alt={value}
           />
         )}
-      />
 
-      {value && value.length > 0 && (
-        <button className={styles.editButton} onClick={editClick} type='button'>
-          <EditIcon />
-        </button>
-      )}
-    </label>
+        {value && value[0] && value[0] instanceof File && (
+          <img
+            className={clsx(styles.image, imageClassName)}
+            src={URL.createObjectURL(value[0]) || ''}
+            alt={value[0]?.name || 'Image'}
+            onClick={editClick}
+          />
+        )}
+
+        <Controller
+          name={inputName}
+          control={control}
+          render={({ field }) => (
+            <input
+              type='file'
+              className={styles.hiddenInput}
+              ref={(el) => {
+                field.ref(el);
+                hiddenInputRef.current = el;
+              }}
+              onChange={(event) => handleUpload(event, field)}
+              accept={acceptedValues}
+            />
+          )}
+        />
+
+        {!value && <CameraIcon className={styles.icon} />}
+      </label>
+
+      <p className={styles.text}>{!value && text}</p>
+    </div>
   );
 };
 

@@ -1,13 +1,21 @@
 @import '@/assets/css/variables.css';
 
+.container {
+  min-height: 100px;
+}
+
 .wrapper {
   position: relative;
-  width: 124px;
-  height: 124px;
+  width: 80px;
+  height: 80px;
   cursor: pointer;
   border-radius: 50%;
-  background-color: var(--default-border-color);
+  /* border: 2px dashed var(--default-border-color); */
+  border: 2px dashed #bdc0c2;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
@@ -21,17 +29,14 @@
   display: none;
 }
 
-.editButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-left: auto;
-  width: 28px; /* size-7 */
-  height: 28px;
-  border-radius: 50%;
-  transform: translateX(100%);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.icon {
+  width: 24px;
+  height: 24px;
+  /* color: var(--default-border-color); */
+  color: #bdc0c2;
+}
+
+.text {
+  margin-top: 6px;
+  color: var(--secondary-font-color);
 }

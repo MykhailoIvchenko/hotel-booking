@@ -5,6 +5,7 @@ import Input from '@/components/input/Input';
 import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
 import { localStorageService } from '@/services/localStorageService';
+import { whatsAppNumberPattern } from '@/utils/validationPatterns';
 
 interface ISignInFormProps {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
@@ -41,7 +42,7 @@ const SignUpForm: React.FC<ISignInFormProps> = ({ setStep }) => {
         rules={{
           required: 'WhatsApp number is required',
           pattern: {
-            value: /^\d{7,15}$/,
+            value: whatsAppNumberPattern,
             message: 'Number should contain min 7 and max 15 digits',
           },
         }}

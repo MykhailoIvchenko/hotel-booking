@@ -4,6 +4,7 @@
   display: grid;
   gap: var(--standard-gap);
   grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
 .item {
@@ -12,4 +13,19 @@
 
 .itemExpanded {
   grid-column: span 2;
+}
+
+.button {
+  margin-top: calc(var(--standard-gap) * 0.5);
+  margin-bottom: calc(var(--standard-gap) * 0.5);
+}
+
+.signIn {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  font-weight: 500;
+  color: var(--primary-control-bg-color);
 }

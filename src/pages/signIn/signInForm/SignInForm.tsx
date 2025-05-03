@@ -5,6 +5,7 @@ import PasswordInput from '@/components/passwordInput/PasswordInput';
 import Button from '@/components/button/Button';
 import { Link } from 'react-router';
 import { routerConfig } from '@/routes/config';
+import { whatsAppNumberPattern } from '@/utils/validationPatterns';
 
 interface ISignInForm {
   whatsAppNumber: string;
@@ -28,7 +29,7 @@ const SignInForm: React.FC = () => {
         rules={{
           required: 'WhatsApp number is required',
           pattern: {
-            value: /^\d{7,15}$/,
+            value: whatsAppNumberPattern,
             message: 'Number should contain min 7 and max 15 digits',
           },
         }}

@@ -40,14 +40,15 @@
 .label {
   position: relative;
   color: var(--primary-font-color);
+  display: flex;
 }
 
 .requiredIcon {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  right: -8px;
-  width: 7px;
-  height: 7px;
+  right: -8px; */
+  width: 16px;
+  height: 16px;
   color: var(--danger-color);
 }
 

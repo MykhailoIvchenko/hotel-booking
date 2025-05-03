@@ -2,6 +2,7 @@ import { SignUpSteps } from '@/utils/enums';
 import { useState } from 'react';
 import SignUpIntro from './signUpIntro/SignUpIntro';
 import OtpVerification from '@/components/otpVerification/OtpVerification';
+import CreateAccount from './createAccount/CreateAccount';
 
 const SignUp: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<SignUpSteps>(
@@ -17,7 +18,7 @@ const SignUp: React.FC = () => {
   }
 
   if (currentStep === SignUpSteps.CreateAccount) {
-    return <></>;
+    return <CreateAccount />;
   }
 };
 
