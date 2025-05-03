@@ -1,3 +1,4 @@
+import CustomToast from '@/components/customToast/CustomToast';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -18,7 +19,13 @@ export const useOtpVerification = (successHandler: VoidFunction) => {
       if (code === otpCode) {
         successHandler();
       } else {
-        toast.error('Invalid verification code.' + 'Please try again.');
+        toast.error(
+          <CustomToast
+            title='Invalid verification code.'
+            message='Please try again.'
+            type={'error'}
+          />
+        );
         setIsError(true);
       }
 

@@ -12,6 +12,7 @@ import CameraIcon from '@/assets/icons/camera.svg?react';
 
 import styles from './UploadImage.module.css';
 import { toast } from 'react-toastify';
+import CustomToast from '../customToast/CustomToast';
 
 interface UploadImageProps<T extends FieldValues> {
   text?: string;
@@ -50,7 +51,13 @@ const UploadImage = <T extends FieldValues>({
       if (file && file.type.startsWith('image/')) {
         field.onChange([file]);
       } else {
-        toast.error('Only images could be uploaded');
+        toast.error(
+          <CustomToast
+            title='Error'
+            message='Only images could be uploaded'
+            type={'error'}
+          />
+        );
       }
     },
     []

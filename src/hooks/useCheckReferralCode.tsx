@@ -1,3 +1,4 @@
+import CustomToast from '@/components/customToast/CustomToast';
 import { routerConfig } from '@/routes/config';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
@@ -21,14 +22,23 @@ export const useCheckRefferalCode = () => {
     setTimeout(() => {
       if (code === refCode) {
         toast.success(
-          'Referral code applied successfully!' +
-            'Enjoy your exclusive benefits.'
+          <CustomToast
+            title='Referral code applied successfully!'
+            message='Enjoy your exclusive benefits.'
+            type={'success'}
+          />
         );
 
         //TODO: Add some query param or value to the state
         navigate(routerConfig.signUp.path);
       } else {
-        toast.error('Invalid referral code.' + 'Please try again.');
+        toast.error(
+          <CustomToast
+            title='Invalid referral code.'
+            message='Please try again.'
+            type={'error'}
+          />
+        );
         setIsError(true);
       }
 

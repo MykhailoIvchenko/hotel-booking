@@ -6,6 +6,7 @@ import Button from '@/components/button/Button';
 import { toast } from 'react-toastify';
 import { localStorageService } from '@/services/localStorageService';
 import { whatsAppNumberPattern } from '@/utils/validationPatterns';
+import CustomToast from '@/components/customToast/CustomToast';
 
 interface ISignInFormProps {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
@@ -30,7 +31,13 @@ const SignUpForm: React.FC<ISignInFormProps> = ({ setStep }) => {
 
       setStep(SignUpSteps.OtpVerification);
     } catch {
-      toast.error('Something went wrong');
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Something went wrong'
+          type='error'
+        />
+      );
     }
   };
 

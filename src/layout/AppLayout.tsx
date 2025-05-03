@@ -1,5 +1,5 @@
 import ScrollToTop from '@/layout/components/ScrollToTop';
-import ToastProvider from '@/layout/components/ToastProvider';
+import ToastProvider from '@/layout/components/toastProvider/ToastProvider';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router';
