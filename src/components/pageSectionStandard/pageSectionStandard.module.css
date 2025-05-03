@@ -1,0 +1,19 @@
+.container {
+  background-color: var(--primary-bg-color);
+  padding: 84px 130px;
+  overflow: hidden;
+}
+
+.heading {
+  margin-bottom: 36px;
+}
+
+.title {
+  font-size: var(--extra-large-font-size);
+  font-weight: var(--bold-font-weight);
+}
+
+.description {
+  font-size: 16px;
+  color: var(--pale-font-color);
+}
