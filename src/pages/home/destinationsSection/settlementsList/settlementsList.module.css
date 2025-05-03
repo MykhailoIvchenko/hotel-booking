@@ -1,0 +1,7 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(273px, 1fr));
+  gap: 28px;
+}

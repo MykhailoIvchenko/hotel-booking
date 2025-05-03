@@ -1,3 +1,5 @@
+@import '@/assets/css/variables.css';
+
 .container {
   background-color: var(--primary-bg-color);
   padding: 84px 130px;
