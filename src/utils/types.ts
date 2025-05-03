@@ -7,10 +7,15 @@ export type TextAlign = 'left' | 'center' | 'right';
 export interface IUser {
   id: string;
   photo: string;
-  name: string;
+  fullName: string;
   email: string;
   phone: string;
   alternatePhone: string;
+}
+
+export interface IUserAccountData extends IUser {
+  password: string;
+  repeatPassword: string;
 }
 
 export interface IMenuItem {

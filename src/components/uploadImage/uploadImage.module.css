@@ -1,0 +1,37 @@
+@import '@/assets/css/variables.css';
+
+.wrapper {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--default-border-color);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.editButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+  width: 28px; /* size-7 */
+  height: 28px;
+  border-radius: 50%;
+  transform: translateX(100%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

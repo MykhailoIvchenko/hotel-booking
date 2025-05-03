@@ -1,1 +1,15 @@
 @import '@/assets/css/variables.css';
+
+.container {
+  display: grid;
+  gap: var(--standard-gap);
+  grid-template-columns: 1fr 1fr;
+}
+
+.item {
+  grid-column: span 1;
+}
+
+.itemExpanded {
+  grid-column: span 2;
+}
