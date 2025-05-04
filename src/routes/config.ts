@@ -3,6 +3,10 @@ export const routerConfig = {
     path: '/',
     name: 'Home',
   },
+  hotels: {
+    path: '/hotels',
+    name: 'Hotels',
+  },
   signIn: {
     path: '/sign-in',
     name: 'Sign In',
