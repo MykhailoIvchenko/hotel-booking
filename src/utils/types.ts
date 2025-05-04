@@ -24,3 +24,11 @@ export interface IMenuItem {
   link: string;
   icon: React.ReactNode;
 }
+
+export interface IHotel {
+  id: number;
+  thumbUrl: string;
+  title: string;
+  location: string;
+  price: number;
+}

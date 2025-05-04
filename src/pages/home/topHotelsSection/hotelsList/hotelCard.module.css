@@ -2,7 +2,7 @@
 
 .card {
   position: relative;
-  width: 300px;
+  min-width: 304px;
   height: 416px;
   border: 1px solid #e4e6e8;
   border-radius: 14px;
@@ -21,7 +21,7 @@
   height: 202px;
   border-radius: 14px;
   bottom: 0;
-  padding: 32px 22px 26px 22px;
+  padding: 32px 18px 26px 18px;
   background-color: var(--primary-bg-color);
 }
 
