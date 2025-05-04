@@ -1,5 +1,6 @@
 .button {
   position: fixed;
+  z-index: 99;
   top: 85%;
   right: 130px;
   width: 72px;

@@ -4,6 +4,7 @@ import ArrowIcon from '@/assets/icons/arrow.svg?react';
 import Dropdown from '@/components/dropdown/Dropdown';
 import styles from './profileDropdown.module.css';
 import clsx from 'clsx';
+import ProfileMenu from '@/components/profileMenu/ProfileMenu';
 
 const ProfileDropdown: React.FC = () => {
   const user = useSelectUser();
@@ -22,7 +23,7 @@ const ProfileDropdown: React.FC = () => {
             alt='Avatar'
           />
 
-          <span className={styles.name}>{user?.name || 'Anonym'}</span>
+          <span className={styles.name}>{user?.fullName || 'Anonym'}</span>
 
           <ArrowIcon
             className={clsx(styles.arrow, isOpen && styles['arrow--open'])}
@@ -30,11 +31,7 @@ const ProfileDropdown: React.FC = () => {
         </>
       )}
     >
-      <ul className={styles.menu}>
-        {['Sign In', 'Sign Up'].map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
+      <ProfileMenu handleClose={() => {}} />
     </Dropdown>
   );
 };

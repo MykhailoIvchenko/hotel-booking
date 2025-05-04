@@ -1,0 +1,44 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  padding: 32px 0;
+  gap: 16px;
+}
+
+.avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: 4px;
+  font-size: var(--default-font-size);
+  font-weight: 500;
+}
+
+.email {
+  margin-bottom: 8px;
+  color: var(--pale-font-color);
+  font-size: var(--small-font-size);
+}
+
+.links {
+  display: flex;
+  gap: 8px;
+  color: var(--pale-font-color);
+  font-size: var(--small-font-size);
+  cursor: pointer;
+}
+
+.linkColored {
+  color: var(--primary-control-bg-color);
+}

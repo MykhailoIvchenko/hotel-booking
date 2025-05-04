@@ -6,7 +6,7 @@ import ProfileChunk from './profileChunk/ProfileChunk';
 const Header: React.FC = () => {
   return (
     <header className={styles.container}>
-      <Logo size='small' />
+      <Logo size='md' />
       <NavMenu />
       <ProfileChunk />
     </header>

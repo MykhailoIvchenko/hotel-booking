@@ -1,3 +1,5 @@
+@import '@/assets/css/variables.css';
+
 .button {
   display: flex;
   justify-content: center;
@@ -34,7 +36,7 @@
 .menuContainer {
   border-radius: var(--default-border-radius);
   background-color: var(--primary-bg-color);
-  min-width: 120px;
+  /* min-width: 364px; */
 }
 
 .menu {
