@@ -1,0 +1,28 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--standard-gap);
+  max-width: 470px;
+}
+
+.button {
+  width: 114px;
+  font-weight: 500;
+}
+
+.title {
+  font-size: var(--extra-large-font-size);
+  font-weight: var(--bold-font-weight);
+  color: var(--contrast-font-color);
+}
+
+.description {
+  font-size: 16px;
+  color: var(--pale-font-color);
+}
+
+.benefits {
+  margin-top: 15px;
+}

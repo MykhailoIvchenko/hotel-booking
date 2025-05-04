@@ -47,7 +47,7 @@
 
 .btn--secondary {
   background-color: var(--primary-bg-color);
-  color: var(--primary-control-bg-color);
+  color: var(--primary-font-color);
 }
 
 .btn--success {
@@ -72,7 +72,7 @@
 .btn--sm {
   padding: 4px 12px;
   font-size: var(--small-font-size);
-  min-height: 32px;
+  min-height: 36px;
 }
 
 .btn--md {

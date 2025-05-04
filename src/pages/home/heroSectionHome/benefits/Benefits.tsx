@@ -1,4 +1,4 @@
-import BenefitItem from './BenefitItem';
+import BenefitItem from '../../../../components/benefitItem/BenefitItem';
 import styles from './benefits.module.css';
 
 const items = [

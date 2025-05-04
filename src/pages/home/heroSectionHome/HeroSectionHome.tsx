@@ -16,7 +16,7 @@ const HeroSectionHome: React.FC = () => {
         size='large'
         addClasses={styles.description}
       >
-        Welcome {user?.name || 'Anonym'}!
+        Welcome {user?.fullName || 'Anonym'}!
       </Description>
 
       <PageTitle>
@@ -27,7 +27,7 @@ const HeroSectionHome: React.FC = () => {
 
       <Benefits />
 
-      <SearchBlock addClasses={styles.searchBlock}/>
+      <SearchBlock addClasses={styles.searchBlock} />
     </HeroSection>
   );
 };

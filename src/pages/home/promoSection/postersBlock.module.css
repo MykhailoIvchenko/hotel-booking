@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  gap: 18px;
+}
+
+.column {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.columnTopGap {
+  margin-top: 38px;
+}
+
+.columnBottomGap {
+  margin-bottom: 38px;
+}

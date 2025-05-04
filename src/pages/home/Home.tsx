@@ -1,5 +1,6 @@
 import DestinationsSection from './destinationsSection/DestinationsSection';
 import HeroSectionHome from './heroSectionHome/HeroSectionHome';
+import PromoSection from './promoSection/PromoSection';
 
 const Home: React.FC = () => {
   return (
@@ -7,6 +8,8 @@ const Home: React.FC = () => {
       <HeroSectionHome />
 
       <DestinationsSection />
+
+      <PromoSection />
     </>
   );
 };
