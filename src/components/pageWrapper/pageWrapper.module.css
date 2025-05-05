@@ -1,0 +1,6 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: 130px 130px 0 130px;
+  background-color: #fafafa;
+}

@@ -9,6 +9,7 @@ interface IPageTitleProps {
   children: ReactChildren;
   isSemibold?: boolean;
   align?: TextAlign;
+  addClasses?: string;
 }
 
 const PageTitle: React.FC<IPageTitleProps> = ({
@@ -16,6 +17,7 @@ const PageTitle: React.FC<IPageTitleProps> = ({
   isSemibold = false,
   align = 'center',
   children,
+  addClasses,
 }) => {
   return (
     <h1
@@ -23,7 +25,8 @@ const PageTitle: React.FC<IPageTitleProps> = ({
         styles.title,
         variant === 'dark' && styles.dark,
         align === 'left' && styles.alignLeft,
-        isSemibold && styles.semiBold
+        isSemibold && styles.semiBold,
+        addClasses
       )}
     >
       {children}

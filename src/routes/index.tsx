@@ -13,13 +13,18 @@ import AuthLayout from '@/layout/authLayout/AuthLayout';
 import Referral from '@/pages/referral/Referral';
 import SignIn from '@/pages/signIn/SignIn';
 import SignUp from '@/pages/signUp/SignUp';
+import BookingDetails from '@/pages/bookingDetails/BookingDetails';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
       <Route element={<DefaultLayout />}>
         <Route path={routerConfig.home.path} element={<Home />} />
-        <Route path={routerConfig.booking.path} element={<Home />} />
+        <Route path={routerConfig.booking.path} element={<></>} />
+        <Route
+          path={`${routerConfig.booking.path}/:id`}
+          element={<BookingDetails />}
+        />
         <Route path={routerConfig.visaApplication.path} element={<></>} />
         <Route path={routerConfig.whatsAppConcierge.path} element={<></>} />
       </Route>

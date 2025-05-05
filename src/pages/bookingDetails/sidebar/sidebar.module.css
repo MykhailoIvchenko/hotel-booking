@@ -1,0 +1,10 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  width: 374px;
+  min-width: 374px;
+  padding: 20px;
+  background-color: var(--primary-bg-color);
+  border: 1px solid var(--default-border-color);
+  border-radius: 14px;
+}

@@ -3,6 +3,10 @@ export const routerConfig = {
     path: '/',
     name: 'Home',
   },
+  searchResults: {
+    path: '/search-results',
+    name: 'Search Results',
+  },
   hotels: {
     path: '/hotels',
     name: 'Hotels',

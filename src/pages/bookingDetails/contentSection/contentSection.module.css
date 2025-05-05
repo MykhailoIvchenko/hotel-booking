@@ -1,0 +1,7 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: 38px 0;
+  display: flex;
+  gap: calc(var(--standard-gap) * 1.5);
+}
