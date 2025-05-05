@@ -7,7 +7,9 @@ const Header: React.FC = () => {
   return (
     <header className={styles.container}>
       <Logo size='md' />
+      
       <NavMenu />
+
       <ProfileChunk />
     </header>
   );

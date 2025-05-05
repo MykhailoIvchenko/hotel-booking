@@ -1,3 +1,5 @@
+@import '@/assets/css/variables.css';
+
 .container {
   position: relative;
   width: 48px;
@@ -30,4 +32,9 @@
   position: absolute;
   font-size: 10px;
   font-weight: var(--semi-bold-font-weight);
+}
+
+.menuContainer {
+  border-radius: var(--default-border-radius);
+  background-color: var(--primary-bg-color);
 }

@@ -1,12 +1,20 @@
 import LogoutIcon from '@/assets/icons/logout.svg?react';
 import useUserDispatch from '@/redux/hooks/dispatchHooks/useUserDispatch';
 import styles from './logout.module.css';
+import clsx from 'clsx';
 
-const Logout: React.FC = () => {
+interface ILogoutProps {
+  addClasses?: string;
+}
+
+const Logout: React.FC<ILogoutProps> = ({ addClasses }) => {
   const setUser = useUserDispatch();
 
   return (
-    <div className={styles.container} onClick={() => setUser(null)}>
+    <div
+      className={clsx(styles.container, addClasses)}
+      onClick={() => setUser(null)}
+    >
       <LogoutIcon className={styles.icon} /> <span>Logout</span>
     </div>
   );

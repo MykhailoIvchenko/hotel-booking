@@ -1,2 +1,5 @@
-.container {
+@import '@/assets/css/variables.css';
+
+.logout {
+  padding-top: var(--standard-gap);
 }

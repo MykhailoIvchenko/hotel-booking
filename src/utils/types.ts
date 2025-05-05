@@ -1,4 +1,5 @@
 import React from 'react';
+import { NotificationTypes } from './enums';
 
 export type ReactChildren = React.ReactNode | React.ReactNode[];
 
@@ -31,4 +32,13 @@ export interface IHotel {
   title: string;
   location: string;
   price: number;
+}
+
+export interface INotification {
+  id: number;
+  createdAt: number;
+  isRead: boolean;
+  type: NotificationTypes;
+  title: string;
+  message: string;
 }

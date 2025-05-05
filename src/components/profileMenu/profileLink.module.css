@@ -1,0 +1,16 @@
+@import '@/assets/css/variables.css';
+
+.linkItem {
+  display: flex;
+  gap: calc(var(--standard-gap) * 0.5);
+  align-items: center;
+  color: var(--primary-font-color);
+  padding-top: var(--standard-gap);
+  padding-bottom: var(--standard-gap);
+  border-bottom: 1px solid var(--default-border-color);
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}

@@ -1,0 +1,12 @@
+@import '@/assets/css/variables.css';
+
+.button {
+  font-size: var(--small-font-size);
+  color: var(--primary-control-bg-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tabs {
+  margin-top: 15px;
+}

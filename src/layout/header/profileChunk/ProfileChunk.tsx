@@ -6,6 +6,7 @@ const ProfileChunk: React.FC = () => {
   return (
     <div className={styles.container}>
       <NotificationAlert />
+      
       <ProfileDropdown />
     </div>
   );

@@ -5,3 +5,14 @@ body {
   font-size: var(--default-font-size, 14px);
   color: var(--primary-font-color, #0c0d0d);
 }
+
+/*Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*Firefox */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
