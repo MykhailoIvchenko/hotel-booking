@@ -3,8 +3,7 @@
 .container {
   width: 374px;
   min-width: 374px;
-  padding: 20px;
-  background-color: var(--primary-bg-color);
-  border: 1px solid var(--default-border-color);
-  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
 }

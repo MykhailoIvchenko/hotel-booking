@@ -1,4 +1,3 @@
-import { ReactChildren } from '@/utils/types';
 import styles from './facilityItem.module.css';
 import { FunctionComponent, SVGProps } from 'react';
 

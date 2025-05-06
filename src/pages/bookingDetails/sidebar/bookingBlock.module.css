@@ -1,0 +1,10 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: var(--standard-gap);
+  background-color: var(--primary-bg-color);
+  border: 1px solid var(--default-border-color);
+  border-radius: 14px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
