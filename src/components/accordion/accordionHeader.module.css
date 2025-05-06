@@ -1,0 +1,15 @@
+@import '@/assets/css/variables.css';
+
+.button {
+  transition: transform 0.3s linear, color 0.3s linear;
+  cursor: pointer;
+  color: var(--primary-font-color);
+}
+
+.open {
+  transform: rotateY(180deg);
+}
+
+.closed {
+  transform: rotateY(0deg);
+}
