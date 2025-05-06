@@ -15,7 +15,7 @@ const AccordionHeader: React.FC<IAccordionHeaderProps> = ({
 }) => {
   return (
     <>
-      <h4>{title}</h4>
+      <h4 className={styles.title}>{title}</h4>
 
       <button
         className={clsx(styles.button, {
@@ -24,7 +24,7 @@ const AccordionHeader: React.FC<IAccordionHeaderProps> = ({
         })}
         onClick={toggleAccordion}
       >
-        <ArrowDownIcon />
+        <ArrowDownIcon className={styles.icon} />
       </button>
     </>
   );

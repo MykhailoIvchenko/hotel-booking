@@ -1,6 +1,7 @@
 import Button from '@/components/button/Button';
 import styles from './bookingBlock.module.css';
 import { Link } from 'react-router';
+import AdditionalServices from './AdditionalServices';
 
 const BookingBlock: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ const BookingBlock: React.FC = () => {
       <div className={styles.titleContainer}>
         <h5 className={styles.title}>Booking</h5>
       </div>
+
+      <AdditionalServices />
 
       <div>
         <div className={styles.priceTitle}>subtotal</div>

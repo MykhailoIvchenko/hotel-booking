@@ -68,9 +68,10 @@ const Accordion: React.FC<AccordionProps> = ({
           header
         )}
       </div>
+
       <div
         ref={contentRef}
-        className={clsx(styles.accordionbody, bodyClassName)}
+        className={clsx(styles.accordionBody, bodyClassName)}
         style={{
           maxHeight: isOpen
             ? `${contentRef.current?.scrollHeight || 1000}px`
