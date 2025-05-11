@@ -7,7 +7,7 @@ export type TextAlign = 'left' | 'center' | 'right';
 
 export interface IUser {
   id: string;
-  photo: string;
+  photo?: string;
   fullName: string;
   email: string;
   phone: string;

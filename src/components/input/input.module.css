@@ -55,6 +55,7 @@
 .input {
   color: var(--primary-font-color);
   font-size: var(--small-font-size);
+  flex-grow: 1;
 }
 
 .input::placeholder {

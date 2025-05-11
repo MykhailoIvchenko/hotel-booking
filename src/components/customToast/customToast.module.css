@@ -4,6 +4,7 @@
   position: relative;
   display: flex;
   gap: 14px;
+  background-color: var(--primary-bg-color);
 }
 
 .iconContainer {
@@ -32,8 +33,10 @@
 .title {
   font-weight: var(--bold-font-weight);
   color: var(--primary-font-color);
+  max-width: 260px;
 }
 
 .message {
   color: var(--secondary-font-color);
+  max-width: 260px;
 }
