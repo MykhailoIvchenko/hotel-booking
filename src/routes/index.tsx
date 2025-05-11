@@ -8,7 +8,7 @@ import DefaultLayout from '@/layout/DefaultLayout';
 import { routerConfig } from './config';
 import Home from '@/pages/home/Home';
 import AppLayout from '@/layout/AppLayout';
-import NotFound from '@/pages/NotFound';
+import NotFound from '@/pages/notFound/NotFound';
 import AuthLayout from '@/layout/authLayout/AuthLayout';
 import Referral from '@/pages/referral/Referral';
 import SignIn from '@/pages/signIn/SignIn';
@@ -20,13 +20,19 @@ export const router = createBrowserRouter(
     <Route element={<AppLayout />}>
       <Route element={<DefaultLayout />}>
         <Route path={routerConfig.home.path} element={<Home />} />
-        <Route path={routerConfig.booking.path} element={<></>} />
+        <Route path={routerConfig.booking.path} element={<NotFound />} />
         <Route
           path={`${routerConfig.booking.path}/:id`}
           element={<BookingDetails />}
         />
-        <Route path={routerConfig.visaApplication.path} element={<></>} />
-        <Route path={routerConfig.whatsAppConcierge.path} element={<></>} />
+        <Route
+          path={routerConfig.visaApplication.path}
+          element={<NotFound />}
+        />
+        <Route
+          path={routerConfig.whatsAppConcierge.path}
+          element={<NotFound />}
+        />
       </Route>
 
       <Route element={<AuthLayout />}>
