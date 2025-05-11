@@ -20,7 +20,9 @@ const HotelCard: React.FC<IHotelCardProps> = ({
 }) => {
   return (
     <div className={styles.card}>
-      <img src={thumbUrl} alt={'Card thumb'} className={styles.thumb} />
+      <div className={styles.thumbContainer}>
+        <img src={thumbUrl} alt={'Card thumb'} className={styles.thumb} />
+      </div>
 
       <div className={styles.content}>
         <h6 className={styles.title}>{title}</h6>

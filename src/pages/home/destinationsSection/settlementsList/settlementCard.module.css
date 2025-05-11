@@ -8,12 +8,12 @@
   border: 1px solid var(--default-border-color);
   border-radius: var(--default-border-radius);
   cursor: pointer;
-  transition: 0.3s ease-out;
+  transition: 0.4s ease;
 }
 
 .imageContainer {
   width: 100%;
-  overflow: hidden; /* Щоб обрізати зображення при збільшенні */
+  overflow: hidden;
   border-radius: var(--default-border-radius);
   margin-bottom: 16px;
 }

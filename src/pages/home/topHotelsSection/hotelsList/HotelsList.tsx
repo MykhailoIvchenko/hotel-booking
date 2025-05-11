@@ -91,12 +91,9 @@ const HotelsList: React.FC = () => {
           1440: {
             slidesPerView: 3.5,
           },
-          1536: {
-            slidesPerView: 3.5,
-          },
         }}
-        slidesOffsetBefore={200}
-        slidesOffsetAfter={0}
+        // slidesOffsetBefore={200}
+        slidesOffsetAfter={130}
         watchOverflow={true}
         centerInsufficientSlides={true}
       >
