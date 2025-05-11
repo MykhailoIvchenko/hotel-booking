@@ -2,6 +2,7 @@
 
 .logo {
   color: var(--contrast-font-color, #fff);
+  cursor: pointer;
 }
 
 .logo--dark {

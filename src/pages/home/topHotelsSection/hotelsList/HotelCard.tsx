@@ -41,7 +41,7 @@ const HotelCard: React.FC<IHotelCardProps> = ({
           </span>
 
           <Link
-            to={`${routerConfig.hotels.path}/${id}`}
+            to={`${routerConfig.booking.path}/${id}`}
             className={styles.link}
           >
             Book Now

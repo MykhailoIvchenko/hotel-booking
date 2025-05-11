@@ -10,15 +10,18 @@ const links = [
   },
   {
     text: 'Booking',
-    path: routerConfig.booking.path,
+    // path: routerConfig.booking.path,
+    path: '#',
   },
   {
     text: 'Visa Application',
-    path: routerConfig.visaApplication.path,
+    // path: routerConfig.visaApplication.path,
+    path: '#',
   },
   {
     text: 'Subscription',
-    path: routerConfig.subscription.path,
+    // path: routerConfig.subscription.path,
+    path: '#',
   },
 ];
 
