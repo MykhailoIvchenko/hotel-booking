@@ -11,7 +11,7 @@ export interface IUser {
   fullName: string;
   email: string;
   phone: string;
-  alternatePhone: string;
+  alternatePhone?: string;
 }
 
 export interface IUserAccountData extends IUser {

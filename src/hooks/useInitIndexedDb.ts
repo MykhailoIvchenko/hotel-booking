@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { indexedDbService } from '../services/indexedDbService';
+import { DbTables } from '@/utils/enums';
 
 export function useInitIndexedDb() {
   useEffect(() => {
     indexedDbService
-      .openDB(['users'])
+      .openDB([DbTables.Users])
       .then(() => {
         console.log('IndexedDB initialized');
       })

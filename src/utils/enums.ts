@@ -6,6 +6,7 @@ export enum SignUpSteps {
 
 export enum LocalStorageKeys {
   SignUpNumber = 'signUpNumber',
+  UserId = 'userId',
 }
 
 export enum NotificationTabs {
@@ -20,4 +21,8 @@ export enum NotificationTypes {
   Schedule = 'schedule',
   Pending = 'pending',
   Reject = 'reject',
+}
+
+export enum DbTables {
+  Users = 'users',
 }

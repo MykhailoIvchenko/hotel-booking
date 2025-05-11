@@ -7,7 +7,7 @@ import { useInitIndexedDb } from './hooks/useInitIndexedDb';
 
 function App() {
   useInitIndexedDb();
-  
+
   return (
     <Provider store={store}>
       <RouterProvider router={router} />

@@ -8,10 +8,13 @@ import { useSelectIsLoading } from '@/redux/hooks/selectHooks/useSelectIsLoading
 import useIsLoadingDispatch from '@/redux/hooks/dispatchHooks/useIsLoadingDispatch';
 import { useEffect } from 'react';
 import Splash from '@/pages/splash/Splash';
+import { useCheckAuth } from '@/hooks/useCheckAuth';
 
 const AppLayout = () => {
   const isLoading = useSelectIsLoading();
   const setIsLoading = useIsLoadingDispatch();
+
+  useCheckAuth();
 
   const mockLoading = () => {
     setIsLoading(true);
