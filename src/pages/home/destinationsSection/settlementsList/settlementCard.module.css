@@ -7,19 +7,44 @@
   padding: 16px;
   border: 1px solid var(--default-border-color);
   border-radius: var(--default-border-radius);
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.imageContainer {
+  width: 100%;
+  overflow: hidden; /* Щоб обрізати зображення при збільшенні */
+  border-radius: var(--default-border-radius);
+  margin-bottom: 16px;
 }
 
 .image {
   width: 100%;
   object-fit: cover;
   border-radius: var(--default-border-radius);
-  margin-bottom: 16px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
 }
 
 .title {
   color: var(--primary-font-color);
   font-size: var(--large-font-size);
   font-weight: var(--semi-bold-font-weight);
+}
+
+.card:hover {
+  border: 2px solid var(--primary-control-bg-color);
+}
+
+.card:hover .title {
+  color: var(--primary-control-bg-color);
+}
+
+.card:hover .linkIcon {
+  color: var(--primary-control-bg-color);
 }
 
 .descriptionContainer {

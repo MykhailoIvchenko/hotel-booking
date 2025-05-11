@@ -15,7 +15,9 @@ const SettlementCard: React.FC<ISettlementCardProps> = ({
 }) => {
   return (
     <div className={styles.card}>
-      <img src={image} alt={'Card poster'} className={styles.image} />
+      <div className={styles.imageContainer}>
+        <img src={image} alt={'Card poster'} className={styles.image} />
+      </div>
 
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.descriptionContainer}>
