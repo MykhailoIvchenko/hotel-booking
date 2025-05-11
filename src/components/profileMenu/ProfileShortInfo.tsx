@@ -1,6 +1,7 @@
 import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
 import avatarImg from '@/assets/img/avatar-placeholder.webp';
 import { Link } from 'react-router';
+import { helperService } from '@/services/helperService';
 import styles from './profileShortInfo.module.css';
 
 const ProfileShortInfo: React.FC = () => {
@@ -8,11 +9,19 @@ const ProfileShortInfo: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <img src={user?.photo || avatarImg} alt='Avatar' />
+      <img
+        src={user?.photo || avatarImg}
+        alt='Avatar'
+        className={styles.avatar}
+      />
 
       <div className={styles.content}>
         <div>
-          <h6 className={styles.title}>{user?.fullName || 'Anonym'}</h6>
+          <h6 className={styles.title}>
+            {user?.fullName
+              ? helperService.getNameFromFullName(user.fullName)
+              : 'Anonym'}
+          </h6>
           <p className={styles.email}>{user?.email || 'email@example.com'}</p>
         </div>
 

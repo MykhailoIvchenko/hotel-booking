@@ -5,6 +5,7 @@ import Dropdown from '@/components/dropdown/Dropdown';
 import styles from './profileDropdown.module.css';
 import clsx from 'clsx';
 import ProfileMenu from '@/components/profileMenu/ProfileMenu';
+import { helperService } from '@/services/helperService';
 
 const ProfileDropdown: React.FC = () => {
   const user = useSelectUser();
@@ -23,7 +24,11 @@ const ProfileDropdown: React.FC = () => {
             alt='Avatar'
           />
 
-          <span className={styles.name}>{user?.fullName || 'Anonym'}</span>
+          <span className={styles.name}>
+            {user?.fullName
+              ? helperService.getNameFromFullName(user.fullName)
+              : 'Anonym'}
+          </span>
 
           <ArrowIcon
             className={clsx(styles.arrow, isOpen && styles['arrow--open'])}

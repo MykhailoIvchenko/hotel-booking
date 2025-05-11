@@ -5,6 +5,7 @@ import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
 import Benefits from './benefits/Benefits';
 import styles from './heroSectionHome.module.css';
 import SearchBlock from '@/components/searchBlock/SearchBlock';
+import { helperService } from '@/services/helperService';
 
 const HeroSectionHome: React.FC = () => {
   const user = useSelectUser();
@@ -16,7 +17,11 @@ const HeroSectionHome: React.FC = () => {
         size='large'
         addClasses={styles.description}
       >
-        Welcome {user?.fullName || 'Anonym'}!
+        Welcome{' '}
+        {user?.fullName
+          ? helperService.getNameFromFullName(user.fullName)
+          : 'Anonym'}
+        !
       </Description>
 
       <PageTitle>

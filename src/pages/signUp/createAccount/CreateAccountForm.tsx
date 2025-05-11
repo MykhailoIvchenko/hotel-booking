@@ -220,6 +220,7 @@ const CreateAccountForm: React.FC = () => {
       <Button
         type='submit'
         addClasses={clsx(styles.itemExpanded, styles.button)}
+        disabled={isLoading}
       >
         Create Account
       </Button>
@@ -228,7 +229,7 @@ const CreateAccountForm: React.FC = () => {
         <div className={styles.loaderContainer}>
           <Loader variant='tiny' />
 
-          <p className={styles.loaderText}>Creatin Account</p>
+          <p className={styles.loaderText}>Creating Account</p>
         </div>
       ) : (
         <p className={clsx(styles.itemExpanded, styles.signIn)}>

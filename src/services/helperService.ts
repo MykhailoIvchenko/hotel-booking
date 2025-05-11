@@ -39,8 +39,19 @@ function getFormattedDate(dateValue: DateValue): string {
   return '';
 }
 
+function getNameFromFullName(fullName: string): string {
+  const namesArr = fullName.split(' ');
+
+  if (namesArr.length > 0) {
+    return namesArr[0];
+  }
+
+  return fullName;
+}
+
 export const helperService = {
   isValidWhatsAppNumber,
   getFormattedDate,
   getTimeTextFromCreation,
+  getNameFromFullName,
 };

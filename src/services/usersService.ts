@@ -36,15 +36,24 @@ async function register(
 
   await indexedDbService.save<UserRecord>(DbTables.Users, newUser);
 
+  //TODO: Create a separate function for this
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { passwordHash: _, ...safeUser } = newUser;
+
+  if (typeof safeUser.photo === 'object') {
+    const photoUrl = URL.createObjectURL(safeUser.photo[0]);
+
+    safeUser.photo = photoUrl;
+  }
+
   return safeUser;
 }
 
-async function login(email: string, password: string): Promise<IUser> {
+async function login(phone: string, password: string): Promise<IUser> {
   const users = await indexedDbService.getAll<UserRecord>(DbTables.Users);
 
-  const user = users.find((u) => u.email === email);
+  const user = users.find((u) => u.phone === phone);
+
   if (!user) {
     throw new Error('User not found');
   }
@@ -58,7 +67,11 @@ async function login(email: string, password: string): Promise<IUser> {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { passwordHash: _, ...safeUser } = user;
 
-  localStorageService.save(LocalStorageKeys.UserId, user.id);
+  if (typeof safeUser.photo === 'object') {
+    const photoUrl = URL.createObjectURL(safeUser.photo[0]);
+
+    safeUser.photo = photoUrl;
+  }
 
   return safeUser;
 }
@@ -73,6 +86,13 @@ async function getUserById(id: string): Promise<IUser | null> {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { passwordHash: _, ...safeUser } = user;
+
+  if (typeof safeUser.photo === 'object') {
+    const photoUrl = URL.createObjectURL(safeUser.photo[0]);
+
+    safeUser.photo = photoUrl;
+  }
+
   return safeUser;
 }
 
