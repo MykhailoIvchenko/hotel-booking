@@ -42,3 +42,7 @@ export interface INotification {
   title: string;
   message: string;
 }
+
+export type DateValuePiece = Date | null;
+
+export type DateValue = DateValuePiece | [DateValuePiece, DateValuePiece];

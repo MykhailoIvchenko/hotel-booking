@@ -1,6 +1,6 @@
 import Dropdown from '@/components/dropdown/Dropdown';
-import PersonIcon from '@/assets/icons/person-icon.svg?react';
 import { useState } from 'react';
+import PersonIcon from '@/assets/icons/person-icon.svg?react';
 import ArrowDownIcon from '@/assets/icons/arrow.svg?react';
 import clsx from 'clsx';
 import GuestsSelection from './GuestsSelection';
@@ -18,6 +18,7 @@ const GuestsDropdown: React.FC = () => {
       bodyClassName={styles.menuContainer}
       button={() => (
         <>
+          {/*The similar button is for date (it makes sense to create a component)*/}
           <div className={styles.main}>
             <PersonIcon className={clsx(styles.icon, styles.pale)} />
 

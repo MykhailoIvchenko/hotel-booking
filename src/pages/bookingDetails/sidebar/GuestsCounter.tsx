@@ -1,13 +1,11 @@
-import styles from './guestsCounter.module.css';
 import GuestsDropdown from './GuestsDropdown';
+import SelectionItem from './SelectionItem';
 
 const GuestsCounter: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <h6 className={styles.title}></h6>
-
+    <SelectionItem title='Guest'>
       <GuestsDropdown />
-    </div>
+    </SelectionItem>
   );
 };
 

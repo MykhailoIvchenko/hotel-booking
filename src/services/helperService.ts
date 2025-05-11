@@ -1,3 +1,5 @@
+import { DateValue } from '@/utils/types';
+
 function isValidWhatsAppNumber(number: string) {
   const regex = /^\+\d{7,15}$/;
   return regex.test(number);
@@ -25,4 +27,20 @@ function getTimeTextFromCreation(createdAt: number): string {
   return `${hours}h`;
 }
 
-export const helperService = { isValidWhatsAppNumber, getTimeTextFromCreation };
+function getFormattedDate(dateValue: DateValue): string {
+  if (dateValue && dateValue instanceof Date) {
+    return new Intl.DateTimeFormat('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(dateValue);
+  }
+
+  return '';
+}
+
+export const helperService = {
+  isValidWhatsAppNumber,
+  getFormattedDate,
+  getTimeTextFromCreation,
+};
