@@ -6,6 +6,7 @@ interface IDigitInputProps {
   value: string;
   isError?: boolean;
   externalHandler: (index: number, value: string) => void;
+  inputRef?: (el: HTMLInputElement | null) => void;
 }
 
 const DigitInput: React.FC<IDigitInputProps> = ({
@@ -13,6 +14,7 @@ const DigitInput: React.FC<IDigitInputProps> = ({
   value,
   isError,
   externalHandler,
+  inputRef,
 }) => {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -26,6 +28,7 @@ const DigitInput: React.FC<IDigitInputProps> = ({
 
   return (
     <Input
+      ref={inputRef}
       onChange={handleChange}
       value={value}
       caliber={'lg'}

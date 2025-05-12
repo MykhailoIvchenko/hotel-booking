@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import DigitInput from '@/components/digitInput/DigitInput';
 import styles from './referralForm.module.css';
 import { useCheckRefferalCode } from '@/hooks/useCheckReferralCode';
@@ -10,12 +10,18 @@ const initialDigits = ['', '', '', '', '', ''];
 const ReferralForm: React.FC = () => {
   const [digits, setDigits] = useState<string[]>(initialDigits);
 
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
   const handleInputChange = (index: number, value: string) => {
     const updatedDigits = digits.map((digit, i) =>
       i === index ? value : digit
     );
 
     setDigits(updatedDigits);
+
+    if (value && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1]?.focus();
+    }
   };
 
   const { isError, isLoading, handleCheckCode } = useCheckRefferalCode();
@@ -36,6 +42,9 @@ const ReferralForm: React.FC = () => {
               value={digit}
               externalHandler={handleInputChange}
               isError={isError}
+              inputRef={(el: HTMLInputElement | null) =>
+                (inputRefs.current[index] = el)
+              }
             />
           </li>
         ))}

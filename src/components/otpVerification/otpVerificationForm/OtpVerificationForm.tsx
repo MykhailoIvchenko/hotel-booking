@@ -1,5 +1,5 @@
 import DigitInput from '@/components/digitInput/DigitInput';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import styles from './otpVerificationForm.module.css';
 import { SignUpSteps } from '@/utils/enums';
 import { useOtpVerification } from '@/hooks/useOtpVerification';
@@ -18,6 +18,8 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
   const [digits, setDigits] = useState<string[]>(initialDigits);
   const [resendCount, setResendCount] = useState<number>(30);
   const [canBeSent, setCanBeSent] = useState<boolean>(false);
+
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const successHandler = () => {
     setStep(SignUpSteps.CreateAccount);
@@ -70,6 +72,9 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
               value={digit}
               externalHandler={handleInputChange}
               isError={isError}
+              inputRef={(el: HTMLInputElement | null) =>
+                (inputRefs.current[index] = el)
+              }
             />
           </li>
         ))}
