@@ -1,10 +1,10 @@
 import DigitInput from '@/components/digitInput/DigitInput';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import styles from './otpVerificationForm.module.css';
 import { SignUpSteps } from '@/utils/enums';
 import { useOtpVerification } from '@/hooks/useOtpVerification';
 import Loader from '@/components/loader/Loader';
 import Button from '@/components/button/Button';
+import styles from './otpVerificationForm.module.css';
 
 const initialDigits = ['', '', '', ''];
 
@@ -106,7 +106,7 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
       {resendCount > 0 && (
         <p className={styles.resendInfo}>
           <span>Resend the code</span>
-          <span>0:{resendCount}</span>
+          <span className={styles.count}>0:{resendCount}</span>
         </p>
       )}
 

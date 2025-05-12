@@ -39,3 +39,7 @@
   color: var(--brand-color);
   font-weight: var(--semi-bold-font-weight);
 }
+
+.count {
+  min-width: 40px;
+}

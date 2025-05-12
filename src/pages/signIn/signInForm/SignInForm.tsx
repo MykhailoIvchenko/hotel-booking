@@ -93,7 +93,11 @@ const SignInForm: React.FC = () => {
       />
 
       <div>
-        <Link to={routerConfig.forgotPassword.path} className={styles.link}>
+        <Link
+          // to={routerConfig.forgotPassword.path}
+          to={'#'}
+          className={styles.link}
+        >
           Forgot Password?
         </Link>
       </div>
