@@ -17,12 +17,13 @@
 
 .photosList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  justify-content: space-between;
+  /* grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); */
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
   gap: 46px;
 }
 
 .photoThumb {
+  width: 100%;
   aspect-ratio: 1.82;
   border-radius: 8px;
   object-fit: cover;

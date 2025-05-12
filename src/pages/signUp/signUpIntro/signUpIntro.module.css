@@ -26,3 +26,8 @@
 .description {
   color: var(--secondary-font-color);
 }
+
+.link {
+  color: var(--brand-color);
+  font-style: italic;
+}

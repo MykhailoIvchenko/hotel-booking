@@ -200,13 +200,6 @@ const CreateAccountForm: React.FC = () => {
       <Controller
         name='alternatePhone'
         control={control}
-        rules={{
-          required: 'Phone number is required',
-          pattern: {
-            value: whatsAppNumberPattern,
-            message: 'Number should contain min 7 and max 15 digits',
-          },
-        }}
         render={({ field }) => (
           <Input
             label={'Alternate Contact Number'}

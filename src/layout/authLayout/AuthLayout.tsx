@@ -1,10 +1,23 @@
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import styles from './authLayout.module.css';
 import Logo from '@/components/logo/Logo';
 import PageTitle from '@/components/pageTitle/PageTitle';
 import Description from '@/components/description/Description';
+import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
+import { useEffect } from 'react';
+import { routerConfig } from '@/routes/config';
 
 const AuthLayout: React.FC = () => {
+  const navigate = useNavigate();
+
+  const user = useSelectUser();
+
+  useEffect(() => {
+    if (user) {
+      navigate(routerConfig.home.path);
+    }
+  }, []);
+
   return (
     <main className={styles.container}>
       <section className={styles.posterBlock}>
