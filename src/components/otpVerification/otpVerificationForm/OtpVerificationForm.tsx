@@ -28,12 +28,17 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
   const { isError, isLoading, handleCheckCode } =
     useOtpVerification(successHandler);
 
+  //TODO: Create a custom hook for digits inputs set hanling to avoid code duplication
   const handleInputChange = (index: number, value: string) => {
     const updatedDigits = digits.map((digit, i) =>
       i === index ? value : digit
     );
 
     setDigits(updatedDigits);
+
+    if (value && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1]?.focus();
+    }
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -43,10 +48,12 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
   };
 
   useEffect(() => {
+    console.log('CAN BE SENT ', canBeSent);
+
     const interval = setInterval(() => {
       setResendCount((prev) => {
         if (prev <= 1) {
-          setCanBeSent(false);
+          setCanBeSent(true);
           clearInterval(interval);
           return 0;
         }
