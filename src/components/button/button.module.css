@@ -35,7 +35,7 @@
 }
 
 .btn--primary {
-  background-color: var(--primary-control-bg-color);
+  background-color: var(--brand-color);
   color: var(--contrast-font-color);
 }
 

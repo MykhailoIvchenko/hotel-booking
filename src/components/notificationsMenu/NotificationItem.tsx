@@ -10,6 +10,7 @@ interface INotificationItemProps {
   message: string;
   createdAt: number;
   isRead: boolean;
+  handleNotificationClick: VoidFunction;
 }
 
 const NotificationItem: React.FC<INotificationItemProps> = ({
@@ -18,9 +19,13 @@ const NotificationItem: React.FC<INotificationItemProps> = ({
   message,
   createdAt,
   isRead,
+  handleNotificationClick,
 }) => {
   return (
-    <li className={clsx(styles.container, !isRead && styles.unread)}>
+    <li
+      className={clsx(styles.container, !isRead && styles.unread)}
+      onClick={handleNotificationClick}
+    >
       <NotificationIcon type={type} />
 
       <div className={styles.mainBlock}>

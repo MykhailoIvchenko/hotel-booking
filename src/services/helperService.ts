@@ -10,7 +10,7 @@ function getTimeTextFromCreation(createdAt: number): string {
 
   const timeSpan = currentTime - createdAt;
 
-  const seconds = timeSpan / 1000;
+  const seconds = Math.floor(timeSpan / 1000);
 
   if (seconds < 60) {
     return `${seconds}s`;

@@ -19,7 +19,7 @@
 }
 
 .inputWrapper:has(input:focus) {
-  border-color: var(--primary-control-bg-color);
+  border-color: var(--brand-color);
 }
 
 .inputWrapper.smallRadius {

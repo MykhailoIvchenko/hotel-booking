@@ -78,7 +78,7 @@
 
 :global(.react-calendar__tile abbr:hover) {
   background-color: #0d7bff44 !important;
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
 }
 
 :global(.react-calendar__tile:hover) {
@@ -94,6 +94,6 @@
 }
 
 :global(.react-calendar__tile--active abbr) {
-  background-color: var(--primary-control-bg-color);
+  background-color: var(--brand-color);
   color: var(--contrast-font-color);
 }

@@ -8,7 +8,7 @@
 
 .link {
   font-weight: 500;
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
 }
 
 .button {

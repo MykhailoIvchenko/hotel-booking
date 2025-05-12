@@ -36,15 +36,15 @@
 }
 
 .card:hover {
-  border: 2px solid var(--primary-control-bg-color);
+  border: 2px solid var(--brand-color);
 }
 
 .card:hover .title {
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
 }
 
 .card:hover .linkIcon {
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
 }
 
 .descriptionContainer {

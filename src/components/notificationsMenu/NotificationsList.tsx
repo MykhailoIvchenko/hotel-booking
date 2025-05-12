@@ -4,10 +4,12 @@ import styles from './notificationsList.module.css';
 
 interface INotificationsListProps {
   notifications: INotification[];
+  handleNotificationClick: (id: number) => void;
 }
 
 const NotificationsList: React.FC<INotificationsListProps> = ({
   notifications,
+  handleNotificationClick,
 }) => {
   return (
     <ul className={styles.container}>
@@ -19,6 +21,9 @@ const NotificationsList: React.FC<INotificationsListProps> = ({
           message={notification.message}
           createdAt={notification.createdAt}
           isRead={notification.isRead}
+          handleNotificationClick={() =>
+            handleNotificationClick(notification.id)
+          }
         />
       ))}
     </ul>

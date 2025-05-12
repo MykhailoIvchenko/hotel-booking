@@ -46,7 +46,7 @@
   right: 16px;
   width: 8px;
   height: 8px;
-  background-color: var(--primary-control-bg-color);
+  background-color: var(--brand-color);
   transform: translateY(-50%);
   border-radius: 50%;
 }

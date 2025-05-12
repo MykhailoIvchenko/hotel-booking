@@ -19,3 +19,7 @@
   font-size: 16px;
   font-weight: var(--default-font-weight);
 }
+
+.item:hover {
+  color: var(--brand-color);
+}

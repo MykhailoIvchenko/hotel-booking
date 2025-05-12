@@ -29,7 +29,7 @@
 }
 
 .price {
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
   font-size: var(--extra-large-font-size);
   font-weight: var(--bold-font-weight);
   line-height: 1.5em;
@@ -37,7 +37,7 @@
 }
 
 .policyLink {
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
   text-decoration: underline;
   text-align: center;
 }

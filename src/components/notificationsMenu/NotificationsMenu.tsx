@@ -58,26 +58,52 @@ const notifiations: INotification[] = [
 ];
 
 const NotificationsMenu: React.FC = () => {
+  const [notificationsList, setNotificationsList] = useState(notifiations);
+
   const [activeTab, setActiveTab] = useState<NotificationTabs>(
     NotificationTabs.All
   );
 
   const getNotificationsToDisplay = (): INotification[] => {
     if (activeTab === NotificationTabs.All) {
-      return notifiations;
+      return notificationsList;
     }
 
-    return notifiations.filter((notification) => {
+    return notificationsList.filter((notification) => {
       const showRead = activeTab === NotificationTabs.Read;
       return notification.isRead === showRead;
     });
+  };
+
+  const handleReadAll = () => {
+    const updatedNotifications = notificationsList.map((notification) => ({
+      ...notification,
+      isRead: true,
+    }));
+
+    setNotificationsList(updatedNotifications);
+  };
+
+  const handleNotificationClick = (id: number) => {
+    const updatedNotifications = notificationsList.map((notification) => {
+      if (notification.id === id) {
+        return {
+          ...notification,
+          isRead: true,
+        };
+      }
+
+      return notification;
+    });
+
+    setNotificationsList(updatedNotifications);
   };
 
   return (
     <DropdownMenu
       title='Notifications'
       headerActor={
-        <button onClick={() => {}} className={styles.button}>
+        <button onClick={handleReadAll} className={styles.button}>
           Mark all as read
         </button>
       }
@@ -88,7 +114,10 @@ const NotificationsMenu: React.FC = () => {
         addClasses={styles.tabs}
       />
 
-      <NotificationsList notifications={getNotificationsToDisplay()} />
+      <NotificationsList
+        notifications={getNotificationsToDisplay()}
+        handleNotificationClick={handleNotificationClick}
+      />
     </DropdownMenu>
   );
 };

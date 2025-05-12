@@ -15,7 +15,7 @@
 }
 
 .item.active {
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
 }
 
 .item.active::after {
@@ -25,5 +25,5 @@
   bottom: -2px;
   width: 100%;
   height: 2px;
-  background-color: var(--primary-control-bg-color);
+  background-color: var(--brand-color);
 }

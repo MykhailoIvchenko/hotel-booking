@@ -91,6 +91,12 @@ const HotelsList: React.FC = () => {
           1440: {
             slidesPerView: 3.5,
           },
+          1600: {
+            slidesPerView: 4,
+          },
+          1900: {
+            slidesPerView: 4.5,
+          },
         }}
         // slidesOffsetBefore={200}
         slidesOffsetAfter={130}

@@ -2,7 +2,7 @@
 
 .button {
   font-size: var(--small-font-size);
-  color: var(--primary-control-bg-color);
+  color: var(--brand-color);
   text-decoration: underline;
   cursor: pointer;
 }

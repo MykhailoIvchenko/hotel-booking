@@ -25,5 +25,5 @@
   bottom: calc(var(--standard-gap) * -0.5);
   width: 100%;
   height: 2px;
-  background-color: var(--primary-control-bg-color);
+  background-color: var(--brand-color);
 }
