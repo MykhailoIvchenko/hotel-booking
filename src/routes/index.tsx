@@ -45,6 +45,7 @@ export const router = createBrowserRouter(
     </Route>
   ),
   {
+    // basename: '/hotel-booking',
     basename: '/',
   }
 );
