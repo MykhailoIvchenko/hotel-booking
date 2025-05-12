@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 - Page Not Found</title>
     <script>
-      window.location.replace('/hotel-booking/');
+      const redirectUrl =
+        '/hotel-booking/' +
+        location.pathname.replace(/^\/hotel-booking\//, '') +
+        location.search +
+        location.hash;
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body>
