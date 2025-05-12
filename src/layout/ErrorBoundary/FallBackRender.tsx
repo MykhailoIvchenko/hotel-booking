@@ -7,7 +7,7 @@ interface FallbackRenderProps {
 
 const FallBackRender: React.FC<FallbackRenderProps> = ({
   error,
-  resetErrorBoundary,
+  // resetErrorBoundary,
 }) => {
   return (
     <div className=''>
