@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 - Page Not Found</title>
     <script>
-      const redirectUrl =
-        '/hotel-booking/' +
-        location.pathname.replace(/^\/hotel-booking\//, '') +
-        location.search +
-        location.hash;
-      window.location.replace(redirectUrl);
+      if (
+        location.pathname.startsWith('/hotel-booking/') &&
+        !location.pathname.endsWith('/index.html')
+      ) {
+        const redirectPath = location.pathname.replace('/hotel-booking', '');
+        const newUrl =
+          '/hotel-booking/index.html#' +
+          redirectPath +
+          location.search +
+          location.hash;
+        window.location.replace(newUrl);
+      }
     </script>
   </head>
   <body>
