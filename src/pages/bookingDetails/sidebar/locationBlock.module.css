@@ -1,0 +1,33 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: var(--standard-gap);
+  border-radius: var(--default-border-radius);
+  background-color: var(--primary-bg-color);
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--standard-gap);
+}
+
+.poster {
+  height: 268px;
+  object-fit: cover;
+  border-radius: var(--default-border-radius);
+}
+
+.title {
+  font-size: var(--medium-font-size);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.divider {
+  width: 100%;
+  min-height: 1px;
+  background-color: var(--secondary-control-bg-color);
+}
+
+.description {
+  color: var(--secondary-font-color);
+  font-size: 16px;
+}

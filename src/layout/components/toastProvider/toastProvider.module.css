@@ -1,0 +1,35 @@
+@import '@/assets/css/variables.css';
+
+.toastReset {
+  padding: 26px 40px 26px 15px !important;
+  border-radius: 5px;
+  min-width: 400px;
+  border: 1px solid;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 26px;
+  right: 15px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--secondary-font-color);
+}
+
+.defaultBorder {
+  border-color: var(--border-color);
+}
+
+.successBorder {
+  border-color: var(--success-color);
+}
+
+.errorBorder {
+  border-color: var(--danger-color);
+}

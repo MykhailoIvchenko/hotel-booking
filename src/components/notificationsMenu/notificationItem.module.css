@@ -1,0 +1,52 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  position: relative;
+  padding: calc(var(--standard-gap)) calc(var(--standard-gap)) 24px 0;
+  border-bottom: 0.5px solid var(--default-border-color);
+  display: flex;
+  gap: calc(var(--standard-gap));
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+}
+
+.container.unread {
+  background-color: #eff6ff;
+}
+
+.mainBlock {
+  width: 232px;
+}
+
+.title {
+  font-weight: 500;
+  color: var(--primary-font-color);
+  font-size: var(--default-font-size);
+}
+
+.message {
+  color: var(--secondary-font-color);
+  font-size: var(--small-font-size);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.time {
+  font-size: var(--small-font-size);
+  color: var(--secondary-font-color);
+}
+
+.unreadDot {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--brand-color);
+  transform: translateY(-50%);
+  border-radius: 50%;
+}

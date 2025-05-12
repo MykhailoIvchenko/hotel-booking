@@ -1,0 +1,29 @@
+@import '@/assets/css/variables.css';
+
+.hero {
+  --section-height: var(--top-section-height);
+  position: relative;
+  width: 100%;
+  height: var(--section-height);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero.hero--expanded {
+  --section-height: var(--expanded-top-section-height);
+}
+
+.hero--success {
+  background-color: var(--color-success);
+}
+
+.hero--danger {
+  background-color: var(--color-danger);
+}

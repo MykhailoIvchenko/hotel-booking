@@ -1,0 +1,9 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  width: 374px;
+  min-width: 374px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+}

@@ -1,0 +1,20 @@
+@import '@/assets/css/variables.css';
+
+.logo {
+  color: var(--contrast-font-color, #fff);
+  cursor: pointer;
+}
+
+.logo--dark {
+  color: var(--primary-font-color, #0c0d0d);
+}
+
+.logo--sm {
+  width: 103px;
+  height: 65px;
+}
+
+.logo--md {
+  width: 118px;
+  height: 74px;
+}

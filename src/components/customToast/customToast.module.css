@@ -1,0 +1,42 @@
+@import '@/assets/css/variables.css';
+
+.toastContainer {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  background-color: var(--primary-bg-color);
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color: var(--contrast-font-color);
+}
+
+.error {
+  background-color: var(--danger-color);
+}
+
+.success {
+  background-color: var(--success-color);
+}
+
+.title {
+  font-weight: var(--bold-font-weight);
+  color: var(--primary-font-color);
+  max-width: 260px;
+}
+
+.message {
+  color: var(--secondary-font-color);
+  max-width: 260px;
+}

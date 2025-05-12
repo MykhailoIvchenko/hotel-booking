@@ -1,0 +1,19 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+}
+
+.digitsList {
+  display: flex;
+  gap: calc(var(--standard-gap) * 0.5);
+}
+
+.loaderText {
+  font-size: 16px;
+  color: var(--pale-font-color);
+  text-align: center;
+  margin-top: 8px;
+}

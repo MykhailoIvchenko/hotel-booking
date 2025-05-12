@@ -1,0 +1,25 @@
+@import '@/assets/css/variables.css';
+
+.title {
+  font-size: var(--medium-font-size);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.button {
+  transition: transform 0.3s linear, color 0.3s linear;
+  cursor: pointer;
+  color: var(--primary-font-color);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.open {
+  transform: rotateX(180deg);
+}
+
+.closed {
+  transform: rotateX(0deg);
+}

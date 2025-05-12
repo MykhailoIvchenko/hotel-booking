@@ -1,0 +1,15 @@
+@import '@/assets/css/variables.css';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid var(--default-border-color);
+}
+
+.name {
+  font-size: var(--default-font-size);
+  font-weight: var(--default-font-weight);
+}

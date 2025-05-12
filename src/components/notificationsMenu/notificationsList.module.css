@@ -1,0 +1,7 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  max-height: 60vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

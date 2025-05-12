@@ -1,0 +1,9 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  margin-top: calc(var(--standard-gap) * 1.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--standard-gap) * 0.5);
+}

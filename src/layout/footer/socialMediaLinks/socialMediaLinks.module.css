@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--contrast-font-color);
+  font-size: 16px;
+}
+
+.linksList {
+  display: flex;
+  gap: calc(var(--standard-gap) * 0.5);
+}

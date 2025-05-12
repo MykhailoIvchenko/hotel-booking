@@ -1,0 +1,10 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  color: var(--secondary-font-color);
+}
+
+.current {
+  color: var(--primary-font-color);
+  font-weight: 500;
+}

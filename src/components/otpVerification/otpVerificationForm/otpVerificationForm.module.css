@@ -1,0 +1,45 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--standard-gap);
+}
+
+.digitsList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loaderText {
+  font-size: 16px;
+  color: var(--pale-font-color);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.submitButton {
+  margin-top: 10px;
+}
+
+.resendInfo {
+  display: flex;
+  justify-content: space-between;
+  color: var(--secondary-font-color);
+}
+
+.resendAction {
+  display: flex;
+  justify-content: center;
+  color: var(--secondary-font-color);
+  gap: 2px;
+}
+
+.resendButton {
+  color: var(--brand-color);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.count {
+  min-width: 40px;
+}

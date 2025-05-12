@@ -1,0 +1,38 @@
+@import '@/assets/css/variables.css';
+
+.button {
+  height: 46px;
+  padding: 12px;
+  border: 1px solid var(--default-border-color);
+  border-radius: var(--default-border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--default-font-size);
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.pale {
+  color: var(--pale-font-color);
+}
+
+.dark {
+  color: var(--primary-font-color);
+}
+
+.menuContainer {
+  border-radius: 11px;
+  box-shadow: 0px 0px 11.69px 0px #00000026;
+  background-color: var(--primary-bg-color);
+}

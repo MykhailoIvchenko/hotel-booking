@@ -1,0 +1,32 @@
+@import '@/assets/css/variables.css';
+
+.button {
+  color: var(--brand-color);
+  border: 1px solid var(--brand-color);
+  height: 46px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  border-radius: var(--secondary-border-radius);
+  width: 145px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease;
+}
+
+.icon--rotated {
+  transform: rotate(180deg);
+}
+
+.menuContainer {
+  width: 145px;
+  border: 1px solid var(--brand-color);
+  border-radius: var(--default-border-radius);
+  padding: 10px;
+  background-color: var(--primary-bg-color);
+}

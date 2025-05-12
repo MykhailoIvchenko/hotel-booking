@@ -1,0 +1,12 @@
+@import '@/assets/css/variables.css';
+
+.title {
+  margin-top: 160px;
+}
+
+.searchBlock {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}

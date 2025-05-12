@@ -1,0 +1,31 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+  margin-bottom: calc(var(--standard-gap) * 1.5);
+  background-color: var(--primary-bg-color);
+}
+
+.mainPhoto {
+  aspect-ratio: 1.7;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.photosList {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); */
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 46px;
+}
+
+.photoThumb {
+  width: 100%;
+  aspect-ratio: 1.82;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}

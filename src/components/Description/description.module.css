@@ -1,0 +1,23 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  font-size: var(--default-font-size);
+  color: var(--pale-font-color, #888e91);
+  text-align: left;
+}
+
+.largeText {
+  font-size: var(--large-font-size, 20px);
+}
+
+.centerText {
+  text-align: center;
+}
+
+.rightText {
+  text-align: right;
+}
+
+.whiteText {
+  color: var(--contrast-font-color, #fff);
+}

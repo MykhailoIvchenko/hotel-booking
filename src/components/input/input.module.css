@@ -1,0 +1,82 @@
+@import '@/assets/css/variables.css';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 0.5);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--default-border-color);
+  border-radius: var(--default-border-radius);
+  width: 100%;
+}
+
+.inputWrapper:has(input:focus) {
+  border-color: var(--brand-color);
+}
+
+.inputWrapper.smallRadius {
+  border-radius: var(--small-border-radius);
+}
+
+.inputWrapper--reversed {
+  flex-direction: row-reverse;
+}
+
+.inputWrapper.inputError {
+  border-color: var(--danger-color);
+}
+
+.icon {
+}
+
+.label {
+  position: relative;
+  color: var(--primary-font-color);
+  display: flex;
+}
+
+.requiredIcon {
+  /* position: absolute;
+  top: 0;
+  right: -8px; */
+  width: 16px;
+  height: 16px;
+  color: var(--danger-color);
+}
+
+.input {
+  color: var(--primary-font-color);
+  font-size: var(--small-font-size);
+  flex-grow: 1;
+}
+
+.input::placeholder {
+  color: var(--pale-font-color);
+}
+
+.input--sm {
+  height: 32px;
+}
+
+.input--md {
+  height: 46px;
+}
+
+.input--lg {
+  height: 60px;
+}
+
+.error {
+  position: absolute;
+  bottom: -16px;
+  font-size: var(--small-font-size);
+  color: var(--danger-color);
+}

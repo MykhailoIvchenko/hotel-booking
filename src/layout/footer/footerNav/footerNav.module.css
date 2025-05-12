@@ -1,0 +1,25 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.divider {
+  width: 2px;
+  height: 16px;
+  background-color: var(--contrast-font-color);
+}
+
+.item {
+  padding: 10px;
+  color: var(--contrast-font-color);
+  font-size: 16px;
+  font-weight: var(--default-font-weight);
+}
+
+.item:hover {
+  color: var(--brand-color);
+}

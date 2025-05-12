@@ -1,0 +1,18 @@
+.container {
+  margin-top: 288px;
+  margin-left: 125px;
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+}
+
+.title {
+  font-weight: 500;
+  font-size: var(--extra-large-font-size);
+  margin-bottom: 15px;
+}
+
+.description {
+  color: var(--secondary-font-color);
+}

@@ -1,0 +1,65 @@
+@import '@/assets/css/variables.css';
+
+.card {
+  width: 100%;
+  min-height: 260px;
+  height: 100%;
+  padding: 16px;
+  border: 1px solid var(--default-border-color);
+  border-radius: var(--default-border-radius);
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.imageContainer {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--default-border-radius);
+  margin-bottom: 16px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--default-border-radius);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+.title {
+  color: var(--primary-font-color);
+  font-size: var(--large-font-size);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.card:hover {
+  border: 2px solid var(--brand-color);
+}
+
+.card:hover .title {
+  color: var(--brand-color);
+}
+
+.card:hover .linkIcon {
+  color: var(--brand-color);
+}
+
+.descriptionContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  color: var(--secondary-font-color);
+  line-height: 1.5em;
+}
+
+.linkIcon {
+  width: 22px;
+  height: 22px;
+  color: var(--primary-font-color);
+  transform: rotate(-90deg);
+}

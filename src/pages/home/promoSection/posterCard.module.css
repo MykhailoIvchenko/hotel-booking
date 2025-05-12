@@ -1,0 +1,10 @@
+@import '@/assets/css/variables.css';
+
+.card {
+  border-radius: var(--small-border-radius);
+  flex-grow: 1;
+}
+
+.image {
+  object-fit: cover;
+}

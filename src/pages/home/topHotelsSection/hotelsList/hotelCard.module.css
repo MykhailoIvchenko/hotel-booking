@@ -1,0 +1,115 @@
+@import '@/assets/css/variables.css';
+
+.card {
+  position: relative;
+  min-width: 304px;
+  height: 416px;
+  border: 1px solid #e4e6e8;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  border: 2px solid var(--brand-color);
+}
+
+.thumbContainer {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  height: 245px;
+}
+
+.thumb {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .thumb {
+  transform: scale(1.1);
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 202px;
+  border-radius: 14px;
+  bottom: 0;
+  padding: 32px 18px 26px 18px;
+  background-color: var(--primary-bg-color);
+}
+
+.title {
+  margin-bottom: 14px;
+  font-size: var(--large-font-size);
+  font-weight: var(--semi-bold-font-weight);
+  color: #000;
+  transition: 0.4s ease;
+}
+
+.card:hover .title {
+  color: var(--brand-color);
+}
+
+.locationData {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.locationIcon {
+  width: 15px;
+  height: 18px;
+  color: #bdc0c2;
+}
+
+.locationText {
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: #737373;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: var(--bold-font-weight);
+  font-size: var(--medium-font-size);
+  color: #000;
+  transition: 0.4s ease;
+}
+
+.card:hover .price {
+  color: var(--brand-color);
+}
+
+.priceUnit {
+  font-size: var(--small-font-size);
+  color: #737373;
+}
+
+.link {
+  border: 1px solid var(--default-border-color);
+  border-radius: 92px;
+  padding-inline: 10px;
+  color: var(--secondary-font-color);
+  font-weight: 500;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease;
+}
+
+.card:hover .link {
+  border: none;
+  background-color: var(--brand-color);
+  color: var(--contrast-font-color);
+}

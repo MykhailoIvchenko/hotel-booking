@@ -1,0 +1,8 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  row-gap: var(--standard-gap);
+  column-gap: calc(var(--standard-gap) * 2);
+}

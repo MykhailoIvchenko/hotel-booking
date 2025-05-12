@@ -1,0 +1,43 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  padding: var(--standard-gap);
+  background-color: var(--primary-bg-color);
+  border: 1px solid var(--default-border-color);
+  border-radius: 14px;
+  /* flex-grow: 1; */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--standard-gap) * 1.5);
+}
+
+.titleContainer {
+  padding-bottom: var(--standard-gap);
+  border-bottom: 1px solid var(--default-border-color);
+}
+
+.title {
+  font-size: var(--medium-font-size);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.priceTitle {
+  color: var(--secondary-font-color);
+  font-weight: 500px;
+  text-align: center;
+}
+
+.price {
+  color: var(--brand-color);
+  font-size: var(--extra-large-font-size);
+  font-weight: var(--bold-font-weight);
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.policyLink {
+  color: var(--brand-color);
+  text-decoration: underline;
+  text-align: center;
+}

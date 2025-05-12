@@ -1,0 +1,40 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notificationButton {
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.counterButton {
+  top: 0;
+  right: 0;
+  color: var(--contrast-font-color);
+  background-color: var(--danger-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 10px;
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.menuContainer {
+  border-radius: var(--default-border-radius);
+  background-color: var(--primary-bg-color);
+}

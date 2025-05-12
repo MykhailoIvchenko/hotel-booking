@@ -1,0 +1,21 @@
+@import '@/assets/css/variables.css';
+
+.title {
+  font-size: var(--huge-font-size);
+  color: var(--contrast-font-color);
+  font-weight: var(--bold-font-weight);
+  text-align: center;
+  line-height: 1;
+}
+
+.title.dark {
+  color: var(--primary-font-color);
+}
+
+.title.semiBold {
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.title.alignLeft {
+  text-align: left;
+}

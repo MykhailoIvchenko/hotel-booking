@@ -1,0 +1,29 @@
+@import '@/assets/css/variables.css';
+
+.container {
+  display: flex;
+  border-bottom: 1px solid var(--default-border-color);
+  width: max-content;
+}
+
+.item {
+  position: relative;
+  padding: 6px 12px;
+  color: #4e5356;
+  font-size: var(--small-font-size);
+  cursor: pointer;
+}
+
+.item.active {
+  color: var(--brand-color);
+}
+
+.item.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--brand-color);
+}
