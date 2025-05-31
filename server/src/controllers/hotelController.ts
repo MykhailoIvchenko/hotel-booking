@@ -1,6 +1,5 @@
 import { hotelService } from '../services/hotelService.js';
 import { Request, Response } from 'express';
-import { IHotel } from '../utils/types.js';
 import { ApiError } from '../exceptions/ApiError.js';
 
 export const hotelController = {

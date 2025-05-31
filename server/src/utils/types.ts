@@ -39,5 +39,5 @@ export interface IHotel {
   posterUrl: string;
   photosUrl: string[];
   facilities: HotelFacilities[];
-  description: string;
+  description: string[];
 }

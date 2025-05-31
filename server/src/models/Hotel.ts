@@ -21,7 +21,7 @@ const HotelSchema = new Schema<IHotel>(
       enum: Object.values(HotelFacilities),
       default: [],
     },
-    description: { type: String, required: true },
+    description: { type: [String], required: true },
   },
   {
     toJSON: {
