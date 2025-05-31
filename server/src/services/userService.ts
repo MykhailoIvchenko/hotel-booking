@@ -1,11 +1,7 @@
 import bcrypt from 'bcrypt';
 import { ApiError } from '../exceptions/ApiError.js';
 import { UserModel as User } from '../models/User.js';
-import {
-  IJwtUserPayload,
-  IUser,
-  IUserRegistrationData,
-} from '../utils/types.js';
+import { IJwtUserPayload, IUserRegistrationData } from '../utils/types.js';
 
 async function getAll() {
   const users = await User.find().sort({ name: 1 });
