@@ -5,7 +5,7 @@ export enum Routes {
   CheckReferral = '/check-referral',
   UpdateName = '/update-name',
   UpdateEmail = '/update-email',
-  Hotel = '/hotel/:id',
+  Hotel = '/:id',
 }
 
 export enum HotelFacilities {
