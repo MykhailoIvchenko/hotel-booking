@@ -6,6 +6,9 @@ export enum Routes {
   UpdateName = '/update-name',
   UpdateEmail = '/update-email',
   Hotel = '/:id',
+  Booking = '/:id',
+  BookingsByUser = '/user/:userId',
+  BookingsByHotel = '/hotel/:hotelId',
 }
 
 export enum HotelFacilities {
