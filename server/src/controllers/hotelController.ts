@@ -10,13 +10,15 @@ export const hotelController = {
     res.send(hotels);
   },
 
-  async getById(id: string): Promise<IHotel> {
-    const hotel = await hotelService.getById(id);
+  async getById(req: Request, res: Response): Promise<void> {
+    const hotelId = req.params.id;
+
+    const hotel = await hotelService.getById(hotelId);
 
     if (!hotel) {
       throw ApiError.NotFound();
     }
 
-    return hotel;
+    res.send(hotel);
   },
 };
