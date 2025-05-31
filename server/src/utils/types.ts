@@ -41,3 +41,15 @@ export interface IHotel {
   facilities: HotelFacilities[];
   description: string[];
 }
+
+export interface IBooking {
+  id: string;
+  userId: string;
+  hotelId: string;
+  from: string;
+  to: string;
+  adults: number;
+  children: number;
+  additionalServices: string[];
+  totalPrice: number;
+}
