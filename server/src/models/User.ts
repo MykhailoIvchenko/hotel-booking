@@ -6,7 +6,7 @@ const UserSchema = new Schema<IUser>(
     photo: { type: String },
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    phone: { type: String, required: true },
+    phone: { type: String, required: true, unique: true },
     alternatePhone: { type: String },
     password: { type: String, required: true },
     role: {
@@ -15,6 +15,7 @@ const UserSchema = new Schema<IUser>(
       enum: ['user', 'admin'],
       default: 'user',
     },
+    recoverToken: { type: String },
   },
   {
     timestamps: true,

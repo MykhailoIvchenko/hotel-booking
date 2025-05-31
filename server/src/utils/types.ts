@@ -7,10 +7,17 @@ export interface JwtUserPayload {
   fullName: string;
 }
 
-export interface IUser extends Document, JwtUserPayload {
-  id: string;
+export interface IUserRegistrationData {
   photo?: string;
   phone: string;
   alternatePhone?: string;
   password: string;
+  email: string;
+  fullName: string;
+}
+
+export interface IUser extends Document, IUserRegistrationData {
+  id: string;
+  recoverToken?: string | null;
+  role: string;
 }

@@ -1,4 +1,4 @@
-type ErrorDetails = Record<string, string[]>;
+type ErrorDetails = Record<string, string[] | string>;
 
 export class ApiError extends Error {
   status: number;
