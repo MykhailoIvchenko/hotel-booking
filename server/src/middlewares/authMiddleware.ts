@@ -7,28 +7,32 @@ export interface AuthRequest extends Request {
   user?: JwtUserPayload;
 }
 
-export function authMiddleware(
-  req: AuthRequest,
-  res: Response,
+export async function authMiddleware(
+  req: Request,
+  _: Response,
   next: NextFunction
-): void {
-  const authHeader = req.headers['authorization'];
+) {
+  try {
+    const authHeader = req.headers['authorization'];
 
-  if (!authHeader) {
-    throw ApiError.Unauthorized();
+    if (!authHeader) {
+      throw ApiError.Unauthorized();
+    }
+
+    const [, accessToken] = authHeader.split(' ');
+
+    if (!accessToken) {
+      throw ApiError.Unauthorized();
+    }
+
+    const userData = jwtService.validateAccessToken(accessToken);
+
+    if (!userData) {
+      throw ApiError.Unauthorized();
+    }
+
+    next();
+  } catch (error) {
+    next(error);
   }
-
-  const [, accessToken] = authHeader.split(' ');
-
-  if (!accessToken) {
-    throw ApiError.Unauthorized();
-  }
-
-  const userData = jwtService.validateAccessToken(accessToken);
-
-  if (!userData) {
-    throw ApiError.Unauthorized();
-  }
-
-  next();
 }
