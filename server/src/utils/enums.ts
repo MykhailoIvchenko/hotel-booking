@@ -6,3 +6,10 @@ export enum Routes {
   UpdateName = '/update-name',
   UpdateEmail = '/update-email',
 }
+
+export enum HotelFacilities {
+  AirportShuttle = 'Airport Shuttle',
+  FreeParking = 'Free Parking',
+  FreeWiFi = 'Free Wifi',
+  RoomService = 'Room Service',
+}

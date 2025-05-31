@@ -22,3 +22,21 @@ export interface IUser extends Document, IUserRegistrationData {
   recoverToken?: string | null;
   role: string;
 }
+
+export interface ILocation {
+  name: string;
+  latitude: number;
+  longitude: number;
+  description: string;
+}
+
+export interface IHotel {
+  id: string;
+  title: string;
+  location: ILocation;
+  pricePerPerson: number;
+  posterUrl: string;
+  photosUrl: string[];
+  facilities: string[];
+  description: string;
+}
