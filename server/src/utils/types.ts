@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import { HotelFacilities } from './enums.js';
 
 export interface IJwtUserPayload {
   id: string;
@@ -37,6 +38,6 @@ export interface IHotel {
   pricePerPerson: number;
   posterUrl: string;
   photosUrl: string[];
-  facilities: string[];
+  facilities: HotelFacilities[];
   description: string;
 }
