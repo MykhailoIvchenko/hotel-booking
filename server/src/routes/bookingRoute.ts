@@ -6,6 +6,12 @@ import { authMiddleware } from '../middlewares/authMiddleware.js';
 
 export const bookingRouter = express.Router();
 
+bookingRouter.post(
+  Routes.Basic,
+  catchError(authMiddleware),
+  catchError(bookingController.create)
+);
+
 bookingRouter.get(
   Routes.Basic,
   catchError(authMiddleware),

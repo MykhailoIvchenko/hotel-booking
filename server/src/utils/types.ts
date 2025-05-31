@@ -53,3 +53,5 @@ export interface IBooking {
   additionalServices: string[];
   totalPrice: number;
 }
+
+export type BookingCreateDto = Omit<IBooking, 'id'>;

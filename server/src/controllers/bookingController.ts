@@ -32,4 +32,15 @@ export const bookingController = {
 
     res.send(bookings);
   },
+
+  async create(req: Request, res: Response): Promise<void> {
+    const bookingData = req.body;
+
+    if (new Date(bookingData.to) <= new Date(bookingData.from)) {
+      throw ApiError.BadRequest('Date to should be after date from');
+    }
+
+    const newBooking = await bookingService.create(bookingData);
+    res.status(201).send(newBooking);
+  },
 };

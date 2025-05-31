@@ -1,5 +1,6 @@
 import { Types } from 'mongoose';
 import { BookingModel } from '../models/Booking.js';
+import { BookingCreateDto } from '../utils/types.js';
 
 async function getAll() {
   return BookingModel.find()
@@ -23,9 +24,15 @@ async function getByHotelId(hotelId: string) {
   return BookingModel.find({ hotelId }).sort({ from: -1 }).populate('userId');
 }
 
+async function create(data: BookingCreateDto) {
+  const booking = new BookingModel(data);
+  return booking.save();
+}
+
 export const bookingService = {
   getAll,
   getById,
   getByUserId,
   getByHotelId,
+  create,
 };
