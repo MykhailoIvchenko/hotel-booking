@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../exceptions/ApiError.js';
 import { jwtService } from '../services/jwtService.js';
-import { JwtUserPayload } from '../utils/types.js';
+import { IJwtUserPayload } from '../utils/types.js';
 
 export interface AuthRequest extends Request {
-  user?: JwtUserPayload;
+  user?: IJwtUserPayload;
 }
 
 export async function authMiddleware(

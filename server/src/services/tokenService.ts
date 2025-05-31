@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 import { TokenModel } from '../models/Token.js';
 
 async function save(
-  userId: Types.ObjectId,
+  userId: string,
   refreshToken: string,
   expiresAt: Date
 ): Promise<void> {
@@ -22,7 +22,7 @@ async function getByToken(refreshToken: string) {
   return TokenModel.findOne({ refreshToken });
 }
 
-async function remove(userId: Types.ObjectId) {
+async function remove(userId: string) {
   return TokenModel.deleteOne({ user: userId });
 }
 

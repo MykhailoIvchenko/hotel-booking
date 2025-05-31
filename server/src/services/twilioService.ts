@@ -12,7 +12,7 @@ const generateCode = (): string => {
 
 const sendVerificationCode = async (phone: string): Promise<void> => {
   const code = generateCode();
-  const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 хв
+  const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
   await client.messages.create({
     from: process.env.TWILIO_WHATSAPP_NUMBER as string,
@@ -27,6 +27,14 @@ const sendVerificationCode = async (phone: string): Promise<void> => {
   );
 };
 
+const sendMessage = async (phone: string, message: string): Promise<void> => {
+  await client.messages.create({
+    from: process.env.TWILIO_WHATSAPP_NUMBER as string,
+    to: `whatsapp:${phone}`,
+    body: message,
+  });
+};
+
 const verifyCode = async (phone: string, code: string): Promise<boolean> => {
   const record = await PhoneVerification.findOne({ phone });
 
@@ -38,4 +46,4 @@ const verifyCode = async (phone: string, code: string): Promise<boolean> => {
   return false;
 };
 
-export const twilioService = { sendVerificationCode, verifyCode };
+export const twilioService = { sendVerificationCode, verifyCode, sendMessage };

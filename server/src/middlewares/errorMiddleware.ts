@@ -1,11 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { ApiError } from '../exceptions/ApiError.js';
 
 export function errorMiddleware(
   error: unknown,
-  req: Request,
-  res: Response,
-  next: NextFunction
+  _: Request,
+  res: Response
 ): void {
   if (error instanceof ApiError) {
     const { status, message, errors } = error;

@@ -1,10 +1,11 @@
 import { Document } from 'mongoose';
 
-export interface JwtUserPayload {
+export interface IJwtUserPayload {
   id: string;
   email: string;
   role: string;
   fullName: string;
+  phone: string;
 }
 
 export interface IUserRegistrationData {
