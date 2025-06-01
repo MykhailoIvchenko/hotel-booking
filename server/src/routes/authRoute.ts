@@ -10,6 +10,12 @@ authRouter.post(Routes.Registration, catchError(authController.register));
 
 authRouter.get(Routes.Recover, catchError(authController.recover));
 
+authRouter.get(
+  Routes.Me,
+  catchError(authMiddleware),
+  catchError(authController.getMe)
+);
+
 authRouter.post(
   Routes.CheckRecoverToken,
   catchError(authController.checkRecoverToken)

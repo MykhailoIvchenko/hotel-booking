@@ -8,7 +8,7 @@ export interface AuthRequest extends Request {
 }
 
 export async function authMiddleware(
-  req: Request,
+  req: AuthRequest,
   _: Response,
   next: NextFunction
 ) {
@@ -31,6 +31,7 @@ export async function authMiddleware(
       throw ApiError.Unauthorized();
     }
 
+    req.user = userData;
     next();
   } catch (error) {
     next(error);

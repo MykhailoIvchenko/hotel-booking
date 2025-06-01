@@ -11,6 +11,7 @@ import {
 import { Request, Response } from 'express';
 import { twilioService } from '../services/twilioService.js';
 import { IUser } from '../utils/types.js';
+import { AuthRequest } from '../middlewares/authMiddleware.js';
 
 function validateEmail(value: string) {
   if (!value) {
@@ -246,6 +247,22 @@ async function reauth(req: Request, res: Response) {
   }
 }
 
+async function getMe(req: AuthRequest, res: Response) {
+  if (!req.user) {
+    throw ApiError.Unauthorized();
+  }
+
+  const user = await userService.getByPhone(req.user.phone);
+
+  if (!user) {
+    throw ApiError.Unauthorized();
+  }
+
+  res.send({
+    user: userService.normalize(user),
+  });
+}
+
 export const authController = {
   register,
   login,
@@ -256,4 +273,5 @@ export const authController = {
   reset,
   checkPassword,
   reauth,
+  getMe,
 };

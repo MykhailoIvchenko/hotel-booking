@@ -8,6 +8,7 @@ export enum Routes {
   Hotel = '/:id',
   Login = '/login',
   Logout = '/logout',
+  Me = '/me',
   Reauth = '/reauth',
   Recover = '/recover/:phone',
   Refresh = 'refresh',
@@ -25,6 +26,7 @@ export enum BaseRoutes {
   Users = 'users',
   Hotels = 'hotels',
   Bookings = 'bookings',
+  Notifications = '/notifications',
 }
 
 export enum HotelFacilities {
