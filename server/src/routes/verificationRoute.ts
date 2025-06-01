@@ -9,6 +9,7 @@ verificationRouter.post(
   Routes.SendCode,
   catchError(verificationController.sendCode)
 );
+
 verificationRouter.post(
   Routes.VerifyCode,
   catchError(verificationController.verifyCode)

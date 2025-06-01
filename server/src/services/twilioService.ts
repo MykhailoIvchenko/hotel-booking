@@ -1,4 +1,5 @@
-import { Twilio } from 'twilio';
+import twilio from 'twilio';
+const { Twilio } = twilio;
 import PhoneVerification from '../models/PhoneVerification.js';
 
 const client = new Twilio(

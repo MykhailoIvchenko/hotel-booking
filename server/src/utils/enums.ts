@@ -24,9 +24,9 @@ export enum Routes {
 export enum BaseRoutes {
   Auth = 'auth',
   Users = 'users',
-  Hotels = 'hotels',
+  Hotels = '/hotels',
   Bookings = 'bookings',
-  Notifications = '/notifications',
+  Notifications = 'notifications',
 }
 
 export enum HotelFacilities {
