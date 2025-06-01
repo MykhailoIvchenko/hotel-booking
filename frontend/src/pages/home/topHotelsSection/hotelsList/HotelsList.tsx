@@ -12,67 +12,77 @@ import 'swiper/css';
 import HotelCard from './HotelCard';
 import { IHotel } from '@/utils/types';
 import styles from './hotelsList.module.css';
+import { useGetHotelsQuery } from '@/rtkQApi/hotels';
+import Splash from '@/pages/splash/Splash';
 
-const hotels: IHotel[] = [
-  {
-    id: 1,
-    thumbUrl: hotelImg1,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 2,
-    thumbUrl: hotelImg2,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 3,
-    thumbUrl: hotelImg3,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 4,
-    thumbUrl: hotelImg4,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 5,
-    thumbUrl: hotelImg5,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 6,
-    thumbUrl: hotelImg6,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 7,
-    thumbUrl: hotelImg7,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-  {
-    id: 8,
-    thumbUrl: hotelImg8,
-    title: 'California Sunset/Twilight Boat Cruise',
-    location: 'Manchester',
-    price: 48.25,
-  },
-];
+// const hotels: IHotel[] = [
+//   {
+//     id: 1,
+//     thumbUrl: hotelImg1,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 2,
+//     thumbUrl: hotelImg2,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 3,
+//     thumbUrl: hotelImg3,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 4,
+//     thumbUrl: hotelImg4,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 5,
+//     thumbUrl: hotelImg5,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 6,
+//     thumbUrl: hotelImg6,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 7,
+//     thumbUrl: hotelImg7,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+//   {
+//     id: 8,
+//     thumbUrl: hotelImg8,
+//     title: 'California Sunset/Twilight Boat Cruise',
+//     location: 'Manchester',
+//     price: 48.25,
+//   },
+// ];
 
 const HotelsList: React.FC = () => {
+  const { data, isLoading } = useGetHotelsQuery();
+
+  const hotels = data?.data || [];
+
+  if (isLoading) {
+    return <Splash />;
+  }
+
   return (
     <div className={styles.container}>
       <Swiper
