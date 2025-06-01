@@ -4,6 +4,7 @@ import appReducer from './slices/appSlice';
 import { baseApi } from '@/rtkQApi/baseApi';
 import { authApi } from '@/rtkQApi/auth';
 import { hotelsApi } from '@/rtkQApi/hotels';
+import { bookingsApi } from '@/rtkQApi/bookings';
 
 export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
@@ -12,6 +13,7 @@ export const store = configureStore({
       baseApi.middleware,
       authApi.middleware,
       hotelsApi.middleware,
+      bookingsApi.middleware,
     ]),
   reducer: combineReducers({
     app: appReducer,

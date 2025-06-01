@@ -58,6 +58,17 @@ export interface IHotel {
 //   location: string;
 //   price: number;
 // }
+export interface IBooking {
+  id: string;
+  userId: string;
+  hotelId: string;
+  from: string;
+  to: string;
+  adults: number;
+  children: number;
+  additionalServices: string[];
+  totalPrice: number;
+}
 
 export interface INotification {
   id: number;
