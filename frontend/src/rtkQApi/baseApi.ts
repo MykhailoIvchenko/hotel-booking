@@ -5,9 +5,11 @@ import { BasicEndpoints } from '@/utils/enums';
 
 const publicEndpoints = [BasicEndpoints.Hotels] as string[];
 
+const BASE_URL = import.meta.env.VITE_BASE_API_URL;
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.BASE_URL,
-  credentials: 'include',
+  baseUrl: BASE_URL,
+  // credentials: 'include',
   prepareHeaders: (headers, { endpoint }) => {
     if (publicEndpoints.includes(endpoint)) {
       return headers;

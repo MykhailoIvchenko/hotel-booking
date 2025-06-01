@@ -77,7 +77,7 @@ import Splash from '@/pages/splash/Splash';
 const HotelsList: React.FC = () => {
   const { data, isLoading } = useGetHotelsQuery();
 
-  const hotels = data?.data || [];
+  const hotels = data || [];
 
   if (isLoading) {
     return <Splash />;
