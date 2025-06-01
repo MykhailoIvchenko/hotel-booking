@@ -36,6 +36,7 @@ export enum Endpoints {
   CheckReferral = '/check-referral',
   Login = '/login',
   Logout = '/logout',
+  Me = '/me',
   Reauth = '/reauth',
   Recover = '/recover/:phone',
   Refresh = 'refresh',
@@ -54,4 +55,13 @@ export enum BasicEndpoints {
   Hotels = '/hotels',
   Notifications = '/notifications',
   Users = '/users',
+}
+
+export enum ApiMethods {
+  GET = 'GET',
+  DELETE = 'DELETE',
+  OPTIONS = 'OPTIONS',
+  PATCH = 'PATCH',
+  POST = 'POST',
+  PUT = 'PUT',
 }
