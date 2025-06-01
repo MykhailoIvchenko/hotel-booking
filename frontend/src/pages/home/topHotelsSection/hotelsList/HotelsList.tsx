@@ -117,10 +117,10 @@ const HotelsList: React.FC = () => {
           <SwiperSlide key={hotel.id}>
             <HotelCard
               id={hotel.id}
-              thumbUrl={hotel.thumbUrl}
+              thumbUrl={hotel.posterUrl}
               title={hotel.title}
-              location={hotel.location}
-              price={hotel.price}
+              location={hotel.location?.name || ''}
+              price={hotel.pricePerPerson}
             />
           </SwiperSlide>
         ))}

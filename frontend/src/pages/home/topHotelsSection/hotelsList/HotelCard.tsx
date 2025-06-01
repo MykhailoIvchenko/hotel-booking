@@ -4,7 +4,7 @@ import { routerConfig } from '@/routes/config';
 import { Link } from 'react-router';
 
 interface IHotelCardProps {
-  id: number;
+  id: string;
   thumbUrl: string;
   title: string;
   location: string;
