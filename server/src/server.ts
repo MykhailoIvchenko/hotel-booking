@@ -10,8 +10,10 @@ const PORT = process.env.PORT || 5000;
 
 connectDB();
 
+//TODO: Add more strict cors for prod
 app.use(cors());
 app.use(express.json());
+app.use(authRouter);
 
 app.get('/', (_req, res) => {
   res.send('API is running...');

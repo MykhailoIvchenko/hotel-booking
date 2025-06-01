@@ -1,14 +1,30 @@
 export enum Routes {
   Basic = '/',
-  SendCode = '/send-code',
-  VerifyCode = '/verify-code',
-  CheckReferral = '/check-referral',
-  UpdateName = '/update-name',
-  UpdateEmail = '/update-email',
-  Hotel = '/:id',
   Booking = '/:id',
-  BookingsByUser = '/user/:userId',
   BookingsByHotel = '/hotel/:hotelId',
+  BookingsByUser = '/user/:userId',
+  CheckRecoverToken = '/checkRecoverToken',
+  CheckReferral = '/check-referral',
+  Hotel = '/:id',
+  Login = '/login',
+  Logout = '/logout',
+  Reauth = '/reauth',
+  Recover = '/recover/:phone',
+  Refresh = 'refresh',
+  Registration = '/registration',
+  Reset = '/reset',
+  ResetAuth = '/resetAuth',
+  SendCode = '/send-code',
+  UpdateEmail = '/update-email',
+  UpdateName = '/update-name',
+  VerifyCode = '/verify-code',
+}
+
+export enum BaseRoutes {
+  Auth = 'auth',
+  Users = 'users',
+  Hotels = 'hotels',
+  Bookings = 'bookings',
 }
 
 export enum HotelFacilities {
