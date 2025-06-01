@@ -7,6 +7,7 @@ export enum SignUpSteps {
 export enum LocalStorageKeys {
   SignUpNumber = 'signUpNumber',
   UserId = 'userId',
+  AccessToken = 'accessToken',
 }
 
 export enum NotificationTabs {
@@ -25,4 +26,31 @@ export enum NotificationTypes {
 
 export enum DbTables {
   Users = 'users',
+}
+
+export enum Endpoints {
+  Basic = '/',
+  BookingsByHotel = '/hotel/',
+  BookingsByUser = '/user/',
+  CheckRecoverToken = '/checkRecoverToken',
+  CheckReferral = '/check-referral',
+  Login = '/login',
+  Logout = '/logout',
+  Reauth = '/reauth',
+  Recover = '/recover/:phone',
+  Refresh = 'refresh',
+  Registration = '/registration',
+  Reset = '/reset',
+  ResetAuth = '/resetAuth',
+  SendCode = '/send-code',
+  UpdateEmail = '/update-email',
+  UpdateName = '/update-name',
+  VerifyCode = '/verify-code',
+}
+
+export enum BasicEndpoints {
+  Auth = '/auth',
+  Users = '/users',
+  Hotels = '/hotels',
+  Bookings = '/bookings',
 }
