@@ -50,7 +50,8 @@ export enum Endpoints {
 
 export enum BasicEndpoints {
   Auth = '/auth',
-  Users = '/users',
-  Hotels = '/hotels',
   Bookings = '/bookings',
+  Hotels = '/hotels',
+  Notifications = '/notifications',
+  Users = '/users',
 }
