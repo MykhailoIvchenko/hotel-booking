@@ -12,7 +12,7 @@ const withAuthBase = (endpoint: string) => `${BasicEndpoints.Auth}${endpoint}`;
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    loginViaEmail: builder.query<IResponseType<IAuthResponse>, ILoginRequest>({
+    loginViaPhone: builder.query<IResponseType<IAuthResponse>, ILoginRequest>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Login),
         method: ApiMethods.POST,
@@ -40,9 +40,8 @@ export const authApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useLazyLoginViaEmailQuery,
+  useLazyLoginViaPhoneQuery,
   useLazyLogoutQuery,
   useGetMeQuery,
-  useLazyGetMeQuery,
   useRegisterMutation,
 } = authApi;

@@ -3,11 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import appReducer from './slices/appSlice';
 import { baseApi } from '@/rtkQApi/baseApi';
 import { authApi } from '@/rtkQApi/auth';
+import { hotelsApi } from '@/rtkQApi/hotels';
 
 export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([baseApi.middleware, authApi.middleware]),
+    getDefaultMiddleware().concat([
+      baseApi.middleware,
+      authApi.middleware,
+      hotelsApi.middleware,
+    ]),
   reducer: combineReducers({
     app: appReducer,
     [baseApi.reducerPath]: baseApi.reducer,

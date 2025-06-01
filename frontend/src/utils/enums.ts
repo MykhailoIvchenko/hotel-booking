@@ -65,3 +65,10 @@ export enum ApiMethods {
   POST = 'POST',
   PUT = 'PUT',
 }
+
+export enum HotelFacilities {
+  AirportShuttle = 'Airport Shuttle',
+  FreeParking = 'Free Parking',
+  FreeWiFi = 'Free Wifi',
+  RoomService = 'Room Service',
+}

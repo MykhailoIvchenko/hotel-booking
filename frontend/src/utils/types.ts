@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotificationTypes } from './enums';
+import { HotelFacilities, NotificationTypes } from './enums';
 
 export type ReactChildren = React.ReactNode | React.ReactNode[];
 
@@ -33,13 +33,31 @@ export interface IMenuItem {
   icon: React.ReactNode;
 }
 
-export interface IHotel {
-  id: number;
-  thumbUrl: string;
-  title: string;
-  location: string;
-  price: number;
+export interface ILocation {
+  name: string;
+  latitude: number;
+  longitude: number;
+  description: string;
 }
+
+export interface IHotel {
+  id: string;
+  title: string;
+  location: ILocation;
+  pricePerPerson: number;
+  posterUrl: string;
+  photosUrl: string[];
+  facilities: HotelFacilities[];
+  description: string[];
+}
+
+// export interface IHotel {
+//   id: number;
+//   thumbUrl: string;
+//   title: string;
+//   location: string;
+//   price: number;
+// }
 
 export interface INotification {
   id: number;
