@@ -12,6 +12,23 @@ const withAuthBase = (endpoint: string) => `${BasicEndpoints.Auth}${endpoint}`;
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    sendVerificationCode: builder.query<void, { phone: string }>({
+      query: (body) => ({
+        url: withAuthBase(Endpoints.SendCode),
+        method: ApiMethods.POST,
+        body,
+      }),
+    }),
+    verifyCode: builder.query<
+      { verified: boolean },
+      { phone: string; code: string }
+    >({
+      query: (body) => ({
+        url: withAuthBase(Endpoints.VerifyCode),
+        method: ApiMethods.POST,
+        body,
+      }),
+    }),
     loginViaPhone: builder.query<IAuthResponse, ILoginRequest>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Login),
@@ -45,4 +62,6 @@ export const {
   useGetMeQuery,
   useLazyGetMeQuery,
   useRegisterMutation,
+  useLazySendVerificationCodeQuery,
+  useLazyVerifyCodeQuery,
 } = authApi;
