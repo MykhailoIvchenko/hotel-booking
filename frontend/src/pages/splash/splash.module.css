@@ -1,4 +1,7 @@
 .container {
+  top: 0;
+  left: 0;
+  position: fixed;
   padding-top: 92px;
   padding-bottom: 92px;
   display: flex;
@@ -6,6 +9,8 @@
   justify-content: space-between;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   background: url('/src/assets/img/splash.webp') no-repeat center center fixed;
   background-size: cover;
+  z-index: 999;
 }

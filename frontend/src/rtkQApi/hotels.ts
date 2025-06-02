@@ -1,4 +1,4 @@
-import { IHotel, IResponseType } from '@/utils/types';
+import { IHotel } from '@/utils/types';
 import { baseApi } from './baseApi';
 import { ApiMethods, BasicEndpoints, Endpoints } from '@/utils/enums';
 
