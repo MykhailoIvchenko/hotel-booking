@@ -1,4 +1,5 @@
 export enum SignUpSteps {
+  Referral = 'referral',
   WhatsAppNumber = 'whatsAppNumber',
   OtpVerification = 'otpVerification',
   CreateAccount = 'createAccount',

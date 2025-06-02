@@ -29,6 +29,13 @@ export const authApi = baseApi.injectEndpoints({
         body,
       }),
     }),
+    checkReferralCode: builder.query<{ valid: boolean }, { code: string }>({
+      query: (body) => ({
+        url: withAuthBase(Endpoints.CheckReferral),
+        method: ApiMethods.POST,
+        body,
+      }),
+    }),
     loginViaPhone: builder.query<IAuthResponse, ILoginRequest>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Login),
@@ -64,4 +71,5 @@ export const {
   useRegisterMutation,
   useLazySendVerificationCodeQuery,
   useLazyVerifyCodeQuery,
+  useLazyCheckReferralCodeQuery,
 } = authApi;

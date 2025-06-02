@@ -1,16 +1,26 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import DigitInput from '@/components/digitInput/DigitInput';
 import styles from './referralForm.module.css';
-import { useCheckRefferalCode } from '@/hooks/useCheckReferralCode';
 import Button from '@/components/button/Button';
 import Loader from '@/components/loader/Loader';
+import { SignUpSteps } from '@/utils/enums';
+import { useLazyCheckReferralCodeQuery } from '@/rtkQApi/auth';
+import { toast } from 'react-toastify';
+import CustomToast from '@/components/customToast/CustomToast';
 
 const initialDigits = ['', '', '', '', '', ''];
 
-const ReferralForm: React.FC = () => {
+interface IReferralFormProps {
+  setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
+}
+
+const ReferralForm: React.FC<IReferralFormProps> = ({ setStep }) => {
   const [digits, setDigits] = useState<string[]>(initialDigits);
 
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const [handleCheckCode, { isLoading, isError }] =
+    useLazyCheckReferralCodeQuery();
 
   const handleInputChange = (index: number, value: string) => {
     const updatedDigits = digits.map((digit, i) =>
@@ -24,12 +34,40 @@ const ReferralForm: React.FC = () => {
     }
   };
 
-  const { isError, isLoading, handleCheckCode } = useCheckRefferalCode();
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    handleCheckCode(digits);
+    try {
+      const result = await handleCheckCode({ code: digits.join('') }).unwrap();
+
+      if (result.valid) {
+        toast.success(
+          <CustomToast
+            title='Referral code applied successfully!'
+            message='Enjoy your exclusive benefits.'
+            type={'success'}
+          />
+        );
+
+        setStep(SignUpSteps.WhatsAppNumber);
+      } else {
+        toast.error(
+          <CustomToast
+            title='Invalid referral code.'
+            message='Please try again.'
+            type={'error'}
+          />
+        );
+      }
+    } catch {
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Something went wrong during the code verification'
+          type='error'
+        />
+      );
+    }
   };
 
   return (

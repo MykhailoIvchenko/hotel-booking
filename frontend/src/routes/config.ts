@@ -19,10 +19,10 @@ export const routerConfig = {
     path: '/sign-up',
     name: 'Sign Up',
   },
-  referralSignUp: {
-    path: '/referral-sign-up',
-    name: 'Referral Sign Up',
-  },
+  // referralSignUp: {
+  //   path: '/referral-sign-up',
+  //   name: 'Referral Sign Up',
+  // },
   forgotPassword: {
     path: '/forgot-password',
     name: 'Forgot Password',

@@ -25,9 +25,9 @@ const SignUpIntro: React.FC<ISignUpIntroProps> = ({ setStep }) => {
 
       <SignUpForm setStep={setStep} />
 
-      <Link to={routerConfig.referralSignUp.path} className={styles.link}>
+      {/* <Link to={routerConfig.referralSignUp.path} className={styles.link}>
         I have a referral code
-      </Link>
+      </Link> */}
     </section>
   );
 };

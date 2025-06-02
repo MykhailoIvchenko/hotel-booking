@@ -1,7 +1,12 @@
+import { SignUpSteps } from '@/utils/enums';
 import ReferralForm from './referralForm/ReferralForm';
 import styles from './refferal.module.css';
 
-const Referral: React.FC = () => {
+interface IReferralProps {
+  setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
+}
+
+const Referral: React.FC<IReferralProps> = ({ setStep }) => {
   return (
     <section className={styles.container}>
       {/*TODO: Implement separate components*/}
@@ -14,7 +19,7 @@ const Referral: React.FC = () => {
         </p>
       </div>
 
-      <ReferralForm />
+      <ReferralForm setStep={setStep} />
     </section>
   );
 };
