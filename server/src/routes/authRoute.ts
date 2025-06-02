@@ -3,8 +3,19 @@ import { authController } from '../controllers/authController.js';
 import { authMiddleware } from '../middlewares/authMiddleware.js';
 import { catchError } from '../middlewares/catchError.js';
 import { Routes } from '../utils/enums.js';
+import { verificationController } from '../controllers/verificationController.js';
+import { referralController } from '../controllers/referralController.js';
 
 export const authRouter = express.Router();
+
+authRouter.post(Routes.SendCode, catchError(verificationController.sendCode));
+
+authRouter.post(
+  Routes.VerifyCode,
+  catchError(verificationController.verifyCode)
+);
+
+authRouter.post(Routes.CheckReferral, catchError(referralController.check));
 
 authRouter.post(Routes.Registration, catchError(authController.register));
 
