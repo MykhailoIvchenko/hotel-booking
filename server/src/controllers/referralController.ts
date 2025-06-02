@@ -3,7 +3,10 @@ import { referralService } from '../services/referralService.js';
 
 export const referralController = {
   check: async (req: Request, res: Response) => {
+    console.log("CHECK CODE");
     const { code } = req.body;
+
+    console.log("CODE IS ", code);
 
     if (!code) {
       return res.status(400).json({ error: 'Referral code is required' });

@@ -22,11 +22,11 @@ export enum Routes {
 }
 
 export enum BaseRoutes {
-  Auth = 'auth',
-  Users = 'users',
+  Auth = '/auth',
+  Users = '/users',
   Hotels = '/hotels',
-  Bookings = 'bookings',
-  Notifications = 'notifications',
+  Bookings = '/bookings',
+  Notifications = '/notifications',
 }
 
 export enum HotelFacilities {
