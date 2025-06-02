@@ -7,14 +7,14 @@ const withHotelsBase = (endpoint: string) =>
 
 export const hotelsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getHotels: builder.query<IResponseType<IHotel[]>, void>({
+    getHotels: builder.query<IHotel[], void>({
       query: () => ({
         url: withHotelsBase(Endpoints.Basic),
         method: ApiMethods.GET,
       }),
       providesTags: [BasicEndpoints.Hotels],
     }),
-    getHotelById: builder.query<IResponseType<IHotel[]>, string>({
+    getHotelById: builder.query<IHotel, string>({
       query: (id) => ({
         url: withHotelsBase(Endpoints.Basic),
         method: ApiMethods.GET,

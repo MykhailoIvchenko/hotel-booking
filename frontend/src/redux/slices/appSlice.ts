@@ -1,3 +1,4 @@
+import { authApi } from '@/rtkQApi/auth';
 import { IUser } from '@/utils/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
@@ -21,6 +22,17 @@ export const appSlice = createSlice({
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(authApi.endpoints.getMe.matchRejected, (state) => {
+      state.user = null;
+    });
+    builder.addMatcher(
+      authApi.endpoints.getMe.matchFulfilled,
+      (state, { payload }) => {
+        state.user = payload;
+      }
+    );
   },
 });
 

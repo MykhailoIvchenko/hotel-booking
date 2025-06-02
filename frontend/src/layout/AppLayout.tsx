@@ -11,25 +11,26 @@ import Splash from '@/pages/splash/Splash';
 import { useCheckAuth } from '@/hooks/useCheckAuth';
 
 const AppLayout = () => {
-  const isLoading = useSelectIsLoading();
+  // const isLoading = useSelectIsLoading();
   const setIsLoading = useIsLoadingDispatch();
 
   useCheckAuth();
 
-  const mockLoading = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  };
+  // const mockLoading = () => {
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+  // };
 
-  useEffect(() => {
-    mockLoading();
-  }, []);
+  // useEffect(() => {
+  //   mockLoading();
+  // }, []);
 
   return (
     <ErrorBoundary fallbackRender={(props) => <FallBackRender {...props} />}>
-      {isLoading ? <Splash /> : <Outlet />}
+      {/* {isLoading ? <Splash /> : <Outlet />} */}
+      <Outlet />
       <ScrollToTop />
       <ToastProvider />
     </ErrorBoundary>

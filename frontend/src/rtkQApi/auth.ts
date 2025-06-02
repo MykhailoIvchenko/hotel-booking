@@ -2,7 +2,7 @@ import {
   IAuthResponse,
   ILoginRequest,
   IResgistrationData,
-  IResponseType,
+  // IResponseType,
   IUser,
 } from '@/utils/types';
 import { baseApi } from './baseApi';
@@ -12,14 +12,14 @@ const withAuthBase = (endpoint: string) => `${BasicEndpoints.Auth}${endpoint}`;
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    loginViaPhone: builder.query<IResponseType<IAuthResponse>, ILoginRequest>({
+    loginViaPhone: builder.query<IAuthResponse, ILoginRequest>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Login),
         method: ApiMethods.POST,
         body,
       }),
     }),
-    register: builder.mutation<IResponseType<IUser>, IResgistrationData>({
+    register: builder.mutation<IUser, IResgistrationData>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Registration),
         method: ApiMethods.POST,
@@ -32,7 +32,7 @@ export const authApi = baseApi.injectEndpoints({
         method: ApiMethods.POST,
       }),
     }),
-    getMe: builder.query<IResponseType<IUser>, void>({
+    getMe: builder.query<IUser, void>({
       query: () => withAuthBase(Endpoints.Me),
       providesTags: ['me'],
     }),
