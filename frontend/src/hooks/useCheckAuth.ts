@@ -1,25 +1,25 @@
-import useUserDispatch from '@/redux/hooks/dispatchHooks/useUserDispatch';
+import { useLazyGetMeQuery } from '@/rtkQApi/auth';
 import { localStorageService } from '@/services/localStorageService';
-import { usersService } from '@/services/usersService';
 import { LocalStorageKeys } from '@/utils/enums';
 import { useEffect } from 'react';
 
 export const useCheckAuth = () => {
-  const setUser = useUserDispatch();
+  const [getUser] = useLazyGetMeQuery();
 
   const checkAuthAndGetUser = async () => {
-    const userId = localStorageService.get(LocalStorageKeys.UserId);
+    const token = localStorageService.get(LocalStorageKeys.AccessToken);
 
-    if (userId) {
+    if (token) {
       try {
-        const userFromDb = await usersService.getUserById(userId);
+        const user = await getUser();
 
-        setUser(userFromDb);
+        console.log(user);
       } catch (error) {
         console.log(error);
       }
     }
   };
+
   useEffect(() => {
     checkAuthAndGetUser();
   }, []);

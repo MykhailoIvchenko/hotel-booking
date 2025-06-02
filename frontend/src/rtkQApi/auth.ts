@@ -43,5 +43,6 @@ export const {
   useLazyLoginViaPhoneQuery,
   useLazyLogoutQuery,
   useGetMeQuery,
+  useLazyGetMeQuery,
   useRegisterMutation,
 } = authApi;
