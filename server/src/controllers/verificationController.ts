@@ -11,9 +11,9 @@ export const verificationController = {
 
     try {
       await twilioService.sendVerificationCode(phone);
+
       res.json({ message: 'The code was sent via WhatsApp' });
     } catch (err) {
-      console.error(err);
       res.status(500).json({ error: 'Message sending error' });
     }
   },
@@ -27,12 +27,9 @@ export const verificationController = {
       if (isValid) {
         res.json({ verified: true });
       } else {
-        res
-          .status(400)
-          .json({ verified: false, message: 'Wrong or expired code' });
+        res.json({ verified: false, message: 'Wrong or expired code' });
       }
     } catch (err) {
-      console.error(err);
       res.status(500).json({ error: 'Code verification error' });
     }
   },

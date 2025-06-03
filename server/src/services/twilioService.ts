@@ -1,6 +1,9 @@
 import twilio from 'twilio';
 const { Twilio } = twilio;
 import PhoneVerification from '../models/PhoneVerification.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const client = new Twilio(
   process.env.TWILIO_ACCOUNT_SID as string,
@@ -8,14 +11,14 @@ const client = new Twilio(
 );
 
 const generateCode = (): string => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  return Math.floor(1000 + Math.random() * 9000).toString();
 };
 
 const sendVerificationCode = async (phone: string): Promise<void> => {
   const code = generateCode();
   const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
 
-  await client.messages.create({
+  const result = await client.messages.create({
     from: process.env.TWILIO_WHATSAPP_NUMBER as string,
     to: `whatsapp:${phone}`,
     body: `Your confirmation code is: ${code}`,

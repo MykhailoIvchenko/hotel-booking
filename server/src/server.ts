@@ -8,9 +8,9 @@ import { userRouter } from './routes/userRouter.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import { hotelRouter } from './routes/hotelRoute.js';
 
-const allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
-
 dotenv.config();
+
+const allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
 
 const app = express();
 const PORT = process.env.PORT || 5000;
