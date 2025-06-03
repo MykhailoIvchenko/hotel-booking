@@ -5,3 +5,10 @@
   flex-direction: column;
   gap: calc(var(--standard-gap) * 1.5);
 }
+
+.loaderText {
+  font-size: 16px;
+  color: var(--pale-font-color);
+  text-align: center;
+  margin-top: 8px;
+}

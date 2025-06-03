@@ -1,7 +1,5 @@
 import { SignUpSteps } from '@/utils/enums';
 import SignUpForm from '../signUpForm/SignUpForm';
-import { Link } from 'react-router';
-import { routerConfig } from '@/routes/config';
 import styles from './signUpIntro.module.css';
 
 interface ISignUpIntroProps {
@@ -24,10 +22,6 @@ const SignUpIntro: React.FC<ISignUpIntroProps> = ({ setStep }) => {
       </div>
 
       <SignUpForm setStep={setStep} />
-
-      {/* <Link to={routerConfig.referralSignUp.path} className={styles.link}>
-        I have a referral code
-      </Link> */}
     </section>
   );
 };

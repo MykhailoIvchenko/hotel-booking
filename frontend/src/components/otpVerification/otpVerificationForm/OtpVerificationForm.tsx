@@ -1,10 +1,13 @@
 import DigitInput from '@/components/digitInput/DigitInput';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import { SignUpSteps } from '@/utils/enums';
-import { useOtpVerification } from '@/hooks/useOtpVerification';
+import { LocalStorageKeys, SignUpSteps } from '@/utils/enums';
 import Loader from '@/components/loader/Loader';
 import Button from '@/components/button/Button';
 import styles from './otpVerificationForm.module.css';
+import { useLazyVerifyCodeQuery } from '@/rtkQApi/auth';
+import { localStorageService } from '@/services/localStorageService';
+import CustomToast from '@/components/customToast/CustomToast';
+import { toast } from 'react-toastify';
 
 const initialDigits = ['', '', '', ''];
 
@@ -21,14 +24,9 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
 
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const successHandler = () => {
-    setStep(SignUpSteps.CreateAccount);
-  };
+  const [verifyCode, { isLoading, isError }] = useLazyVerifyCodeQuery();
 
-  const { isError, isLoading, handleCheckCode } =
-    useOtpVerification(successHandler);
-
-  //TODO: Create a custom hook for digits inputs set hanling to avoid code duplication
+  //TODO: Create a custom hook for digits inputs set handling to avoid code duplication
   const handleInputChange = (index: number, value: string) => {
     const updatedDigits = digits.map((digit, i) =>
       i === index ? value : digit
@@ -41,15 +39,53 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
     }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    handleCheckCode(digits);
+    const phone = localStorageService.get(LocalStorageKeys.SignUpNumber);
+
+    const digitsString = digits.join('');
+
+    try {
+      if (phone) {
+        const checkResult = await verifyCode({
+          phone,
+          code: digitsString,
+        }).unwrap();
+
+        if (checkResult.verified) {
+          setStep(SignUpSteps.CreateAccount);
+        } else {
+          toast.error(
+            <CustomToast
+              title='Invalid verification code.'
+              message='Please try again.'
+              type={'error'}
+            />
+          );
+        }
+      } else {
+        toast.error(
+          <CustomToast
+            title='Phone was not found'
+            message='Please try again.'
+            type={'error'}
+          />
+        );
+      }
+    } catch {
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Something went wrong'
+          type={'error'}
+        />
+      );
+    }
   };
 
+  //TODO: Implement the resend logic on backend
   useEffect(() => {
-    console.log('CAN BE SENT ', canBeSent);
-
     const interval = setInterval(() => {
       setResendCount((prev) => {
         if (prev <= 1) {
