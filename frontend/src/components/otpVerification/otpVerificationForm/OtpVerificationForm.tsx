@@ -1,10 +1,12 @@
 import DigitInput from '@/components/digitInput/DigitInput';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import { SignUpSteps } from '@/utils/enums';
+import { LocalStorageKeys, SignUpSteps } from '@/utils/enums';
 import Loader from '@/components/loader/Loader';
 import Button from '@/components/button/Button';
 import styles from './otpVerificationForm.module.css';
 import { useOtpVerification } from '@/hooks/useOtpVerification';
+import { useSendVerificationCode } from '@/hooks/useSendVerificationCode';
+import { localStorageService } from '@/services/localStorageService';
 
 const initialDigits = ['', '', '', ''];
 
@@ -41,6 +43,8 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
   const { isError, isLoading, handleCheckCode } =
     useOtpVerification(successHandler);
 
+  const { sendCode } = useSendVerificationCode(() => {});
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -63,7 +67,14 @@ const OtpVerificationForm: React.FC<IOtpVerificationFormProps> = ({
     return () => clearInterval(interval);
   }, [canBeSent]);
 
+  //TODO: Add different scenarios handling
   const handleResendClick = async () => {
+    const phone = localStorageService.get(LocalStorageKeys.SignUpNumber);
+
+    if (phone) {
+      await sendCode(phone);
+    }
+
     setResendCount(30);
     setCanBeSent(false);
   };
