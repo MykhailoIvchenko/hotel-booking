@@ -1,36 +1,53 @@
 import CustomToast from '@/components/customToast/CustomToast';
-import { useState } from 'react';
+import { useLazyVerifyCodeQuery } from '@/rtkQApi/auth';
+import { localStorageService } from '@/services/localStorageService';
+import { LocalStorageKeys } from '@/utils/enums';
 import { toast } from 'react-toastify';
 
-/*TODO: Change it to use and API call*/
-
-const otpCode = '1234';
-
 export const useOtpVerification = (successHandler: VoidFunction) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
+  const [verifyCode, { isLoading, isError }] = useLazyVerifyCodeQuery();
 
-  const handleCheckCode = (digits: string[]) => {
-    const code = digits.reduce((accum, current) => accum + current, '');
+  const handleCheckCode = async (digits: string[]) => {
+    const code = digits.join('');
 
-    setIsLoading(true);
+    const phone = localStorageService.get(LocalStorageKeys.SignUpNumber);
 
-    setTimeout(() => {
-      if (code === otpCode) {
-        successHandler();
+    try {
+      if (phone) {
+        const checkResult = await verifyCode({
+          phone,
+          code,
+        }).unwrap();
+
+        if (checkResult.verified) {
+          successHandler();
+        } else {
+          toast.error(
+            <CustomToast
+              title='Invalid verification code.'
+              message='Please try again.'
+              type={'error'}
+            />
+          );
+        }
       } else {
         toast.error(
           <CustomToast
-            title='Invalid verification code.'
+            title='Phone was not found'
             message='Please try again.'
             type={'error'}
           />
         );
-        setIsError(true);
       }
-
-      setIsLoading(false);
-    }, 1500);
+    } catch {
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Something went wrong'
+          type={'error'}
+        />
+      );
+    }
   };
 
   return {
