@@ -1,14 +1,11 @@
-import { LocalStorageKeys, SignUpSteps } from '@/utils/enums';
+import { SignUpSteps } from '@/utils/enums';
 import { Controller, useForm } from 'react-hook-form';
 import Input from '@/components/input/Input';
 import Button from '@/components/button/Button';
-import { toast } from 'react-toastify';
-import { localStorageService } from '@/services/localStorageService';
 import { whatsAppNumberPattern } from '@/utils/validationPatterns';
-import CustomToast from '@/components/customToast/CustomToast';
-import { useLazySendVerificationCodeQuery } from '@/rtkQApi/auth';
 import Loader from '@/components/loader/Loader';
 import styles from './signUpForm.module.css';
+import { useSendVerificationCode } from '@/hooks/useSendVerificationCode';
 
 interface ISignInFormProps {
   setStep: React.Dispatch<React.SetStateAction<SignUpSteps>>;
@@ -19,42 +16,22 @@ interface ISignUpForm {
 }
 
 const SignUpForm: React.FC<ISignInFormProps> = ({ setStep }) => {
-  const [sendCode, { isLoading }] = useLazySendVerificationCodeQuery();
-
   const {
     control,
     formState: { errors },
     handleSubmit,
   } = useForm<ISignUpForm>();
 
+  const successHandler = () => {
+    setStep(SignUpSteps.OtpVerification);
+  };
+
+  const { isLoading, sendCode } = useSendVerificationCode(successHandler);
+
   const checkNumber = async (data: ISignUpForm) => {
-    try {
-      const { whatsAppNumber } = data;
+    const { whatsAppNumber } = data;
 
-      const result = await sendCode({ phone: whatsAppNumber });
-
-      if (result.isSuccess) {
-        localStorageService.save(LocalStorageKeys.SignUpNumber, whatsAppNumber);
-
-        setStep(SignUpSteps.OtpVerification);
-      } else {
-        toast.error(
-          <CustomToast
-            title='Error'
-            message='Something went wrong'
-            type='error'
-          />
-        );
-      }
-    } catch {
-      toast.error(
-        <CustomToast
-          title='Error'
-          message='Something went wrong'
-          type='error'
-        />
-      );
-    }
+    await sendCode(whatsAppNumber);
   };
 
   return (
