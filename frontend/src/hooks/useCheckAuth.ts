@@ -10,13 +10,7 @@ export const useCheckAuth = () => {
     const token = localStorageService.get(LocalStorageKeys.AccessToken);
 
     if (token) {
-      try {
-        const user = await getUser();
-
-        console.log(user);
-      } catch (error) {
-        console.log(error);
-      }
+      await getUser();
     }
   };
 

@@ -98,4 +98,9 @@ export interface ILoginRequest {
   phone: string;
   password: string;
 }
+
+export interface IRegisterResponse {
+  user: IUser;
+  accessToken: string;
+}
 //#endregion

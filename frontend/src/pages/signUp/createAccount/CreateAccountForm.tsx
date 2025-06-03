@@ -10,23 +10,11 @@ import {
 import Button from '@/components/button/Button';
 import clsx from 'clsx';
 import { routerConfig } from '@/routes/config';
-import { Link, useNavigate } from 'react-router';
-import { localStorageService } from '@/services/localStorageService';
-import { LocalStorageKeys } from '@/utils/enums';
-import { toast } from 'react-toastify';
-import CustomToast from '@/components/customToast/CustomToast';
-import { usersService } from '@/services/usersService';
-import useUserDispatch from '@/redux/hooks/dispatchHooks/useUserDispatch';
+import { Link } from 'react-router';
 import Loader from '@/components/loader/Loader';
-import { useState } from 'react';
+import { useRegister } from '@/hooks/useRegister';
 
 const CreateAccountForm: React.FC = () => {
-  const navigate = useNavigate();
-
-  const setUser = useUserDispatch();
-
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const {
     control,
     formState: { errors },
@@ -34,60 +22,12 @@ const CreateAccountForm: React.FC = () => {
     handleSubmit,
   } = useForm<IUserAccountData>();
 
-  const handleRegister = async (data: IUserAccountData) => {
-    //TODO: Move it to the register function or create a custom hook
-    const userPhone = localStorageService.get(LocalStorageKeys.SignUpNumber);
-
-    const { phone, fullName, password, email, alternatePhone, photo } = data;
-
-    if (userPhone !== phone) {
-      toast.error(
-        <CustomToast
-          title='Registration Error'
-          message={`Your contact phone doesn't match the phone entered on the previous step`}
-          type={'error'}
-        />
-      );
-
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-
-      const userData = { phone, alternatePhone, email, fullName, photo };
-      const registeredUser = await usersService.register(userData, password);
-
-      localStorageService.save(LocalStorageKeys.UserId, registeredUser.id);
-
-      setUser(registeredUser);
-
-      toast.success(
-        <CustomToast
-          title='Account Created!'
-          message='Your account has been successfully created.'
-          type={'success'}
-        />
-      );
-
-      navigate(routerConfig.home.path);
-    } catch {
-      toast.error(
-        <CustomToast
-          title='Registration Error'
-          message={`Something went wrong`}
-          type={'error'}
-        />
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { isLoading, registerUser } = useRegister();
 
   const avatarValue = watch('photo');
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit(handleRegister)}>
+    <form className={styles.container} onSubmit={handleSubmit(registerUser)}>
       <div className={styles.itemExpanded}>
         <UploadImage
           control={control}

@@ -1,6 +1,7 @@
 import {
   IAuthResponse,
   ILoginRequest,
+  IRegisterResponse,
   IResgistrationData,
   // IResponseType,
   IUser,
@@ -43,7 +44,7 @@ export const authApi = baseApi.injectEndpoints({
         body,
       }),
     }),
-    register: builder.mutation<IUser, IResgistrationData>({
+    register: builder.mutation<IRegisterResponse, IResgistrationData>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Registration),
         method: ApiMethods.POST,
@@ -56,7 +57,7 @@ export const authApi = baseApi.injectEndpoints({
         method: ApiMethods.POST,
       }),
     }),
-    getMe: builder.query<IUser, void>({
+    getMe: builder.query<{ user: IUser }, void>({
       query: () => withAuthBase(Endpoints.Me),
       providesTags: ['me'],
     }),

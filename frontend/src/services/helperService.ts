@@ -49,9 +49,27 @@ function getNameFromFullName(fullName: string): string {
   return fullName;
 }
 
+function convertFileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = reader.result as string;
+      resolve(result);
+    };
+
+    reader.onerror = (error) => {
+      reject(error);
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
 export const helperService = {
   isValidWhatsAppNumber,
   getFormattedDate,
   getTimeTextFromCreation,
   getNameFromFullName,
+  convertFileToBase64,
 };

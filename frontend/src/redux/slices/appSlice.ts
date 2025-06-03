@@ -30,7 +30,7 @@ export const appSlice = createSlice({
     builder.addMatcher(
       authApi.endpoints.getMe.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload;
+        state.user = payload.user;
       }
     );
   },
