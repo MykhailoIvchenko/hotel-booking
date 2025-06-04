@@ -6,6 +6,8 @@ import ContentSection from './contentSection/ContentSection';
 import HotelPhotos from './hotelPhotos/HotelPhotos';
 import Sidebar from './sidebar/Sidebar';
 import HotelInfo from './hotelInfo/HotelInfo';
+import { useHotelDetails } from '@/hooks/useHotelDetails';
+import Splash from '../splash/Splash';
 
 const crumbs = [
   {
@@ -19,16 +21,24 @@ const crumbs = [
 ];
 
 const BookingDetails: React.FC = () => {
+  const { isLoading, hotel } = useHotelDetails();
+
+  if (isLoading) {
+    return <Splash />;
+  }
+
+  const { title, posterUrl, photosUrl } = hotel;
+
   return (
     <>
-      <HeroSectionBookingDetails title={'Rixos Premium Dubai JBR'} />
+      <HeroSectionBookingDetails title={title} />
 
       <PageWrapper>
-        <Breadcrumbs crumbs={crumbs} current='Rixos Premium Dubai JBR' />
+        <Breadcrumbs crumbs={crumbs} current={title} />
 
         <ContentSection>
           <div>
-            <HotelPhotos />
+            <HotelPhotos mainPhoto={posterUrl} photosThumbs={photosUrl} />
 
             <HotelInfo />
           </div>

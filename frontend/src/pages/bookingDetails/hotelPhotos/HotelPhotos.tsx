@@ -1,13 +1,14 @@
-import mainPhoto from '@/assets/img/details/large.webp';
-import thumb1 from '@/assets/img/details/small1.webp';
-import thumb2 from '@/assets/img/details/small2.webp';
-import thumb3 from '@/assets/img/details/small3.webp';
-import thumb4 from '@/assets/img/details/small4.webp';
 import styles from './hotelPhotos.module.css';
 
-const photosThumbs = [thumb1, thumb2, thumb3, thumb4];
+interface IHotelPhotosProps {
+  mainPhoto: string;
+  photosThumbs: string[];
+}
 
-const HotelPhotos: React.FC = () => {
+const HotelPhotos: React.FC<IHotelPhotosProps> = ({
+  mainPhoto,
+  photosThumbs,
+}) => {
   return (
     <div className={styles.container}>
       <img

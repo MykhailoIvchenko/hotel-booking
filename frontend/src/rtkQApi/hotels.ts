@@ -16,9 +16,8 @@ export const hotelsApi = baseApi.injectEndpoints({
     }),
     getHotelById: builder.query<IHotel, string>({
       query: (id) => ({
-        url: withHotelsBase(Endpoints.Basic),
+        url: withHotelsBase(`${Endpoints.Basic}${id}`),
         method: ApiMethods.GET,
-        params: { id },
       }),
     }),
   }),
