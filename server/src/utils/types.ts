@@ -7,6 +7,8 @@ export interface IJwtUserPayload {
   role: string;
   fullName: string;
   phone: string;
+  photo?: string;
+  alternatePhone?: string;
 }
 
 export interface IUserRegistrationData {

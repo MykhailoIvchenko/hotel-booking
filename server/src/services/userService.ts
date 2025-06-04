@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { ApiError } from '../exceptions/ApiError.js';
 import { UserModel as User } from '../models/User.js';
-import { IJwtUserPayload, IUserRegistrationData } from '../utils/types.js';
+import { IUser, IUserRegistrationData } from '../utils/types.js';
 
 async function getAll() {
   const users = await User.find().sort({ name: 1 });
@@ -21,13 +21,23 @@ function getByPhone(phone: string) {
   });
 }
 
-function normalize({ id, email, fullName, phone, role }: IJwtUserPayload) {
+function normalize({
+  id,
+  email,
+  fullName,
+  phone,
+  role,
+  photo,
+  alternatePhone,
+}: IUser) {
   return {
     id,
     email,
     fullName,
     phone,
     role,
+    photo,
+    alternatePhone,
   };
 }
 

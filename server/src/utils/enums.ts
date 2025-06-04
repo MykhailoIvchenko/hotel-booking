@@ -11,7 +11,7 @@ export enum Routes {
   Me = '/me',
   Reauth = '/reauth',
   Recover = '/recover/:phone',
-  Refresh = 'refresh',
+  Refresh = '/refresh',
   Registration = '/registration',
   Reset = '/reset',
   ResetAuth = '/resetAuth',

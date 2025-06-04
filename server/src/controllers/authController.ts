@@ -71,10 +71,12 @@ async function register(req: Request, res: Response) {
     photo,
   });
 
-  res.send({
-    message: 'OK',
-    user: userService.normalize(user),
-  });
+  // res.send({
+  //   message: 'OK',
+  //   user: userService.normalize(user),
+  // });
+
+  await sendAuthentication(res, user);
 }
 
 async function recover(req: Request, res: Response) {
@@ -199,6 +201,7 @@ async function login(req: Request, res: Response) {
 
 async function refresh(req: Request, res: Response) {
   const { refreshToken } = req.cookies;
+
   const userData = jwtService.validateRefreshToken(refreshToken);
 
   if (!userData) {
