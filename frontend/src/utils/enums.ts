@@ -40,7 +40,7 @@ export enum Endpoints {
   Me = '/me',
   Reauth = '/reauth',
   Recover = '/recover/:phone',
-  Refresh = 'refresh',
+  Refresh = '/refresh',
   Registration = '/registration',
   Reset = '/reset',
   ResetAuth = '/resetAuth',

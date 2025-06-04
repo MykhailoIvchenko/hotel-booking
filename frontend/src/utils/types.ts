@@ -88,9 +88,14 @@ export interface IResponseType<T> {
   data: T;
   message?: string;
 }
+export interface ISignInForm {
+  whatsAppNumber: string;
+  password: string;
+}
 
 //#region Requests, Responses types
 export interface IAuthResponse {
+  user: IUser;
   accessToken: string;
 }
 
