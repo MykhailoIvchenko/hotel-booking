@@ -1,29 +1,17 @@
 import LogoutIcon from '@/assets/icons/logout.svg?react';
-import useUserDispatch from '@/redux/hooks/dispatchHooks/useUserDispatch';
-import styles from './logout.module.css';
 import clsx from 'clsx';
-import { usersService } from '@/services/usersService';
-import { useNavigate } from 'react-router';
-import { routerConfig } from '@/routes/config';
+import { useLogout } from '@/hooks/useLogout';
+import styles from './logout.module.css';
 
 interface ILogoutProps {
   addClasses?: string;
 }
 
 const Logout: React.FC<ILogoutProps> = ({ addClasses }) => {
-  const navigate = useNavigate();
-
-  const setUser = useUserDispatch();
-
-  const handleLogout = () => {
-    setUser(null);
-    usersService.logout();
-
-    navigate(routerConfig.signIn.path);
-  };
+  const { logoutUser } = useLogout();
 
   return (
-    <div className={clsx(styles.container, addClasses)} onClick={handleLogout}>
+    <div className={clsx(styles.container, addClasses)} onClick={logoutUser}>
       <LogoutIcon className={styles.icon} /> <span>Logout</span>
     </div>
   );
