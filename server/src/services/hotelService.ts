@@ -7,7 +7,7 @@ async function getAll() {
 }
 
 async function getById(id: string) {
-  return Hotel.findOne({ id });
+  return Hotel.findById(id);
 }
 
 export const hotelService = {

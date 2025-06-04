@@ -71,11 +71,6 @@ async function register(req: Request, res: Response) {
     photo,
   });
 
-  // res.send({
-  //   message: 'OK',
-  //   user: userService.normalize(user),
-  // });
-
   await sendAuthentication(res, user);
 }
 
