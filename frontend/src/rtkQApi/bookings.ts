@@ -7,7 +7,7 @@ const withBookingsBase = (endpoint: string) =>
 
 export const bookingsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    addBooking: builder.mutation<IResponseType<void>, IBooking>({
+    addBooking: builder.mutation<IResponseType<void>, Omit<IBooking, 'id'>>({
       query: (body) => ({
         url: withBookingsBase(Endpoints.Basic),
         method: ApiMethods.POST,

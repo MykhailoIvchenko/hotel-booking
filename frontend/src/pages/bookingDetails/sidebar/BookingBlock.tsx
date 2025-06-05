@@ -2,12 +2,12 @@ import Button from '@/components/button/Button';
 import { Link } from 'react-router';
 import AdditionalServices from './AdditionalServices';
 import GuestsCounter from './GuestsCounter';
-import styles from './bookingBlock.module.css';
-import { useState } from 'react';
 import SelectionItem from './SelectionItem';
 import DateDropdown from '@/components/dateDropdown/DateDropdown';
-import { DateValue } from '@/utils/types';
-import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
+import { helperService } from '@/services/helperService';
+import { useBooking } from '@/hooks/useBooking';
+import Loader from '@/components/loader/Loader';
+import styles from './bookingBlock.module.css';
 
 interface IBookingBlockProps {
   pricePerPerson: number;
@@ -18,13 +18,32 @@ const BookingBlock: React.FC<IBookingBlockProps> = ({
   pricePerPerson,
   hotelId,
 }) => {
-  const [dateFrom, setDateFrom] = useState<DateValue>(new Date());
-  const [dateTo, setDateTo] = useState<DateValue>(new Date());
-  const [adultsCount, setAdultsCount] = useState<number>(1);
-  const [childrenCount, setChildrenCount] = useState<number>(0);
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const {
+    adultsCount,
+    childrenCount,
+    dateTo,
+    dateFrom,
+    setDateFrom,
+    setDateTo,
+    setAdultsCount,
+    setChildrenCount,
+    selectedServices,
+    setSelectedServices,
+    isLoading,
+    handleConfirmBooking,
+  } = useBooking(hotelId, pricePerPerson);
 
-  const { id } = useSelectUser();
+  const recalculateTotalCost = () => {
+    if (dateFrom instanceof Date && dateTo instanceof Date && adultsCount) {
+      const nights = helperService.getNumberOfNights(dateFrom, dateTo);
+
+      const guestsCount = adultsCount + childrenCount;
+
+      return nights * pricePerPerson * guestsCount;
+    }
+
+    return 0;
+  };
 
   return (
     <div className={styles.container}>
@@ -55,11 +74,16 @@ const BookingBlock: React.FC<IBookingBlockProps> = ({
       <div>
         <div className={styles.priceTitle}>subtotal</div>
 
-        <p className={styles.price}>{pricePerPerson}</p>
+        <p className={styles.price}>{recalculateTotalCost()}</p>
       </div>
 
-      <Button type={'button'} variant={'primary'}>
-        Confirm Booking
+      <Button
+        type={'button'}
+        variant={'primary'}
+        disabled={!dateFrom || !dateTo || !adultsCount || isLoading}
+        onClick={handleConfirmBooking}
+      >
+        {isLoading ? <Loader variant='tiny' /> : 'Confirm Booking'}
       </Button>
 
       <Link to={'#'} className={styles.policyLink}>

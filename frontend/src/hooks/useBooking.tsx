@@ -1,0 +1,129 @@
+import CustomToast from '@/components/customToast/CustomToast';
+import { useSelectUser } from '@/redux/hooks/selectHooks/useSelectUser';
+import { routerConfig } from '@/routes/config';
+import { useAddBookingMutation } from '@/rtkQApi/bookings';
+import { helperService } from '@/services/helperService';
+import { DateValue, IBooking } from '@/utils/types';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+
+export const useBooking = (hotelId: string, pricePerPerson: number) => {
+  const navigate = useNavigate();
+
+  const [createBooking, { isLoading }] = useAddBookingMutation();
+
+  const [dateFrom, setDateFrom] = useState<DateValue>(new Date());
+  const [dateTo, setDateTo] = useState<DateValue>(new Date());
+  const [adultsCount, setAdultsCount] = useState<number>(1);
+  const [childrenCount, setChildrenCount] = useState<number>(0);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
+
+  const handleConfirmBooking = async () => {
+    if (!user) {
+      <CustomToast
+        title='Error'
+        message='Only authorized users can book the hotel'
+        type={'error'}
+      />;
+
+      return;
+    }
+
+    if (!dateFrom || !(dateFrom instanceof Date)) {
+      <CustomToast
+        title='Error'
+        message='Please select the start date'
+        type={'error'}
+      />;
+
+      return;
+    }
+
+    if (!dateTo || !(dateTo instanceof Date)) {
+      <CustomToast
+        title='Error'
+        message='Please select the end date'
+        type={'error'}
+      />;
+
+      return;
+    }
+
+    if (adultsCount < 1) {
+      <CustomToast
+        title='Error'
+        message='At least one adult person should be among guests'
+        type={'error'}
+      />;
+
+      return;
+    }
+
+    if (childrenCount < 0) {
+      <CustomToast
+        title='Error'
+        message="Guests amount can't be less than zero"
+        type={'error'}
+      />;
+
+      return;
+    }
+
+    const nights = helperService.getNumberOfNights(dateFrom, dateTo);
+
+    const guestsCount = adultsCount + childrenCount;
+
+    const totalPrice = nights * pricePerPerson * guestsCount;
+
+    try {
+      const bookingData: Omit<IBooking, 'id'> = {
+        userId: user.id,
+        hotelId,
+        from: dateFrom.toISOString(),
+        to: dateFrom.toISOString(),
+        adults: adultsCount,
+        children: childrenCount,
+        additionalServices: selectedServices,
+        totalPrice,
+      };
+
+      await createBooking(bookingData);
+
+      <CustomToast
+        title='Congratulations'
+        message="You've booked the hotel"
+        type={'success'}
+      />;
+
+      setTimeout(() => {
+        navigate(routerConfig.home.path);
+      }, 500);
+    } catch {
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Something went wrong'
+          type={'error'}
+        />
+      );
+    }
+  };
+
+  const user = useSelectUser();
+
+  return {
+    adultsCount,
+    childrenCount,
+    dateTo,
+    dateFrom,
+    setDateFrom,
+    setDateTo,
+    setAdultsCount,
+    setChildrenCount,
+    selectedServices,
+    setSelectedServices,
+    isLoading,
+    handleConfirmBooking,
+  };
+};

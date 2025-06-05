@@ -66,10 +66,30 @@ function convertFileToBase64(file: File): Promise<string> {
   });
 }
 
+function getNumberOfNights(dateFrom: Date, dateTo: Date): number {
+  const start = new Date(
+    dateFrom.getFullYear(),
+    dateFrom.getMonth(),
+    dateFrom.getDate()
+  );
+
+  const end = new Date(
+    dateTo.getFullYear(),
+    dateTo.getMonth(),
+    dateTo.getDate()
+  );
+
+  const diffTime = end.getTime() - start.getTime();
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+  return Math.max(0, diffDays);
+}
+
 export const helperService = {
   isValidWhatsAppNumber,
   getFormattedDate,
   getTimeTextFromCreation,
   getNameFromFullName,
   convertFileToBase64,
+  getNumberOfNights,
 };
