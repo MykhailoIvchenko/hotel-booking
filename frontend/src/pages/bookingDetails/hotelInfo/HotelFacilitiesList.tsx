@@ -5,31 +5,23 @@ import ParkingIcon from '@/assets/icons/car.svg?react';
 import ShuttleIcon from '@/assets/icons/airplane.svg?react';
 import FacilityItem from './FacilityItem';
 import styles from './hotelFacilities.module.css';
+import { HotelFacilities } from '@/utils/enums';
 
-const facilities = [
-  {
-    name: 'Free Wifi',
-    icon: WifiIcon,
-  },
-  {
-    name: 'Room Service',
-    icon: AiIcon,
-  },
-  {
-    name: 'Meal',
-    icon: MealIcon,
-  },
-  {
-    name: 'Free Parking',
-    icon: ParkingIcon,
-  },
-  {
-    name: 'Airport Shuttle',
-    icon: ShuttleIcon,
-  },
-];
+interface IHotelFacilitiesListProps {
+  facilities: HotelFacilities[];
+}
 
-const HotelFacilities: React.FC = () => {
+const mapFacilityIcon = {
+  [HotelFacilities.AirportShuttle]: ShuttleIcon,
+  [HotelFacilities.FreeParking]: ParkingIcon,
+  [HotelFacilities.FreeWiFi]: WifiIcon,
+  [HotelFacilities.Meal]: MealIcon,
+  [HotelFacilities.RoomService]: AiIcon,
+};
+
+const HotelFacilitiesList: React.FC<IHotelFacilitiesListProps> = ({
+  facilities,
+}) => {
   return (
     <div>
       <h5 className={styles.title}>Facilities</h5>
@@ -37,11 +29,15 @@ const HotelFacilities: React.FC = () => {
       {/*TODO: Implement a separate component for this*/}
       <ul className={styles.facilitiesList}>
         {facilities.map((facility, i) => (
-          <FacilityItem key={i} name={facility.name} icon={facility.icon} />
+          <FacilityItem
+            key={i}
+            name={facility}
+            icon={mapFacilityIcon[facility]}
+          />
         ))}
       </ul>
     </div>
   );
 };
 
-export default HotelFacilities;
+export default HotelFacilitiesList;

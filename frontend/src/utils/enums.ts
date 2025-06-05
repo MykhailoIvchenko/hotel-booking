@@ -72,4 +72,5 @@ export enum HotelFacilities {
   FreeParking = 'Free Parking',
   FreeWiFi = 'Free Wifi',
   RoomService = 'Room Service',
+  Meal = 'Meal',
 }

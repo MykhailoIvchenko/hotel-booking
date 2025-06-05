@@ -39,7 +39,6 @@ export interface ILocation {
   longitude: number;
   description: string;
 }
-
 export interface IHotel {
   id: string;
   title: string;

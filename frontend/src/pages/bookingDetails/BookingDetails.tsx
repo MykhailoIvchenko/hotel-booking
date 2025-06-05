@@ -27,7 +27,7 @@ const BookingDetails: React.FC = () => {
     return <Splash />;
   }
 
-  const { title, posterUrl, photosUrl } = hotel;
+  const { title, posterUrl, photosUrl, description, facilities } = hotel;
 
   return (
     <>
@@ -40,7 +40,11 @@ const BookingDetails: React.FC = () => {
           <div>
             <HotelPhotos mainPhoto={posterUrl} photosThumbs={photosUrl} />
 
-            <HotelInfo />
+            <HotelInfo
+              title={title}
+              description={description}
+              facilities={facilities}
+            />
           </div>
 
           <Sidebar />
