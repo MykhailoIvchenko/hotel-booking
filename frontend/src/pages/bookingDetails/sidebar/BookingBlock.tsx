@@ -82,6 +82,9 @@ const BookingBlock: React.FC<IBookingBlockProps> = ({
         variant={'primary'}
         disabled={!dateFrom || !dateTo || !adultsCount || isLoading}
         onClick={handleConfirmBooking}
+        // className={
+        //   !dateFrom || !dateTo || !adultsCount || isLoading ? 'disabled' : ''
+        // }
       >
         {isLoading ? <Loader variant='tiny' /> : 'Confirm Booking'}
       </Button>

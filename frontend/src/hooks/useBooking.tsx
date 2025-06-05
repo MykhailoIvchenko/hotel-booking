@@ -21,56 +21,78 @@ export const useBooking = (hotelId: string, pricePerPerson: number) => {
 
   const handleConfirmBooking = async () => {
     if (!user) {
-      <CustomToast
-        title='Error'
-        message='Only authorized users can book the hotel'
-        type={'error'}
-      />;
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Only authorized users can book the hotel'
+          type={'error'}
+        />
+      );
 
       return;
     }
 
     if (!dateFrom || !(dateFrom instanceof Date)) {
-      <CustomToast
-        title='Error'
-        message='Please select the start date'
-        type={'error'}
-      />;
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Please select the start date'
+          type={'error'}
+        />
+      );
 
       return;
     }
 
     if (!dateTo || !(dateTo instanceof Date)) {
-      <CustomToast
-        title='Error'
-        message='Please select the end date'
-        type={'error'}
-      />;
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='Please select the end date'
+          type={'error'}
+        />
+      );
 
       return;
     }
 
     if (adultsCount < 1) {
-      <CustomToast
-        title='Error'
-        message='At least one adult person should be among guests'
-        type={'error'}
-      />;
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='At least one adult person should be among guests'
+          type={'error'}
+        />
+      );
 
       return;
     }
 
     if (childrenCount < 0) {
-      <CustomToast
-        title='Error'
-        message="Guests amount can't be less than zero"
-        type={'error'}
-      />;
+      toast.error(
+        <CustomToast
+          title='Error'
+          message="Guests amount can't be less than zero"
+          type={'error'}
+        />
+      );
 
       return;
     }
 
     const nights = helperService.getNumberOfNights(dateFrom, dateTo);
+
+    if (nights < 1) {
+      toast.error(
+        <CustomToast
+          title='Error'
+          message='The end date should be after the start date'
+          type={'error'}
+        />
+      );
+
+      return;
+    }
 
     const guestsCount = adultsCount + childrenCount;
 
@@ -90,11 +112,13 @@ export const useBooking = (hotelId: string, pricePerPerson: number) => {
 
       await createBooking(bookingData);
 
-      <CustomToast
-        title='Congratulations'
-        message="You've booked the hotel"
-        type={'success'}
-      />;
+      toast.success(
+        <CustomToast
+          title='Congratulations'
+          message="You've booked the hotel"
+          type={'success'}
+        />
+      );
 
       setTimeout(() => {
         navigate(routerConfig.home.path);

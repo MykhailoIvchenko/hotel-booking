@@ -23,43 +23,35 @@ const crumbs = [
 const BookingDetails: React.FC = () => {
   const { isLoading, hotel } = useHotelDetails();
 
-  if (isLoading) {
+  if (isLoading || !hotel) {
     return <Splash />;
   }
 
-  const {
-    id,
-    title,
-    posterUrl,
-    photosUrl,
-    description,
-    facilities,
-    location,
-    pricePerPerson,
-  } = hotel;
-
   return (
     <>
-      <HeroSectionBookingDetails title={title} />
+      <HeroSectionBookingDetails title={hotel?.title} />
 
       <PageWrapper>
-        <Breadcrumbs crumbs={crumbs} current={title} />
+        <Breadcrumbs crumbs={crumbs} current={hotel?.title} />
 
         <ContentSection>
           <div>
-            <HotelPhotos mainPhoto={posterUrl} photosThumbs={photosUrl} />
+            <HotelPhotos
+              mainPhoto={hotel?.posterUrl}
+              photosThumbs={hotel?.photosUrl}
+            />
 
             <HotelInfo
-              title={title}
-              description={description}
-              facilities={facilities}
+              title={hotel?.title}
+              description={hotel?.description}
+              facilities={hotel?.facilities}
             />
           </div>
 
           <Sidebar
-            hotelId={id}
-            locationDescription={location.description}
-            pricePerPerson={pricePerPerson}
+            hotelId={hotel?.id}
+            locationDescription={hotel?.location?.description}
+            pricePerPerson={hotel?.pricePerPerson}
           />
         </ContentSection>
       </PageWrapper>
