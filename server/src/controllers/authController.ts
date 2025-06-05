@@ -162,7 +162,8 @@ async function checkPassword(phone: string, password: string) {
 
 async function sendAuthentication(res: Response, user: IUser) {
   const userData = userService.normalize(user);
-  const accessToken = jwtService.generateAccessToken(userData);
+  const userDataForJwt = userService.normalizeForJwt(user);
+  const accessToken = jwtService.generateAccessToken(userDataForJwt);
   const refreshToken = jwtService.generateRefreshToken(userData);
 
   const expirtationTime = 30 * 24 * 60 * 60 * 1000;
@@ -179,7 +180,7 @@ async function sendAuthentication(res: Response, user: IUser) {
   });
 
   res.send({
-    user: userData,
+    user: user,
     accessToken,
   });
 }

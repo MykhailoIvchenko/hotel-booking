@@ -7,6 +7,7 @@ import { BaseRoutes } from './utils/enums.js';
 import { userRouter } from './routes/userRouter.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import { hotelRouter } from './routes/hotelRoute.js';
+import { bookingRouter } from './routes/bookingRoute.js';
 
 dotenv.config();
 
@@ -21,13 +22,14 @@ app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+        callback(null, origin);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
     credentials: true,
     optionsSuccessStatus: 200,
+    exposedHeaders: ['Authorization'],
   })
 );
 
@@ -36,6 +38,7 @@ app.use(express.json());
 app.use(BaseRoutes.Auth, authRouter);
 app.use(BaseRoutes.Users, userRouter);
 app.use(BaseRoutes.Hotels, hotelRouter);
+app.use(BaseRoutes.Bookings, bookingRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT);

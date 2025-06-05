@@ -41,6 +41,16 @@ function normalize({
   };
 }
 
+function normalizeForJwt({ id, email, fullName, phone, role }: IUser) {
+  return {
+    id,
+    email,
+    fullName,
+    phone,
+    role,
+  };
+}
+
 async function register(userData: IUserRegistrationData) {
   const { email, phone, alternatePhone, fullName, photo, password } = userData;
 
@@ -124,6 +134,7 @@ async function updateEmail(oldEmail: string, newEmail: string) {
 export const userService = {
   getAll,
   normalize,
+  normalizeForJwt,
   getByEmail,
   register,
   reset,
