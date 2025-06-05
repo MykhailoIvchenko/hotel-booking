@@ -1,7 +1,11 @@
 import mapImg from '@/assets/img/map.webp';
 import styles from './locationBlock.module.css';
 
-const LocationBlock: React.FC = () => {
+interface ILocationBlockProps {
+  description: string;
+}
+
+const LocationBlock: React.FC<ILocationBlockProps> = ({ description }) => {
   return (
     <div className={styles.container}>
       <img src={mapImg} className={styles.poster} alt='Map with location' />
@@ -10,10 +14,7 @@ const LocationBlock: React.FC = () => {
 
       <div className={styles.divider}></div>
 
-      <p className={styles.description}>
-        Al Mamsha Street The Walk Jbr Jumeirah Beach Resid, Dubai 643660 United
-        Arab Emirates
-      </p>
+      <p className={styles.description}>{description}</p>
     </div>
   );
 };

@@ -1,19 +1,25 @@
 import Accordion from '@/components/accordion/Accordion';
-import styles from './additionalServices.module.css';
-import { useState } from 'react';
 import CheckBox from '@/components/checkbox/CheckBox';
+import styles from './additionalServices.module.css';
 
+interface IAdditionalServicesProps {
+  selectedServices: string[];
+  setSelectedServices: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+//TODO: Get services from the server
 const servicesList = [
-  { id: 1, name: 'Transport' },
-  { id: 2, name: 'In-Room Dining' },
-  { id: 3, name: 'Fitness Center Access' },
-  { id: 4, name: 'Assistive Devices' },
+  { id: '1', name: 'Transport' },
+  { id: '2', name: 'In-Room Dining' },
+  { id: '3', name: 'Fitness Center Access' },
+  { id: '4', name: 'Assistive Devices' },
 ];
 
-const AdditionalServices: React.FC = () => {
-  const [selectedServices, setSelectedServices] = useState<number[]>([]);
-
-  const handleClickItem = (serviceId: number) => {
+const AdditionalServices: React.FC<IAdditionalServicesProps> = ({
+  selectedServices,
+  setSelectedServices,
+}) => {
+  const handleClickItem = (serviceId: string) => {
     let updatedList = [];
 
     if (selectedServices.includes(serviceId)) {

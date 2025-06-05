@@ -1,10 +1,27 @@
 import GuestsDropdown from './GuestsDropdown';
 import SelectionItem from './SelectionItem';
 
-const GuestsCounter: React.FC = () => {
+interface IGuestsCounterProps {
+  adultsCount: number;
+  childrenCount: number;
+  setAdultsCount: React.Dispatch<React.SetStateAction<number>>;
+  setChildrenCount: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const GuestsCounter: React.FC<IGuestsCounterProps> = ({
+  adultsCount,
+  childrenCount,
+  setAdultsCount,
+  setChildrenCount,
+}) => {
   return (
     <SelectionItem title='Guest'>
-      <GuestsDropdown />
+      <GuestsDropdown
+        adultsCount={adultsCount}
+        childrenCount={childrenCount}
+        setAdultsCount={setAdultsCount}
+        setChildrenCount={setChildrenCount}
+      />
     </SelectionItem>
   );
 };

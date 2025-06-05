@@ -1,15 +1,23 @@
 import Dropdown from '@/components/dropdown/Dropdown';
-import { useState } from 'react';
 import PersonIcon from '@/assets/icons/person-icon.svg?react';
 import ArrowDownIcon from '@/assets/icons/arrow.svg?react';
 import clsx from 'clsx';
 import GuestsSelection from './GuestsSelection';
 import styles from './guestsDropdown.module.css';
 
-const GuestsDropdown: React.FC = () => {
-  const [adultsCount, setAdultsCount] = useState<number>(1);
-  const [childrenCount, setChildrenCount] = useState<number>(0);
+interface IGuestsDropdownProps {
+  adultsCount: number;
+  childrenCount: number;
+  setAdultsCount: React.Dispatch<React.SetStateAction<number>>;
+  setChildrenCount: React.Dispatch<React.SetStateAction<number>>;
+}
 
+const GuestsDropdown: React.FC<IGuestsDropdownProps> = ({
+  adultsCount,
+  childrenCount,
+  setAdultsCount,
+  setChildrenCount,
+}) => {
   return (
     <Dropdown
       options={{ position: 'top-start', autoPositions: false }}

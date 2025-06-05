@@ -2,12 +2,22 @@ import BookingBlock from './BookingBlock';
 import LocationBlock from './LocationBlock';
 import styles from './sidebar.module.css';
 
-const Sidebar: React.FC = () => {
+interface ISidebarProps {
+  hotelId: string;
+  locationDescription: string;
+  pricePerPerson: number;
+}
+
+const Sidebar: React.FC<ISidebarProps> = ({
+  hotelId,
+  locationDescription,
+  pricePerPerson,
+}) => {
   return (
     <aside className={styles.container}>
-      <BookingBlock />
+      <BookingBlock hotelId={hotelId} pricePerPerson={pricePerPerson} />
 
-      <LocationBlock />
+      <LocationBlock description={locationDescription} />
     </aside>
   );
 };
