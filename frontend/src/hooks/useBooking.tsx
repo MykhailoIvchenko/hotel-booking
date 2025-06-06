@@ -11,6 +11,8 @@ import { toast } from 'react-toastify';
 export const useBooking = (hotelId: string, pricePerPerson: number) => {
   const navigate = useNavigate();
 
+  const user = useSelectUser();
+
   const [createBooking, { isLoading }] = useAddBookingMutation();
 
   const [dateFrom, setDateFrom] = useState<DateValue>(new Date());
@@ -103,14 +105,14 @@ export const useBooking = (hotelId: string, pricePerPerson: number) => {
         userId: user.id,
         hotelId,
         from: dateFrom.toISOString(),
-        to: dateFrom.toISOString(),
+        to: dateTo.toISOString(),
         adults: adultsCount,
         children: childrenCount,
         additionalServices: selectedServices,
         totalPrice,
       };
 
-      await createBooking(bookingData);
+      await createBooking(bookingData).unwrap();
 
       toast.success(
         <CustomToast
@@ -122,7 +124,7 @@ export const useBooking = (hotelId: string, pricePerPerson: number) => {
 
       setTimeout(() => {
         navigate(routerConfig.home.path);
-      }, 500);
+      }, 1000);
     } catch {
       toast.error(
         <CustomToast
@@ -133,8 +135,6 @@ export const useBooking = (hotelId: string, pricePerPerson: number) => {
       );
     }
   };
-
-  const user = useSelectUser();
 
   return {
     adultsCount,

@@ -10,6 +10,7 @@
 
 .facilitiesList {
   display: flex;
-  justify-content: space-between;
+  gap: var(--standard-gap);
+  /* justify-content: space-between; */
   align-items: center;
 }

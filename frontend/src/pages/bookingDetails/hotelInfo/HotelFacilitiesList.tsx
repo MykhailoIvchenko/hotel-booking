@@ -4,8 +4,8 @@ import MealIcon from '@/assets/icons/milk.svg?react';
 import ParkingIcon from '@/assets/icons/car.svg?react';
 import ShuttleIcon from '@/assets/icons/airplane.svg?react';
 import FacilityItem from './FacilityItem';
-import styles from './hotelFacilities.module.css';
 import { HotelFacilities } from '@/utils/enums';
+import styles from './hotelFacilities.module.css';
 
 interface IHotelFacilitiesListProps {
   facilities: HotelFacilities[];
