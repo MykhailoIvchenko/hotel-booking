@@ -3,6 +3,11 @@ import { NotificationTypes } from '../utils/enums.js';
 import { INotification } from '../utils/types.js';
 
 const NotificationSchema: Schema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -32,12 +37,13 @@ NotificationSchema.virtual('id').get(function (this: mongoose.Document) {
   return this._id.toString();
 });
 
-//Convert Date to timestamp to pass it to the frontend
+// Convert Date to timestamp and exclude userId from frontend response
 NotificationSchema.set('toJSON', {
   virtuals: true,
   versionKey: false,
   transform: function (_, ret) {
     delete ret._id;
+    delete ret.userId;
     ret.createdAt = new Date(ret.createdAt).getTime();
   },
 });
