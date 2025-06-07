@@ -1,0 +1,16 @@
+@import '@/assets/css/variables.css';
+
+.title {
+  font-size: var(--medium-font-size);
+  font-weight: var(--semi-bold-font-weight);
+  padding-bottom: var(--standard-gap);
+  border-bottom: 1px solid var(--default-border-color);
+  margin-bottom: calc(var(--standard-gap) * 1.5);
+}
+
+.facilitiesList {
+  display: flex;
+  gap: var(--standard-gap);
+  /* justify-content: space-between; */
+  align-items: center;
+}
