@@ -50,3 +50,7 @@
   transform: translateY(-50%);
   border-radius: 50%;
 }
+
+.unread {
+  cursor: pointer;
+}

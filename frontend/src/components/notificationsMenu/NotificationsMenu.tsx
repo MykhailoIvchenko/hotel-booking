@@ -1,38 +1,25 @@
-import { useState } from 'react';
 import DropdownMenu from '../dropdownMenu/DropdownMenu';
-import { NotificationTabs } from '@/utils/enums';
 import NotificationsTabs from './NotificationsTabs';
 import NotificationsList from './NotificationsList';
 import { INotification } from '@/utils/types';
 import styles from './notificationsMenu.module.css';
-import { useServerNotification } from '@/hooks/useServerNotifications';
+import { NotificationTabs } from '@/utils/enums';
 
-const NotificationsMenu: React.FC = () => {
-  const { notifications, makeReadOne, makeReadAll } = useServerNotification();
+interface INotificationsMenuProps {
+  activeTab: NotificationTabs;
+  setActiveTab: React.Dispatch<React.SetStateAction<NotificationTabs>>;
+  notifications: INotification[];
+  makeReadAll: () => Promise<void>;
+  handleNotificationClick: (id: string, isRead: boolean) => Promise<void>;
+}
 
-  const [activeTab, setActiveTab] = useState<NotificationTabs>(
-    NotificationTabs.All
-  );
-
-  const getNotificationsToDisplay = (): INotification[] => {
-    if (activeTab === NotificationTabs.All) {
-      return notifications || [];
-    }
-
-    return (
-      notifications?.filter((notification) => {
-        const showRead = activeTab === NotificationTabs.Read;
-        return notification.isRead === showRead;
-      }) || []
-    );
-  };
-
-  const handleNotificationClick = async (id: string, isRead: boolean) => {
-    if (!isRead) {
-      await makeReadOne(id);
-    }
-  };
-
+const NotificationsMenu: React.FC<INotificationsMenuProps> = ({
+  activeTab,
+  setActiveTab,
+  notifications,
+  makeReadAll,
+  handleNotificationClick,
+}) => {
   return (
     <DropdownMenu
       title='Notifications'
@@ -49,7 +36,7 @@ const NotificationsMenu: React.FC = () => {
       />
 
       <NotificationsList
-        notifications={getNotificationsToDisplay()}
+        notifications={notifications}
         handleNotificationClick={handleNotificationClick}
       />
     </DropdownMenu>
