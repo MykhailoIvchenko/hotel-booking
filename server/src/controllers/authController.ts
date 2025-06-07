@@ -163,7 +163,6 @@ async function checkPassword(phone: string, password: string) {
 }
 
 async function sendAuthentication(res: Response, user: IUser) {
-  const userData = userService.normalize(user);
   const userDataForJwt = userService.normalizeForJwt(user);
   const accessToken = jwtService.generateAccessToken(userDataForJwt);
   const refreshToken = jwtService.generateRefreshToken(userDataForJwt);
@@ -177,10 +176,10 @@ async function sendAuthentication(res: Response, user: IUser) {
   res.cookie('refreshToken', refreshToken, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    // sameSite: 'lax', //Uncomment it for the local development
-    sameSite: 'none', //Comment it for the local development
-    // secure: false, //Uncomment it for the local development
-    secure: true, //Comment it for the local development
+    sameSite: 'lax', //Uncomment it for the local development
+    // sameSite: 'none', //Comment it for the local development
+    secure: false, //Uncomment it for the local development
+    // secure: true, //Comment it for the local development
   });
 
   res.send({
