@@ -5,7 +5,7 @@ import { ApiMethods, BasicEndpoints, Endpoints } from '@/utils/enums';
 const withNotificationsBase = (endpoint: string) =>
   `${BasicEndpoints.Notifications}${endpoint}`;
 
-export const hotelsApi = baseApi.injectEndpoints({
+export const notificationsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getNotifications: builder.query<INotification[], void>({
       query: () => ({
@@ -35,4 +35,4 @@ export const {
   useGetNotificationsQuery,
   useMakeReadMutation,
   useMakeReadAllMutation,
-} = hotelsApi;
+} = notificationsApi;
