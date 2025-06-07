@@ -38,8 +38,6 @@ const NotificationAlert: React.FC = () => {
     [notifications]
   );
 
-  console.log('UNREAD NOTIFICATIONS ARE ', unreadNotifications);
-
   const handleReadAll = async () => {
     if (!unreadNotifications?.length || unreadNotifications.length === 0) {
       return;

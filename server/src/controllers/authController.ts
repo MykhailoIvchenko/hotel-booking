@@ -166,7 +166,7 @@ async function sendAuthentication(res: Response, user: IUser) {
   const userData = userService.normalize(user);
   const userDataForJwt = userService.normalizeForJwt(user);
   const accessToken = jwtService.generateAccessToken(userDataForJwt);
-  const refreshToken = jwtService.generateRefreshToken(userData);
+  const refreshToken = jwtService.generateRefreshToken(userDataForJwt);
 
   const expirtationTime = 30 * 24 * 60 * 60 * 1000;
 
@@ -177,8 +177,10 @@ async function sendAuthentication(res: Response, user: IUser) {
   res.cookie('refreshToken', refreshToken, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: 'none',
-    secure: true,
+    sameSite: 'lax',
+    // sameSite: 'none',
+    secure: false,
+    // secure: true,
   });
 
   res.send({
@@ -230,6 +232,7 @@ async function logout(req: Request, res: Response) {
   const userId = req.user?.id;
 
   const { refreshToken } = req.cookies;
+
   const userData = jwtService.validateRefreshToken(refreshToken);
 
   res.clearCookie('refreshToken');

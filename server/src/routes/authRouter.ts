@@ -32,7 +32,11 @@ authRouter.get(Routes.Refresh, catchError(authController.refresh));
 
 authRouter.post(Routes.Login, catchError(authController.login));
 
-authRouter.post(Routes.Logout, catchError(authController.logout));
+authRouter.post(
+  Routes.Logout,
+  catchError(authMiddleware),
+  catchError(authController.logout)
+);
 
 authRouter.post(Routes.Reauth, catchError(authController.reauth));
 

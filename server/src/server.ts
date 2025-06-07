@@ -9,25 +9,24 @@ import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import { hotelRouter } from './routes/hotelRouter.js';
 import { bookingRouter } from './routes/bookingRouter.js';
 import { notificationRouter } from './routes/notificationRouter.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
-const allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : [];
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 connectDB();
 
+app.use(cookieParser());
+
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, origin);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: allowedOrigins,
     credentials: true,
     optionsSuccessStatus: 200,
     exposedHeaders: ['Authorization'],

@@ -3,7 +3,6 @@ import {
   ILoginRequest,
   IRegisterResponse,
   IResgistrationData,
-  // IResponseType,
   IUser,
 } from '@/utils/types';
 import { baseApi } from './baseApi';
