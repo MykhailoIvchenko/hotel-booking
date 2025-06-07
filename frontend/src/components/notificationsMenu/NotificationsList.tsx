@@ -4,7 +4,7 @@ import styles from './notificationsList.module.css';
 
 interface INotificationsListProps {
   notifications: INotification[];
-  handleNotificationClick: (id: number) => void;
+  handleNotificationClick: (id: string, isRead: boolean) => Promise<void>;
 }
 
 const NotificationsList: React.FC<INotificationsListProps> = ({
@@ -22,7 +22,7 @@ const NotificationsList: React.FC<INotificationsListProps> = ({
           createdAt={notification.createdAt}
           isRead={notification.isRead}
           handleNotificationClick={() =>
-            handleNotificationClick(notification.id)
+            handleNotificationClick(notification.id, notification.isRead)
           }
         />
       ))}

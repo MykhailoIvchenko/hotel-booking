@@ -70,7 +70,7 @@ export interface IBooking {
 }
 
 export interface INotification {
-  id: number;
+  id: string;
   createdAt: number;
   isRead: boolean;
   type: NotificationTypes;
