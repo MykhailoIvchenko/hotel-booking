@@ -19,20 +19,29 @@ const UserSchema = new Schema<IUser>(
   },
   {
     timestamps: true,
+    toJSON: {
+      virtuals: true,
+      versionKey: false,
+      transform: (_, ret) => {
+        ret.id = ret._id.toString();
+        delete ret._id;
+        delete ret.password;
+      },
+    },
+    toObject: {
+      virtuals: true,
+      versionKey: false,
+      transform: (_, ret) => {
+        ret.id = ret._id.toString();
+        delete ret._id;
+        delete ret.password;
+      },
+    },
   }
 );
 
 UserSchema.virtual('id').get(function (this: IUser) {
   return this._id.toHexString();
-});
-
-UserSchema.set('toJSON', {
-  virtuals: true,
-  versionKey: false,
-  transform: (_, ret) => {
-    delete ret._id;
-    delete ret.password;
-  },
 });
 
 export const UserModel = model<IUser>('User', UserSchema);

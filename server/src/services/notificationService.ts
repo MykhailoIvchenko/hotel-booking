@@ -17,6 +17,7 @@ async function create(
 
   const notification = new NotificationModel({
     userId,
+    title,
     type,
     message,
   });

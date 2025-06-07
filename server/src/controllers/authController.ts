@@ -191,16 +191,17 @@ async function login(req: Request, res: Response) {
   const { phone, password } = req.body;
 
   const user = await checkPassword(phone, password);
+  console.log("USER IS ", user);
 
   if (user) {
-    await sendAuthentication(res, user);
-
     await notificationService.create(
       user.id,
       NotificationTypes.Profile,
       'Authentication action',
       `You was successfully logged in`
     );
+
+    await sendAuthentication(res, user);
   }
 }
 

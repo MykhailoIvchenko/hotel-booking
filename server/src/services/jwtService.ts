@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import { IJwtUserPayload } from '../utils/types.js';
 
 function generateAccessToken(user: IJwtUserPayload): string {
+  
   return jwt.sign(user, process.env.JWT_ACCESS_SECRET as string, {
     expiresIn: '10m',
   });
