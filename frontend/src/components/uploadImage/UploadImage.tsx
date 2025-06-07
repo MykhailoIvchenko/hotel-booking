@@ -10,7 +10,7 @@ import { Controller } from 'react-hook-form';
 import clsx from 'clsx';
 import CameraIcon from '@/assets/icons/camera.svg?react';
 
-import styles from './UploadImage.module.css';
+import styles from './uploadImage.module.css';
 import { toast } from 'react-toastify';
 import CustomToast from '../customToast/CustomToast';
 
