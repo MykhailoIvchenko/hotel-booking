@@ -1,6 +1,11 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Types } from 'mongoose';
 import { NotificationTypes } from '../utils/enums.js';
-import { INotification } from '../utils/types.js';
+import { INotificationBasic } from '../utils/types.js';
+
+export interface INotificationDoc extends INotificationBasic {
+  userId: Types.ObjectId | string;
+  createdAt: Date;
+}
 
 const NotificationSchema: Schema = new Schema({
   userId: {
@@ -48,7 +53,7 @@ NotificationSchema.set('toJSON', {
   },
 });
 
-const NotificationModel = mongoose.model<INotification>(
+const NotificationModel = mongoose.model<INotificationDoc>(
   'Notification',
   NotificationSchema
 );

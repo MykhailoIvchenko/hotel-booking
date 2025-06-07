@@ -58,11 +58,14 @@ export interface IBooking {
 
 export type BookingCreateDto = Omit<IBooking, 'id'>;
 
-export interface INotification extends Document {
+export interface INotificationBasic {
   id: number;
-  createdAt: number;
   isRead: boolean;
   type: NotificationTypes;
   title: string;
   message: string;
+}
+
+export interface INotification extends INotificationBasic {
+  createdAt: number;
 }
