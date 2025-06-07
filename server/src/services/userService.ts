@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { ApiError } from '../exceptions/ApiError.js';
 import { UserModel as User } from '../models/User.js';
 import { IUser, IUserRegistrationData } from '../utils/types.js';
