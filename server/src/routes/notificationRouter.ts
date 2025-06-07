@@ -13,13 +13,13 @@ notificationRouter.get(
 );
 
 notificationRouter.patch(
-  Routes.ItemById,
-  catchError(authMiddleware),
-  catchError(notificationController.makeReadOne)
-);
-
-notificationRouter.patch(
   Routes.NotificationsMarkAllRead,
   catchError(authMiddleware),
   catchError(notificationController.makeReadAll)
+);
+
+notificationRouter.patch(
+  Routes.ItemById,
+  catchError(authMiddleware),
+  catchError(notificationController.makeReadOne)
 );

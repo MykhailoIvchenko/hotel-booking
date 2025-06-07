@@ -5,6 +5,7 @@ import { ApiError } from '../exceptions/ApiError.js';
 export const notificationController = {
   async getAllForUser(req: Request, res: Response): Promise<void> {
     const userId = req.user?.id;
+
     if (!userId) {
       throw ApiError.Unauthorized();
     }
@@ -21,9 +22,10 @@ export const notificationController = {
     }
 
     const updatedNotification = await notificationService.makeReadOne(
-      userId,
-      notificationId
+      notificationId,
+      userId
     );
+
     if (!updatedNotification) {
       throw ApiError.NotFound();
     }
@@ -33,9 +35,11 @@ export const notificationController = {
 
   async makeReadAll(req: Request, res: Response): Promise<void> {
     const userId = req.user?.id;
+
     if (!userId) {
       throw ApiError.Unauthorized();
     }
+
     const updatedCount = await notificationService.makeReadAll(userId);
     res.send({ updatedCount });
   },

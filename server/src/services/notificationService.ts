@@ -26,7 +26,9 @@ async function create(
 }
 
 async function makeReadOne(notificationId: string, userId: string) {
-  if (!Types.ObjectId.isValid(notificationId)) return null;
+  if (!Types.ObjectId.isValid(notificationId)) {
+    return null;
+  }
 
   const notification = await NotificationModel.findById(notificationId);
 

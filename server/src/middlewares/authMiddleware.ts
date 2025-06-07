@@ -32,7 +32,7 @@ export async function authMiddleware(
       throw ApiError.Unauthorized();
     }
 
-    const user = await UserModel.findById(userPayload.id).lean();
+    const user = await UserModel.findById(userPayload.id);
 
     if (!user) {
       throw ApiError.Unauthorized();

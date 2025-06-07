@@ -39,8 +39,6 @@ export const bookingController = {
 
   async create(req: Request, res: Response): Promise<void> {
     const userId = req.user?.id;
-    console.log('USER IS ', req.user);
-    console.log('USER ID IS ', userId);
     const bookingData: IBooking = req.body;
 
     if (userId !== bookingData?.userId) {

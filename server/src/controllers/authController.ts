@@ -191,7 +191,6 @@ async function login(req: Request, res: Response) {
   const { phone, password } = req.body;
 
   const user = await checkPassword(phone, password);
-  console.log("USER IS ", user);
 
   if (user) {
     await notificationService.create(
