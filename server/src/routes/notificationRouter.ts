@@ -13,7 +13,7 @@ notificationRouter.get(
 );
 
 notificationRouter.patch(
-  Routes.NotificationById,
+  Routes.ItemById,
   catchError(authMiddleware),
   catchError(notificationController.makeReadOne)
 );

@@ -7,4 +7,4 @@ export const hotelRouter = express.Router();
 
 hotelRouter.get(Routes.Basic, catchError(hotelController.getAll));
 
-hotelRouter.get(Routes.Hotel, catchError(hotelController.getById));
+hotelRouter.get(Routes.ItemById, catchError(hotelController.getById));

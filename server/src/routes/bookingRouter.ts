@@ -19,7 +19,7 @@ bookingRouter.get(
 );
 
 bookingRouter.get(
-  Routes.Booking,
+  Routes.ItemById,
   catchError(authMiddleware),
   catchError(bookingController.getById)
 );

@@ -1,11 +1,10 @@
 export enum Routes {
   Basic = '/',
-  Booking = '/:id',
+  ItemById = '/:id',
   BookingsByHotel = '/hotel/:hotelId',
   BookingsByUser = '/user/:userId',
   CheckRecoverToken = '/checkRecoverToken',
   CheckReferral = '/check-referral',
-  Hotel = '/:id',
   Login = '/login',
   Logout = '/logout',
   Me = '/me',
@@ -19,7 +18,6 @@ export enum Routes {
   UpdateEmail = '/update-email',
   UpdateName = '/update-name',
   VerifyCode = '/verify-code',
-  NotificationById = '/:id',
   NotificationsMarkAllRead = '/read-all',
 }
 
