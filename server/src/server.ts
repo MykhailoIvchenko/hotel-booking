@@ -2,12 +2,12 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
-import { authRouter } from './routes/authRoute.js';
+import { authRouter } from './routes/authRouter.js';
 import { BaseRoutes } from './utils/enums.js';
 import { userRouter } from './routes/userRouter.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
-import { hotelRouter } from './routes/hotelRoute.js';
-import { bookingRouter } from './routes/bookingRoute.js';
+import { hotelRouter } from './routes/hotelRouter.js';
+import { bookingRouter } from './routes/bookingRouter.js';
 
 dotenv.config();
 

@@ -19,6 +19,8 @@ export enum Routes {
   UpdateEmail = '/update-email',
   UpdateName = '/update-name',
   VerifyCode = '/verify-code',
+  NotificationById = '/:id',
+  NotificationsMarkAllRead = '/read-all',
 }
 
 export enum BaseRoutes {
