@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../exceptions/ApiError.js';
 import { jwtService } from '../services/jwtService.js';
-import { IJwtUserPayload } from '../utils/types.js';
+import { IUser } from '../utils/types.js';
+import { UserModel } from '../models/User.js';
 
 export interface AuthRequest extends Request {
-  user?: IJwtUserPayload;
+  user?: IUser;
 }
 
 export async function authMiddleware(
@@ -25,13 +26,20 @@ export async function authMiddleware(
       throw ApiError.Unauthorized();
     }
 
-    const userData = jwtService.validateAccessToken(accessToken);
+    const userPayload = jwtService.validateAccessToken(accessToken);
 
-    if (!userData) {
+    if (!userPayload) {
       throw ApiError.Unauthorized();
     }
 
-    req.user = userData;
+    const user = await UserModel.findById(userPayload.id).lean();
+
+    if (!user) {
+      throw ApiError.Unauthorized();
+    }
+
+    req.user = user;
+
     next();
   } catch (error) {
     next(error);
