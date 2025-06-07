@@ -38,14 +38,12 @@ export const router = createBrowserRouter(
       <Route element={<AuthLayout />}>
         <Route path={routerConfig.signIn.path} element={<SignIn />} />
         <Route path={routerConfig.signUp.path} element={<SignUp />} />
-        {/* <Route path={routerConfig.referralSignUp.path} element={<Referral />} /> */}
       </Route>
 
       <Route path='*' element={<NotFound />} />
     </Route>
   ),
   {
-    // basename: '/hotel-booking/',
     basename: '/',
   }
 );

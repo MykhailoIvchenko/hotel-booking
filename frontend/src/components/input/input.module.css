@@ -44,9 +44,6 @@
 }
 
 .requiredIcon {
-  /* position: absolute;
-  top: 0;
-  right: -8px; */
   width: 16px;
   height: 16px;
   color: var(--danger-color);

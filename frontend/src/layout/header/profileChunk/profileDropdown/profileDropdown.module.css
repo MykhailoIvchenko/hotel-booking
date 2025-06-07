@@ -36,7 +36,6 @@
 .menuContainer {
   border-radius: var(--default-border-radius);
   background-color: var(--primary-bg-color);
-  /* min-width: 364px; */
 }
 
 .menu {
