@@ -3,7 +3,7 @@ import { ApiMethods, BasicEndpoints, Endpoints } from '@/utils/enums';
 export const authService = {
   async refresh() {
     const response = await fetch(
-      `${import.meta.env.VITE_BASE_API_URL}${BasicEndpoints.Auth.slice(1)}${
+      `${import.meta.env.VITE_BASE_API_URL}${BasicEndpoints.Auth}${
         Endpoints.Refresh
       }`,
       {
