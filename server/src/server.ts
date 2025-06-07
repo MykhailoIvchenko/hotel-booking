@@ -8,6 +8,7 @@ import { userRouter } from './routes/userRouter.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import { hotelRouter } from './routes/hotelRouter.js';
 import { bookingRouter } from './routes/bookingRouter.js';
+import { notificationRouter } from './routes/notificationRouter.js';
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.use(BaseRoutes.Auth, authRouter);
 app.use(BaseRoutes.Users, userRouter);
 app.use(BaseRoutes.Hotels, hotelRouter);
 app.use(BaseRoutes.Bookings, bookingRouter);
+app.use(BaseRoutes.Notifications, notificationRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT);
