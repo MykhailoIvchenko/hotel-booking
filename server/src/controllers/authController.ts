@@ -12,6 +12,8 @@ import { Request, Response } from 'express';
 import { twilioService } from '../services/twilioService.js';
 import { IUser } from '../utils/types.js';
 import { AuthRequest } from '../middlewares/authMiddleware.js';
+import { notificationService } from '../services/notificationService.js';
+import { NotificationTypes } from '../utils/enums.js';
 
 function validateEmail(value: string) {
   if (!value) {
@@ -192,6 +194,13 @@ async function login(req: Request, res: Response) {
 
   if (user) {
     await sendAuthentication(res, user);
+
+    await notificationService.create(
+      user.id,
+      NotificationTypes.Profile,
+      'Authentication action',
+      `You was successfully logged in`
+    );
   }
 }
 
@@ -218,6 +227,8 @@ async function refresh(req: Request, res: Response) {
 }
 
 async function logout(req: Request, res: Response) {
+  const userId = req.user?.id;
+
   const { refreshToken } = req.cookies;
   const userData = jwtService.validateRefreshToken(refreshToken);
 
@@ -225,6 +236,15 @@ async function logout(req: Request, res: Response) {
 
   if (userData) {
     await tokenService.remove(userData.id);
+
+    if (userId) {
+      await notificationService.create(
+        userId,
+        NotificationTypes.Profile,
+        'Authentication action',
+        `You was logged out`
+      );
+    }
   }
 
   res.sendStatus(204);

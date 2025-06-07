@@ -1,6 +1,10 @@
 import { bookingService } from '../services/bookingService.js';
 import { Request, Response } from 'express';
 import { ApiError } from '../exceptions/ApiError.js';
+import { notificationService } from '../services/notificationService.js';
+import { NotificationTypes } from '../utils/enums.js';
+import { IBooking } from '../utils/types.js';
+import { hotelService } from '../services/hotelService.js';
 
 export const bookingController = {
   async getAll(_: Request, res: Response): Promise<void> {
@@ -34,13 +38,29 @@ export const bookingController = {
   },
 
   async create(req: Request, res: Response): Promise<void> {
-    const bookingData = req.body;
+    const userId = req.user?.id;
+    const bookingData: IBooking = req.body;
+
+    if (userId !== bookingData?.userId) {
+      throw ApiError.BadRequest('User ids do not match');
+    }
 
     if (new Date(bookingData.to) <= new Date(bookingData.from)) {
       throw ApiError.BadRequest('Date to should be after date from');
     }
 
     const newBooking = await bookingService.create(bookingData);
+
+    const hotel = await hotelService.getById(bookingData.hotelId);
+    const hotelTitle = hotel ? hotel.title : 'your hotel';
+
+    await notificationService.create(
+      userId,
+      NotificationTypes.Success,
+      'Booking Confirmed!',
+      `Your booking at ${hotelTitle} is confirmed.`
+    );
+
     res.status(201).send(newBooking);
   },
 };
