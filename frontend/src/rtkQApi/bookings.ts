@@ -13,6 +13,7 @@ export const bookingsApi = baseApi.injectEndpoints({
         method: ApiMethods.POST,
         body,
       }),
+      invalidatesTags: [BasicEndpoints.Notifications],
     }),
   }),
 });

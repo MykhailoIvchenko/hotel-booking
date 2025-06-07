@@ -1,7 +1,7 @@
 import CustomToast from '@/components/customToast/CustomToast';
 import useUserDispatch from '@/redux/hooks/dispatchHooks/useUserDispatch';
 import { routerConfig } from '@/routes/config';
-import { useLazyLoginViaPhoneQuery } from '@/rtkQApi/auth';
+import { useLoginViaPhoneMutation } from '@/rtkQApi/auth';
 import { accessTokenService } from '@/services/accessTokenService';
 import { ISignInForm } from '@/utils/types';
 import { useNavigate } from 'react-router';
@@ -12,7 +12,7 @@ export const useSignIn = () => {
 
   const setUser = useUserDispatch();
 
-  const [login, { isLoading }] = useLazyLoginViaPhoneQuery();
+  const [login, { isLoading }] = useLoginViaPhoneMutation();
 
   const loginUser = async (data: ISignInForm) => {
     const { whatsAppNumber, password } = data;

@@ -37,12 +37,13 @@ export const authApi = baseApi.injectEndpoints({
         body,
       }),
     }),
-    loginViaPhone: builder.query<IAuthResponse, ILoginRequest>({
+    loginViaPhone: builder.mutation<IAuthResponse, ILoginRequest>({
       query: (body) => ({
         url: withAuthBase(Endpoints.Login),
         method: ApiMethods.POST,
         body,
       }),
+      invalidatesTags: [BasicEndpoints.Notifications],
     }),
     register: builder.mutation<IRegisterResponse, IResgistrationData>({
       query: (body) => ({
@@ -65,7 +66,7 @@ export const authApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useLazyLoginViaPhoneQuery,
+  useLoginViaPhoneMutation,
   useLazyLogoutQuery,
   useGetMeQuery,
   useLazyGetMeQuery,

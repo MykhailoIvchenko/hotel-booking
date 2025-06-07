@@ -48,6 +48,7 @@ export enum Endpoints {
   UpdateEmail = '/update-email',
   UpdateName = '/update-name',
   VerifyCode = '/verify-code',
+  NotificationsMarkAllRead = '/read-all',
 }
 
 export enum BasicEndpoints {
