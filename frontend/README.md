@@ -1,54 +1,141 @@
-# React + TypeScript + Vite
+# Hotel Booking Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend application for the Hotel Booking project, built with React and Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Environment Variables](#environment-variables)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Styling](#styling)
+- [State Management](#state-management)
+- [Routing](#routing)
+- [API Integration](#api-integration)
+- [Additional Tools](#additional-tools)
+- [Contributing](#contributing)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technologies Used
+
+- React 19
+- Vite
+- TypeScript
+- Redux Toolkit
+- React Router v7
+- React Hook Form
+- React Toastify
+- React Calendar
+- Swiper (for sliders/carousels)
+- ESLint (with React Hooks plugin)
+- vite-plugin-svgr (for importing SVGs as React components)
+
+---
+
+## Project Structure
+
+```
+public/
+src/
+  ├── assets/          # Static assets like images, icons, fonts
+  ├── components/      # Reusable UI components
+  ├── hooks/           # Custom React hooks
+  ├── layout/          # Layout components (headers, footers, wrappers)
+  ├── pages/           # Page-level components (routed views)
+  ├── redux/           # Redux store setup and slices
+  ├── routes/          # Route definitions and route guards
+  ├── rtkQApi/         # RTK Query API for interaction with the backend part
+  ├── services/        # Services with business logic and helper functions
+  ├── utils/           # Utility types, enums, validation patterns
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+This project uses a `.env` file for environment-specific settings.
+
+- `VITE_BASE_API_URL` — Base URL for backend API requests.
+
+Make sure to create a `.env` file in the root directory (based on `.env.example`) before running the app.
+
+---
+
+## Getting Started
+
+1. **Install dependencies:**
+
+```bash
+npm install
+# or
+yarn install
 ```
+
+2. **Create `.env` file:**
+
+Copy `.env.example` to `.env` and fill in the appropriate values.
+
+3. **Start development server:**
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The app will be available at `http://localhost:5173` (default Vite port).
+
+---
+
+## Available Scripts
+
+- `dev` — Runs the app in development mode with hot reloading.
+- `build` — Builds the app for production (compiles TypeScript and bundles with Vite).
+- `preview` — Serves the production build locally for preview.
+- `lint` — Runs ESLint to check code quality.
+
+---
+
+## Styling
+
+- Uses **modular CSS** (CSS Modules) for component-scoped styles.
+- No preprocessors (e.g. Sass) used.
+
+---
+
+## State Management
+
+- Uses **Redux Toolkit** and **React-Redux** for global state management.
+- Redux slices are located under `src/redux/`.
+- Uses **RTK Query** in `src/rtkQApi/` for API data fetching.
+
+---
+
+## Routing
+
+- Client-side routing is handled by **React Router v7**.
+- Routes are defined in `src/routes/`.
+
+---
+
+## API Integration
+
+- The frontend interacts with the backend API via `VITE_BASE_API_URL` configured in `.env`.
+
+---
+
+## Additional Tools
+
+- **React Hook Form** — For managing form state and validation.
+- **React Toastify** — For toast notifications and alerts.
+- **React Error Boundary** — For graceful error handling in React components.
+- **Swiper** — For sliders/carousels UI elements.
+- **vite-plugin-svgr** — To import SVGs as React components.
+- **ESLint** — With React Hooks plugin for linting and code quality.
+
+---

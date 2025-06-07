@@ -11,6 +11,5 @@
 .facilitiesList {
   display: flex;
   gap: var(--standard-gap);
-  /* justify-content: space-between; */
   align-items: center;
 }
