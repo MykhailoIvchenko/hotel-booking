@@ -177,10 +177,10 @@ async function sendAuthentication(res: Response, user: IUser) {
   res.cookie('refreshToken', refreshToken, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: 'lax',
-    // sameSite: 'none',
-    secure: false,
-    // secure: true,
+    // sameSite: 'lax',
+    sameSite: 'none',
+    // secure: false,
+    secure: true,
   });
 
   res.send({
