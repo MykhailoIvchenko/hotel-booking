@@ -36,3 +36,11 @@ export enum HotelFacilities {
   RoomService = 'Room Service',
   Meal = 'Meal',
 }
+
+export enum NotificationTypes {
+  Profile = 'profile',
+  Success = 'success',
+  Schedule = 'schedule',
+  Pending = 'pending',
+  Reject = 'reject',
+}

@@ -1,5 +1,5 @@
 import { Document } from 'mongoose';
-import { HotelFacilities } from './enums.js';
+import { HotelFacilities, NotificationTypes } from './enums.js';
 
 export interface IJwtUserPayload {
   id: string;
@@ -57,3 +57,12 @@ export interface IBooking {
 }
 
 export type BookingCreateDto = Omit<IBooking, 'id'>;
+
+export interface INotification extends Document {
+  id: number;
+  createdAt: number;
+  isRead: boolean;
+  type: NotificationTypes;
+  title: string;
+  message: string;
+}
